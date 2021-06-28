@@ -1,0 +1,13 @@
+<center>
+<h1>Formulário de Cadastro de administrador</h1>
+
+<meta charset="utf-8">
+<form action="@{Usuarios.salvar}" method="post">
+   <input type="hidden" name="usu.id" value="${usu?.id}">
+   Nome:<input type="text" name="usu.nome" value="${usu?.nome}"><br>
+   CPF:<input type="text" name="usu.cpf" value="${usu?.cpf}"><br>
+   E-mail:<input type="text" name="usu.email" value="${usu?.email}"><br>
+   Senha:<input type="text" name="usu.senha" value="${usu?.senha}"><br>
+   <input type="submit" value="Enviar">
+</form>
+</center>

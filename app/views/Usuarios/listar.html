@@ -1,0 +1,12 @@
+<meta charset="utf-8">
+<h1>Listagem dos Administradores</h1>
+
+<ul> 
+    #{list items:usuarios, as: 'usuario'}
+    <li>${usuario.nome} | ${usuario.cpf} | ${usuario.email} |
+    <a href="@{Usuarios.deletar(usuario.id)}">Remover administrador</a> | 
+    <a href="@{Usuarios.editar(usuario.id)}">Editar administrador</a></li>
+    #{/list}
+</ul>
+
+<a href="@{Usuarios.form}">Cadastrar novo administrador</a>
