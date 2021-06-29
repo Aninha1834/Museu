@@ -1,17 +1,285 @@
 <!DOCTYPE html>
+	<html lang="zxx" class="no-js">
+	<head>
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="img/fav.png">
+		<!-- Author Meta -->
+		<meta name="author" content="codepixer">
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>#{get 'title' /}</title>
 
-<html>
-    <head>
-        <title>#{get 'title' /}</title>
-        <meta charset="${_response_encoding}">
-        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
-        #{get 'moreStyles' /}
-        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
-    </head>
-    <body>
-        #{doLayout /}
-        
-        <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
-        #{get 'moreScripts' /}
-    </body>
-</html>
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+			<!--
+			CSS
+			============================================= -->
+			<link rel="stylesheet" href="@{'public/museu/css/linearicons.css'}">
+			<link rel="stylesheet" href="@{'public/museu/css/font-awesome.min.css'}">
+			<link rel="stylesheet" href="@{'public/museu/css/bootstrap.css'}">
+			<link rel="stylesheet" href="@{'public/museu/css/magnific-popup.css'}">
+			<link rel="stylesheet" href="@{'public/museu/css/nice-select.css'}">					
+			<link rel="stylesheet" href="@{'public/museu/css/animate.min.css'}">
+			<link rel="stylesheet" href="@{'public/museu/css/owl.carousel.css'}">
+			<link rel="stylesheet" href="@{'public/museu/css/main.css'}">
+			
+			#{get 'moreStyles' /}
+			
+		</head>
+		<body>
+
+			  <header id="header" id="home">
+			  	<div class="container header-top">
+			  		<div class="row">
+				  		<div class="col-6 top-head-left">
+				  			<ul>
+				  				<li><a href="#">Visit Us</a></li>
+				  				<li><a href="@{Usuarios.form}">Entrar</a></li>
+				  			</ul>
+				  		</div>
+				  		<div class="col-6 top-head-right">
+				  			<ul>
+		  						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+								<li><a href="#"><i class="fa fa-behance"></i></a></li>
+				  			</ul>
+				  		</div>			  			
+			  		</div>
+			  	</div>
+			  	<hr>
+			    <div class="container">
+			    	<div class="row align-items-center justify-content-between d-flex">
+				      <div id="logo">
+				        <a href="index.html"><img src="img/logo.png" alt="" title="" /></a>
+				      </div>
+				      <nav id="nav-menu-container">
+				        <ul class="nav-menu">
+				          <li class="menu-active"><a href="@{Application.index}">Home</a></li>
+				          <li><a href="@{Usuarios.galeria}">Gallery</a></li>
+				          <li><a href="@{Usuarios.contatos}">Contact</a></li>	          
+				        </ul>
+				      </nav><!-- #nav-menu-container -->		    		
+			    	</div>
+			    </div>
+			  </header><!-- #header -->
+
+			<!-- start banner Area -->
+			<section class="banner-area relative" id="home">
+				<div class="overlay overlay-bg"></div>	
+				<div class="container">
+					<div class="row fullscreen d-flex align-items-center justify-content-center">
+						<div class="banner-content col-lg-8">
+							<h6 class="text-white">Openning on 21st February, 2018</h6>
+							<h1 class="text-white">
+								Exhibition on Modern Era				
+							</h1>
+							<p class="pt-20 pb-20 text-white">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.  sed do eiusmod tempor incididunt..
+							</p>
+							<a href="#" class="primary-btn text-uppercase">Get Started</a>
+						</div>											
+					</div>
+				</div>					
+			</section>
+			<!-- End banner Area -->	
+
+			<!-- Start service Area -->
+			<section class="service-area pt-100" id="about">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-4">
+							<div class="single-service">
+							  <span class="lnr lnr-clock"></span>
+							  <h4>Openning Hours</h4>
+							  <p>
+							  	Mon - Fri: 10.00am to 05.00pm
+								Sat: 12.00pm to 03.00 pm
+								Sunday Closed
+							  </p>						 	
+							  <div class="overlay">
+							    <div class="text">
+							    	<p>
+							    		Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features.that we use in life
+							    	</p>
+							    	<a href="#" class="text-uppercase primary-btn">Buy ticket</a>
+							    </div>
+							  </div>
+							</div>							
+						</div>
+						<div class="col-lg-4">
+							<div class="single-service">
+							  <span class="lnr lnr-rocket"></span>
+							  <h4>Ongoing Exhibitions</h4>
+							  <p>
+							  	Mon - Fri: 10.00am to 05.00pm
+								Sat: 12.00pm to 03.00 pm
+								Sunday Closed
+							  </p>						 	
+							  <div class="overlay">
+							    <div class="text">
+							    	<p>
+							    		Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features.that we use in life
+							    	</p>
+							    	<a href="#" class="text-uppercase primary-btn">Buy ticket</a>
+							    </div>
+							  </div>
+							</div>							
+						</div>
+						<div class="col-lg-4">
+							<div class="single-service">
+							  <span class="lnr lnr-briefcase"></span>
+							  <h4>Openning Events</h4>
+							  <p>
+							  	Mon - Fri: 10.00am to 05.00pm
+								Sat: 12.00pm to 03.00 pm
+								Sunday Closed
+							  </p>						 	
+							  <div class="overlay">
+							    <div class="text">
+							    	<p>
+							    		Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features that we use in life Here, I focus on a range of items and features.that we use in life
+							    	</p>
+							    	<a href="#" class="text-uppercase primary-btn">Buy ticket</a>
+							    </div>
+							  </div>
+							</div>							
+						</div>												
+					</div>
+				</div>	
+			</section>
+
+			<br>
+			<br>
+			<br>
+			<br>
+
+			<!-- End service Area -->
+			
+			<!-- Start quote Area -->
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<ol class="carousel-indicators">
+  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+</ol>
+<div class="carousel-inner">
+  <div class="carousel-item active">
+    <img class="d-block w-100 h-51" src="https://i.postimg.cc/bNQp0RDW/1.jpg" height="600" alt="Primeiro Slide">
+  </div>
+  <div class="carousel-item">
+    <img class="d-block w-100" src="https://i.postimg.cc/pVzg3LWn/2.jpg" height="600" alt="Segundo Slide">
+  </div>
+  <div class="carousel-item">
+    <img class="d-block w-100" src="https://i.postimg.cc/0y2F6Gpp/3.jpg" height="600"  alt="Terceiro Slide">
+  </div>
+</div>
+<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  <span class="sr-only">Anterior</span>
+</a>
+<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <span class="sr-only">Próximo</span>
+</a>
+</div>
+			<!-- End quote Area -->
+
+			<!-- Start exibition Area -->
+
+			<!-- End exibition Area -->			
+		
+			<!-- Start upcoming-event Area -->
+			<!-- End upcoming-event Area -->
+			
+			<!-- Start blog Area -->
+
+			<!-- End blog Area -->
+
+			<!-- Start gallery Area -->
+
+			<!-- End gallery Area -->
+			
+
+			<!-- start footer Area -->		
+			<footer class="footer-area section-gap">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-5 col-md-6 col-sm-6">
+							<div class="single-footer-widget">
+								<h6>About Us</h6>
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.
+								</p>
+								<p class="footer-text">
+									<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> and distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+								</p>
+							</div>
+						</div>
+						<div class="col-lg-5  col-md-6 col-sm-6">
+							<div class="single-footer-widget">
+								<h6>Newsletter</h6>
+								<p>Stay update with our latest</p>
+								<div class="" id="mc_embed_signup">
+									<form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
+										<input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '" required="" type="email">
+			                            	<button class="click-btn btn btn-default"><span class="lnr lnr-arrow-right"></span></button>
+			                            	<div style="position: absolute; left: -5000px;">
+												<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+											</div>
+
+										<div class="info"></div>
+									</form>
+								</div>
+							</div>
+						</div>						
+						<div class="col-lg-2 col-md-6 col-sm-6 social-widget">
+							<div class="single-footer-widget">
+							
+							 #{doLayout /}
+							
+								<h6>Follow Us</h6>
+								<p>Let us be social</p>
+								<div class="footer-social d-flex align-items-center">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-dribbble"></i></a>
+									<a href="#"><i class="fa fa-behance"></i></a>
+								</div>
+							</div>
+						</div>							
+					</div>
+				</div>
+			</footer>	
+			<!-- End footer Area -->		
+
+			<script src="@{'public/museu/js/vendor/jquery-2.2.4.min.js'}"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+			<script src="@{'public/museu/js/vendor/bootstrap.min.js'}"></script>			
+			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+  			<script src="@{'public/museu/js/easing.min.js'}"></script>			
+			<script src="@{'public/museu/js/hoverIntent.js'}"></script>
+			<script src="@{'public/museu/js/superfish.min.js'}"></script>	
+			<script src="@{'public/museu/js/jquery.ajaxchimp.min.js'}"></script>
+			<script src="@{'public/museu/js/jquery.magnific-popup.min.js'}"></script>	
+			<script src="@{'public/museu/js/owl.carousel.min.js'}"></script>	
+			<script src="@{'public/museu/js/imagesloaded.pkgd.min.js'}"></script>
+			<script src="@{'public/museu/js/justified.min.js'}"></script>					
+			<script src="@{'public/museu/js/jquery.sticky.js'}"></script>
+			<script src="@{'public/museu/js/jquery.nice-select.min.js'}"></script>			
+			<script src="@{'public/museu/js/parallax.min.js'}"></script>		
+			<script src="@{'public/museu/js/mail-script.js'}"></script>	
+			<script src="@{'public/museu/js/main.js'}"></script>	
+			
+			#{get 'moreScripts' /}
+			
+		</body>
+	</html>

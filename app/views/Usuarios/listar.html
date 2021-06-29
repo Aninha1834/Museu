@@ -1,12 +1,51 @@
 <meta charset="utf-8">
-<h1>Listagem dos Administradores</h1>
+<center>
+<h1>Listagem dos Administradores</h1><br><br>
+
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+			<!--
+			CSS
+			============================================= -->
+			<link rel="stylesheet" href="@{'public/museu/css/linearicons.css'}">
+			<link rel="stylesheet" href="@{'public/museu/css/font-awesome.min.css'}">
+			<link rel="stylesheet" href="@{'public/museu/css/bootstrap.css'}">
+			<link rel="stylesheet" href="@{'public/museu/css/magnific-popup.css'}">
+			<link rel="stylesheet" href="@{'public/museu/css/nice-select.css'}">					
+			<link rel="stylesheet" href="@{'public/museu/css/animate.min.css'}">
+			<link rel="stylesheet" href="@{'public/museu/css/owl.carousel.css'}">
+			<link rel="stylesheet" href="@{'public/museu/css/main.css'}">
 
 <ul> 
+ <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+      <th scope="col">CPF</th>
+      <th scope="col">E-mail</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
     #{list items:usuarios, as: 'usuario'}
-    <li>${usuario.nome} | ${usuario.cpf} | ${usuario.email} |
-    <a href="@{Usuarios.deletar(usuario.id)}">Remover administrador</a> | 
-    <a href="@{Usuarios.editar(usuario.id)}">Editar administrador</a></li>
-    #{/list}
+  <tbody>
+    <tr>
+      <th scope="row">${usuario.id}</th>
+      <td>${usuario.nome}</td>
+      <td> ${usuario.cpf}</td>
+      <td>${usuario.email}</td>
+      <td><a href="@{Usuarios.deletar(usuario.id)}">Remover administrador</a></td>
+      <td><a href="@{Usuarios.editar(usuario.id)}">Editar administrador</a></td>
+    </tr>
+  </tbody>  
+  #{/list}
+</table>
 </ul>
 
-<a href="@{Usuarios.form}">Cadastrar novo administrador</a>
+<br>
+<br>
+
+<a href="@{Usuarios.form}">
+   <button type="button" class="btn btn-dark">Cadastrar novo administrador</button></a>
+</center>

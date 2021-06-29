@@ -32,4 +32,11 @@ public class Usuarios extends Controller {
 		renderTemplate("Usuarios/form.html", usu);
 	}
 	
+	public static void galeria() {
+		render();
+	}
+	
+	public static void contatos() {
+		render();
+	}
 }
