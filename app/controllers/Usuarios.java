@@ -10,7 +10,12 @@ public class Usuarios extends Controller {
 	public static void form() {
 		render();
 	}
+	
+	public static void inicio() {
+		render();
 
+	}
+		
 	public static void listar() {
 	  List<Usuario> usuarios = Usuario.findAll();
 	  render(usuarios);
@@ -18,7 +23,7 @@ public class Usuarios extends Controller {
 	
 	public static void salvar(Usuario usu) {
 		usu.save();
-		listar();
+		inicio();
 	}
 	
 	public static void deletar(Long id) {

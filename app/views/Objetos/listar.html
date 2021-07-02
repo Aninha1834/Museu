@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <center>
-<br><h1>Listagem dos Administradores</h1><br><br>
+<br><h1>Listagem dos Objetos</h1><br><br>
 
 
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
@@ -17,26 +17,30 @@
 			<link rel="stylesheet" href="@{'public/museu/css/main.css'}">
 
 <ul> 
- <table class="table">
+ <table class="table" >
   <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
       <th scope="col">Nome</th>
-      <th scope="col">CPF</th>
-      <th scope="col">E-mail</th>
+      <th scope="col">Material</th>
+      <th scope="col">História</th>
+       <th scope="col">Altura</th>
+      <th scope="col">Data</th>
       <th></th>
       <th></th>
     </tr>
   </thead>
-    #{list items:usuarios, as: 'usuario'}
+    #{list items:objetos, as: 'objeto'}
   <tbody>
     <tr>
-      <th scope="row">${usuario.id}</th>
-      <td>${usuario.nome}</td>
-      <td> ${usuario.cpf}</td>
-      <td>${usuario.email}</td>
-      <td><a href="@{Usuarios.deletar(usuario.id)}">Remover administrador</a></td>
-      <td><a href="@{Usuarios.editar(usuario.id)}">Editar administrador</a></td>
+      <th scope="row">${objeto.id}</th>
+      <td>${objeto.nome}</td>
+      <td> ${objeto.material}</td>
+      <td>${objeto.historia}</td>
+      <td> ${objeto.altura}</td>
+      <td>${objeto.data}</td>
+      <td><a href="@{Objetos.deletar(objeto.id)}">Remover objeto</a></td>
+      <td><a href="@{Objetos.editar(objeto.id)}">Editar objeto</a></td>
     </tr>
   </tbody>  
   #{/list}
@@ -46,8 +50,8 @@
 <br>
 <br>
 
-<a href="@{Usuarios.form}">
-   <button type="button" class="btn btn-dark">Cadastrar novo administrador</button></a><br><br>
-   <a href="@{Usuarios.inicio}">
-   <button type="button" class="btn btn-dark">Inicio do sistema</button></a>
+<a href="@{Objetos.form}">
+   <button type="button" class="btn btn-dark">Cadastrar novo objeto</button></a><br><br>
+<a href="@{Usuarios.inicio}">
+   <button type="button" class="btn btn-dark">Inicio do sistema</button></a>   
 </center>

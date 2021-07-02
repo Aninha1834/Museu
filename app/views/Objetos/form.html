@@ -1,0 +1,49 @@
+<meta charset="utf-8">
+<center>
+<br> <h1>Formulário de Cadastro de Objetos</h1><br><br>
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+			<!--
+			CSS
+			============================================= -->
+			<link rel="stylesheet" href="@{'public/museu/css/linearicons.css'}">
+			<link rel="stylesheet" href="@{'public/museu/css/font-awesome.min.css'}">
+			<link rel="stylesheet" href="@{'public/museu/css/bootstrap.css'}">
+			<link rel="stylesheet" href="@{'public/museu/css/magnific-popup.css'}">
+			<link rel="stylesheet" href="@{'public/museu/css/nice-select.css'}">					
+			<link rel="stylesheet" href="@{'public/museu/css/animate.min.css'}">
+			<link rel="stylesheet" href="@{'public/museu/css/owl.carousel.css'}">
+			<link rel="stylesheet" href="@{'public/museu/css/main.css'}">
+
+	   <form action="@{Objetos.salvar}" method="post">
+       <input type="hidden" name="objeto.id" value="${objeto?.id}">
+					<div class="col-lg-6 form-group">
+						Nome:<input name="objeto.nome" value="${objeto?.nome}" placeholder="Digite o nome do objeto"
+							class="common-input mb-20 form-control" required="" type="text">
+
+						Categoria:<input name="objeto.categoria" value="${objeto?.categoria}" placeholder="Digite a categoria do objeto"
+							class="common-input mb-20 form-control" required="" type="text">
+              
+						Material:<input name="objeto.material" value="${objeto?.material}" placeholder="Digite o nome do material"
+							class="common-input mb-20 form-control" required="" type="text">
+ 
+						Altura:<input name="objeto.altura" value="${objeto?.altura}" placeholder="Digite a altura"
+							class="common-input mb-20 form-control" required="" type="text">
+							
+						Largura:<input name="objeto.largura" value="${objeto?.largura}" placeholder="Digite a largura"
+							class="common-input mb-20 form-control" required="" type="text">	
+						
+						Data:<input name="objeto.data" value="${objeto?.data}" placeholder="dd/mm/aaaa"
+							class="common-input mb-20 form-control" required="" type="text">
+							
+						História:<input name="objeto.historia" value="${objeto?.historia}" placeholder="Digite a história do objeto"
+							class="common-input mb-20 form-control" required="" type="text">
+						
+                <button type="submit" class="btn btn-dark">Enviar</button></a>
+				<a href="@{Application.index}"><br><br>
+                <button type="button" class="btn btn-dark">Página inicial</button></a>
+                <a href="@{Usuarios.inicio}">
+                <button type="button" class="btn btn-dark">Inicio do sistema</button></a>
+				
+			</form>
+		</div>
+		</center>

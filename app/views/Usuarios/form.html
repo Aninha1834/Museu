@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <center>
-	<h1>Formulário de Cadastro de administrador</h1><br><br><br>
+<br><h1>Formulário de Cadastro de administrador</h1><br><br><br>
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
 			<!--
 			CSS
@@ -28,11 +28,12 @@
  
 						Senha:<input name="usu.senha" value="${usu?.senha}" placeholder="Digite sua senha"
 							class="common-input mb-20 form-control" required="" type="password">
-						<div class="mt-20 alert-msg" style="text-align: left;"></div>
-				<input type="submit" value="Enviar">	
+						<div class="mt-20 alert-msg" style="text-align: left;"></div>	
+				<button type="submit" class="btn btn-dark">Enviar</button>
 				<a href="@{Application.index}"><br><br>
                 <button type="button" class="btn btn-dark">Página inicial</button></a>
-				
+				<a href="@{Usuarios.inicio}">
+			   <button type="button" class="btn btn-dark">Inicio do sistema</button></a>
 			</form>
 		</div>
 		</center>
