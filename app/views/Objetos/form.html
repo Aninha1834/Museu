@@ -1,3 +1,9 @@
+#{if flash.success}
+${flash.success}
+#{/if}
+#{elseif flash.error}
+${flash.error}
+#{/elseif}
 <meta charset="utf-8">
 <center>
 <br> <h1>Formulário de Cadastro de Objetos</h1><br><br>
@@ -39,9 +45,7 @@
 							class="common-input mb-20 form-control" required="" type="text">
 						
                 <button type="submit" class="btn btn-dark">Enviar</button></a>
-				<a href="@{Application.index}"><br><br>
-                <button type="button" class="btn btn-dark">Página inicial</button></a>
-                <a href="@{Usuarios.inicio}">
+				<a href="@{Usuarios.inicio}"><br><br>
                 <button type="button" class="btn btn-dark">Inicio do sistema</button></a>
 				
 			</form>

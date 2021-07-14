@@ -1,3 +1,9 @@
+#{if flash.success}
+${flash.success}
+#{/if}
+#{elseif flash.error}
+${flash.error}
+#{/elseif}
 <meta charset="utf-8">
 <center>
 <br><h1>Formulário de Cadastro de administrador</h1><br><br><br>
@@ -29,9 +35,7 @@
 						Senha:<input name="usu.senha" value="${usu?.senha}" placeholder="Digite sua senha"
 							class="common-input mb-20 form-control" required="" type="password">
 						<div class="mt-20 alert-msg" style="text-align: left;"></div>	
-				<button type="submit" class="btn btn-dark">Enviar</button>
-				<a href="@{Application.index}"><br><br>
-                <button type="button" class="btn btn-dark">Página inicial</button></a>
+				<button type="submit" class="btn btn-dark">Enviar</button><br><br>
 				<a href="@{Usuarios.inicio}">
 			   <button type="button" class="btn btn-dark">Inicio do sistema</button></a>
 			</form>

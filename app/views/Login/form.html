@@ -1,0 +1,19 @@
+#{if flash.success}
+${flash.success}
+#{/if}
+#{elseif flash.error}
+${flash.error}
+#{/elseif}
+<meta charset="utf-8">
+<center>
+<form action="@{Login.logar}" method="post">
+
+E-mail: <input name="email"> <br>
+
+Senha: <input name="senha" type="password"> <br>
+
+<button>Entrar</button>
+</form>
+<a href="@{Application.index}">
+   <button type="button" class="btn btn-dark">Página inicial</button></a><br><br>
+</center>

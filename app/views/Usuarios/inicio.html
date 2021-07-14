@@ -1,5 +1,14 @@
+#{if flash.success}
+${flash.success}
+#{/if}
+#{elseif flash.error}
+${flash.error}
+#{/elseif}
 <meta charset="utf-8">
 <center>
+${session.get('usuario.email')}
+<a href="@{Login.sair}">
+   <button type="button" class="btn btn-dark">Sair</button></a>   
 <br><br><br><h1>Seja bem-vindo ao sistema...</h1>
 <p>Qual operação deseja efetuar?</p>
 
@@ -25,8 +34,6 @@
 <a href="@{Usuarios.listar}">
    <button type="button" class="btn btn-dark">Listar administradores</button></a><br><br>
 <a href="@{Objetos.listar}">
-   <button type="button" class="btn btn-dark">Listar objetos</button></a><br><br>
-<a href="@{Application.index}">
-   <button type="button" class="btn btn-dark">Página inicial</button></a>   
+   <button type="button" class="btn btn-dark">Listar objetos</button></a>
 </center>
 

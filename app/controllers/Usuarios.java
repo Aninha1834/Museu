@@ -1,10 +1,12 @@
 package controllers;
 
 import java.util.List;
-
 import models.Usuario;
+import play.mvc.Before;
 import play.mvc.Controller;
+import play.mvc.With;
 
+@With(Seguranca.class)
 public class Usuarios extends Controller {
 	
 	public static void form() {
@@ -23,12 +25,14 @@ public class Usuarios extends Controller {
 	
 	public static void salvar(Usuario usu) {
 		usu.save();
+		flash.success("Salvo com sucesso");
 		inicio();
 	}
 	
 	public static void deletar(Long id) {
 	    Usuario usu = Usuario.findById(id);
 		usu.delete();
+		flash.success("Deletado com sucesso");
 		listar();
 	}
 	
