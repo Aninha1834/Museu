@@ -23,7 +23,11 @@ public class Usuarios extends Controller {
 	  render(usuarios);
 	}
 	
-	public static void salvar(Usuario usu) {
+	public static void salvar(Usuario usu, String senha) {
+		if (senha.equals("") == false) {
+			usu.senha = senha;
+		}
+		
 		usu.save();
 		flash.success("Salvo com sucesso");
 		listar();

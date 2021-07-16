@@ -28,8 +28,8 @@ ${flash.error}
           			<th class="px-4 py-3">Nome</th>
 		          	<th class="px-4 py-3">Categoria</th>
 		          	<th class="px-4 py-3">Material</th>
-		          	<th class="px-4 py-3">Altura</th>
-		          	<th class="px-4 py-3">Largura</th>
+		          	<th class="px-4 py-3">Altura (cm)</th>
+		          	<th class="px-4 py-3">Largura (cm)</th>
 		          	<th class="px-4 py-3">Data</th>
 		          	<th class="px-4 py-3">História</th>
 		          	<th class="px-4 py-3">Edição</th>
@@ -61,7 +61,7 @@ ${flash.error}
             			${objeto.largura}
           			</td>
           			<td class="px-4 py-3 text-sm">
-            			${objeto.data}
+            			${objeto.data.format("dd/MM/yyyy")}
           			</td>
           			<td class="px-4 py-3 text-sm">
             			${objeto.historia}

@@ -11,6 +11,7 @@ public class Login extends Controller{
 		Usuario u = new Usuario();
 		u.email = "admin@admin.com";
 		u.senha = "123456";
+		u.nome = "Administrador";
 		u.save();
 		
 		form();
@@ -29,6 +30,7 @@ public class Login extends Controller{
 			form();
 		}else {
 			session.put("usuario.email", usu.email);
+			session.put("usuario.nome", usu.nome);
 			
 			Usuarios.inicio();
 		}

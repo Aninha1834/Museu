@@ -1,19 +1,10 @@
 #{extends 'main-administrador.html' /}
 #{set title:'Administração' /}
-#{if flash.success}
-${flash.success}
-#{/if}
-#{elseif flash.error}
-${flash.error}
-#{/elseif}
+
 <meta charset="utf-8">
 
-
-
-
-
 <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Início</h2>
-<p>Seja bem vindo à administração do museu!</p>
+<p>Olá ${session.get('usuario.nome')}, seja vindo à área de administração do site do museu!</p>
 
 
 

@@ -58,8 +58,7 @@ ${flash.error}
         	<label class="block text-sm">
             	<span class="text-gray-700 dark:text-gray-400">Senha</span>
                 	<input
-                		name="usu.senha" 
-                		
+                		name="senha" 
                   		class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                   		placeholder="Digite a senha"
                   		type="password"
@@ -80,39 +79,3 @@ ${flash.error}
        	</div>
 	</form>
 </main>
-
-<!--
-<center>
-<br><h1>Formulário de Cadastro de administrador</h1><br><br><br>
-		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
-		
-			<link rel="stylesheet" href="@{'public/museu/css/linearicons.css'}">
-			<link rel="stylesheet" href="@{'public/museu/css/font-awesome.min.css'}">
-			<link rel="stylesheet" href="@{'public/museu/css/bootstrap.css'}">
-			<link rel="stylesheet" href="@{'public/museu/css/magnific-popup.css'}">
-			<link rel="stylesheet" href="@{'public/museu/css/nice-select.css'}">					
-			<link rel="stylesheet" href="@{'public/museu/css/animate.min.css'}">
-			<link rel="stylesheet" href="@{'public/museu/css/owl.carousel.css'}">
-			<link rel="stylesheet" href="@{'public/museu/css/main.css'}">
-
-	   <form action="@{Usuarios.salvar}" method="post">
-       <input type="hidden" name="usu.id" value="${usu?.id}">
-					<div class="col-lg-6 form-group">
-						Nome:<input name="usu.nome" value="${usu?.nome}" placeholder="Digite seu nome"
-							class="common-input mb-20 form-control" required="" type="text">
-
-						CPF:<input name="usu.cpf" value="${usu?.cpf}" placeholder="Digite seu CPF"
-							class="common-input mb-20 form-control" required="" type="text">
-              
-						E-mail:<input name="usu.email" value="${usu?.email}" placeholder="Digite seu e-mail"
-							class="common-input mb-20 form-control" required="" type="email">
- 
-						Senha:<input name="usu.senha" value="${usu?.senha}" placeholder="Digite sua senha"
-							class="common-input mb-20 form-control" required="" type="password">
-						<div class="mt-20 alert-msg" style="text-align: left;"></div>	
-				<button type="submit" class="btn btn-dark">Enviar</button><br><br>
-				<a href="@{Usuarios.inicio}">
-			   <button type="button" class="btn btn-dark">Inicio do sistema</button></a>
-			</form>
-		</div>
-		</center> -->
