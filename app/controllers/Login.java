@@ -25,7 +25,7 @@ public class Login extends Controller{
 		Usuario usu = Usuario.find("email = ?1 and senha = ?2 ", email, Crypto.passwordHash(senha) ).first();
 		
 		if(usu == null) {
-			flash.error("Senha inválida");
+			flash.error("Usuário ou senha inválida");
 			form();
 		}else {
 			session.put("usuario.email", usu.email);

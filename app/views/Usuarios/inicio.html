@@ -1,3 +1,5 @@
+#{extends 'main-administrador.html' /}
+#{set title:'Administração' /}
 #{if flash.success}
 ${flash.success}
 #{/if}
@@ -5,35 +7,15 @@ ${flash.success}
 ${flash.error}
 #{/elseif}
 <meta charset="utf-8">
-<center>
-${session.get('usuario.email')}
-<a href="@{Login.sair}">
-   <button type="button" class="btn btn-dark">Sair</button></a>   
-<br><br><br><h1>Seja bem-vindo ao sistema...</h1>
-<p>Qual operação deseja efetuar?</p>
 
 
-		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
-			<!--
-			CSS
-			============================================= -->
-			<link rel="stylesheet" href="@{'public/museu/css/linearicons.css'}">
-			<link rel="stylesheet" href="@{'public/museu/css/font-awesome.min.css'}">
-			<link rel="stylesheet" href="@{'public/museu/css/bootstrap.css'}">
-			<link rel="stylesheet" href="@{'public/museu/css/magnific-popup.css'}">
-			<link rel="stylesheet" href="@{'public/museu/css/nice-select.css'}">					
-			<link rel="stylesheet" href="@{'public/museu/css/animate.min.css'}">
-			<link rel="stylesheet" href="@{'public/museu/css/owl.carousel.css'}">
-			<link rel="stylesheet" href="@{'public/museu/css/main.css'}">
 
 
-<a href="@{Usuarios.form}">
-   <button type="button" class="btn btn-dark">Cadastrar novo administrador</button></a><br><br>
-<a href="@{Objetos.form}">
-   <button type="button" class="btn btn-dark">Cadastrar novo objeto</button></a><br><br>
-<a href="@{Usuarios.listar}">
-   <button type="button" class="btn btn-dark">Listar administradores</button></a><br><br>
-<a href="@{Objetos.listar}">
-   <button type="button" class="btn btn-dark">Listar objetos</button></a>
-</center>
+
+<h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Início</h2>
+<p>Seja bem vindo à administração do museu!</p>
+
+
+
+
 

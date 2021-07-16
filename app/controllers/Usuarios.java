@@ -26,7 +26,7 @@ public class Usuarios extends Controller {
 	public static void salvar(Usuario usu) {
 		usu.save();
 		flash.success("Salvo com sucesso");
-		inicio();
+		listar();
 	}
 	
 	public static void deletar(Long id) {

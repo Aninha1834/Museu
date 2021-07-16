@@ -20,7 +20,7 @@ public class Objetos extends Controller {
 	
 	public static void salvar(Objeto objeto) {
 		objeto.save();
-		Usuarios.inicio();
+		listar();
 	}
 	
 	public static void deletar(Long id) {

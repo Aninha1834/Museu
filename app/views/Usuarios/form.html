@@ -1,3 +1,6 @@
+#{extends 'main-administrador.html' /}
+#{set title:'Administração' /}
+
 #{if flash.success}
 ${flash.success}
 #{/if}
@@ -5,12 +8,84 @@ ${flash.success}
 ${flash.error}
 #{/elseif}
 <meta charset="utf-8">
+
+<main class="h-full pb-16 overflow-y-auto">
+	<form class="container px-6 mx-auto grid" action="@{Usuarios.salvar}" method="post">
+		<input type="hidden" name="usu.id" value="${usu?.id}">
+    	<h2
+        	class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
+        >
+        	Cadastro de administradores
+        </h2>
+			
+       	<div
+        	class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800"
+        >
+        <div class="mt-4 text-sm">
+        	<label class="block text-sm">
+            	<span class="text-gray-700 dark:text-gray-400">Nome</span>
+                	<input
+                		name="usu.nome" 
+                		value="${usu?.nome}"
+                  		class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  		placeholder="Digite o nome completo do administrador"
+                	/>
+       		</label>
+       	</div>
+        <div class="mt-4 text-sm">
+        	<label class="block text-sm">
+            	<span class="text-gray-700 dark:text-gray-400">Email</span>
+                	<input
+                		name="usu.email" 
+                		value="${usu?.email}"
+                  		class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  		placeholder="Digite o email do administrador"
+                	/>
+       		</label>
+       	</div>
+       	<div class="mt-4 text-sm">
+        	<label class="block text-sm">
+            	<span class="text-gray-700 dark:text-gray-400">CPF</span>
+                	<input
+                		name="usu.cpf" 
+                		value="${usu?.cpf}"
+                  		class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  		placeholder="Digite a cof do administrador"
+                	/>
+       		</label>
+       	</div> 
+       	<div class="mt-4 text-sm">
+        	<label class="block text-sm">
+            	<span class="text-gray-700 dark:text-gray-400">Senha</span>
+                	<input
+                		name="usu.senha" 
+                		
+                  		class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  		placeholder="Digite a senha"
+                  		type="password"
+                	/>
+       		</label>
+       	</div>   
+       	
+       	<div class="mt-4 text-sm">
+	       	<a href="@{Usuarios.listar}">
+		        <button
+		        	Style="cursor:pointer"
+		        	type="submit"
+		          	class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+		        >
+		        Cadastrar
+		        </button>
+		    </a>
+       	</div>
+	</form>
+</main>
+
+<!--
 <center>
 <br><h1>Formulário de Cadastro de administrador</h1><br><br><br>
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
-			<!--
-			CSS
-			============================================= -->
+		
 			<link rel="stylesheet" href="@{'public/museu/css/linearicons.css'}">
 			<link rel="stylesheet" href="@{'public/museu/css/font-awesome.min.css'}">
 			<link rel="stylesheet" href="@{'public/museu/css/bootstrap.css'}">
@@ -40,4 +115,4 @@ ${flash.error}
 			   <button type="button" class="btn btn-dark">Inicio do sistema</button></a>
 			</form>
 		</div>
-		</center>
+		</center> -->

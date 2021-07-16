@@ -1,3 +1,6 @@
+#{extends 'main-administrador.html' /}
+#{set title:'Administração' /}
+
 #{if flash.success}
 ${flash.success}
 #{/if}
@@ -5,12 +8,114 @@ ${flash.success}
 ${flash.error}
 #{/elseif}
 <meta charset="utf-8">
+
+<main class="h-full pb-16 overflow-y-auto">
+	<form class="container px-6 mx-auto grid" action="@{Objetos.salvar}" method="post">
+		<input type="hidden" name="objeto.id" value="${objeto?.id}">
+    	<h2
+        	class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
+        >
+        	Cadastro de objetos
+        </h2>
+			
+       	<div
+        	class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800"
+        >
+        <div class="mt-4 text-sm">
+        	<label class="block text-sm">
+            	<span class="text-gray-700 dark:text-gray-400">Nome</span>
+                	<input
+                		name="objeto.nome" 
+                		value="${objeto?.nome}"
+                  		class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  		placeholder="Digite o nome do objeto"
+                	/>
+       		</label>
+       	</div>
+        <div class="mt-4 text-sm">
+        	<label class="block text-sm">
+            	<span class="text-gray-700 dark:text-gray-400">Categoria</span>
+                	<input
+                		name="objeto.categoria" 
+                		value="${objeto?.categoria}"
+                  		class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  		placeholder="Digite a categoria"
+                	/>
+       		</label>
+       	</div>
+       	<div class="mt-4 text-sm">
+        	<label class="block text-sm">
+            	<span class="text-gray-700 dark:text-gray-400">Material</span>
+                	<input
+                		name="objeto.material" 
+                		value="${objeto?.material}"
+                  		class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  		placeholder="De que o objeto é feito?"
+                	/>
+       		</label>
+       	</div> 
+       	<div class="mt-4 text-sm">
+        	<label class="block text-sm">
+            	<span class="text-gray-700 dark:text-gray-400">Altura</span>
+                	<input
+                		name="objeto.altura" 
+                		value="${objeto?.altura}"
+                  		class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  		placeholder="Altura em centímetros"
+                	/>
+       		</label>
+       	</div>  
+       	<div class="mt-4 text-sm">
+        	<label class="block text-sm">
+            	<span class="text-gray-700 dark:text-gray-400">Largura</span>
+                	<input
+                		name="objeto.largura" 
+                		value="${objeto?.largura}"
+                  		class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  		placeholder="Largura em centímetros"
+                	/>
+       		</label>
+       	</div> 
+       	<div class="mt-4 text-sm">
+        	<label class="block text-sm">
+            	<span class="text-gray-700 dark:text-gray-400">Data</span>
+                	<input
+                		name="objeto.data" 
+                		value="${objeto?.data}"
+                  		class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  		placeholder="dd/mm/aaaa"
+                	/>
+       		</label>
+       	</div>
+       	<div class="mt-4 text-sm">
+        	<label class="block mt-4 text-sm">
+                <span class="text-gray-700 dark:text-gray-400">História</span>
+                <textarea
+                	name="objeto.historia" 
+                  	class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                  	rows="3"
+                  	placeholder="Escreva a história do objeto aqui"
+                >${objeto?.historia}</textarea>
+           	</label>
+       	</div>
+       	
+       	<div class="mt-4 text-sm">
+	        <input
+	        	Style="cursor:pointer"
+	        	type="submit"
+	        	value="Cadastrar"
+	          	class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+	        >
+       	</div> 
+	</form>
+</main>
+
+
+<!--
 <center>
 <br> <h1>Formulário de Cadastro de Objetos</h1><br><br>
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
-			<!--
-			CSS
-			============================================= -->
+		
 			<link rel="stylesheet" href="@{'public/museu/css/linearicons.css'}">
 			<link rel="stylesheet" href="@{'public/museu/css/font-awesome.min.css'}">
 			<link rel="stylesheet" href="@{'public/museu/css/bootstrap.css'}">
@@ -45,9 +150,10 @@ ${flash.error}
 							class="common-input mb-20 form-control" required="" type="text">
 						
                 <button type="submit" class="btn btn-dark">Enviar</button></a>
-				<a href="@{Usuarios.inicio}"><br><br>
+				<a href="@{Usuarios.listar}"><br><br>
                 <button type="button" class="btn btn-dark">Inicio do sistema</button></a>
 				
 			</form>
 		</div>
 		</center>
+-->
