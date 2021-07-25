@@ -97,7 +97,21 @@ ${flash.error}
                   	placeholder="Escreva a história do objeto aqui"
                 >${objeto?.historia}</textarea>
            	</label>
-       	</div>
+       	</div><br>
+       	
+       	<label class="block mt-4 text-sm">
+	   <span class="text-gray-700 dark:text-gray-400">
+		Categoria
+	   </span>
+	
+	   <select name="objeto.categoria.id
+		class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+	>
+		#{list items:categorias, as: 'categoria'}
+        <option value="${categoria.id}" #{if categoria.id == objeto?.categoria?.id} selected #{/if}>${categoria.nome}</option>
+        #{/list}
+	   </select>
+       </label>
        	
        	<div class="mt-4 text-sm">
 	        <input
@@ -148,6 +162,13 @@ ${flash.error}
 							
 						História:<input name="objeto.historia" value="${objeto?.historia}" placeholder="Digite a história do objeto"
 							class="common-input mb-20 form-control" required="" type="text">
+							
+						Categoria
+                        <select name="objeto.categoria.id">
+                        #{list items:categorias, as: 'categoria'}
+                        <option value="${categoria.id}" #{if categoria.id == objeto?.categoria?.id} selected #{/if}>${categoria.nome}</option>
+                        #{/list}
+                        </select>	
 						
                 <button type="submit" class="btn btn-dark">Enviar</button></a>
 				<a href="@{Usuarios.listar}"><br><br>
