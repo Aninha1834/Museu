@@ -3,6 +3,7 @@ package controllers;
 import java.util.List;
 
 import models.Categoria;
+import models.Objeto;
 import play.mvc.Controller;
 
 public class Categorias extends Controller {
@@ -10,7 +11,8 @@ public class Categorias extends Controller {
 	public static void form() {
 		render();
 	}
-
+	
+	
 	public static void listar() {
 		List<Categoria> categorias = Categoria.findAll();
 	    render(categorias);

@@ -25,11 +25,13 @@ public class Objetos extends Controller {
 		if (idCategoria != null) {
 			Categoria categoria = Categoria.findById(idCategoria);
 			objeto.categoria = categoria;
-			}
+		}
 		
 		objeto.save();
 		listar();
 	}
+	
+	
 	
 	public static void deletar(Long id) {
 	    Objeto objeto = Objeto.findById(id);
@@ -42,6 +44,6 @@ public class Objetos extends Controller {
 		
 		 List<Categoria> categorias = Categoria.findAll();
 		
-		renderTemplate("Objetos/form.html", objeto);
+		renderTemplate("Objetos/form.html", objeto, categorias);
 	}
 }	
