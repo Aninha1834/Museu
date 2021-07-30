@@ -31,6 +31,8 @@ public class Login extends Controller{
 		}else {
 			session.put("usuario.email", usu.email);
 			session.put("usuario.nome", usu.nome);
+			session.put("usuario.id", usu.id);
+			session.put("usuario.fotoPerfilAdmin", usu.fotoPerfilAdmin);
 			
 			Usuarios.inicio();
 		}

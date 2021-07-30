@@ -52,4 +52,10 @@ public class Usuarios extends Controller {
 	public static void contatos() {
 		render();
 	}
+	
+	public static void renderFotoPerfilAdmin(Long idAdmin) {
+		Usuario admin = Usuario.findById(idAdmin);
+		response.setContentTypeIfNotSet(admin.fotoPerfilAdmin.type());
+		renderBinary(admin.fotoPerfilAdmin.get());
+	}
 }

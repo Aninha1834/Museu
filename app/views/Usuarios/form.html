@@ -10,7 +10,7 @@ ${flash.error}
 <meta charset="utf-8">
 
 <main class="h-full pb-16 overflow-y-auto">
-	<form class="container px-6 mx-auto grid" action="@{Usuarios.salvar}" method="post">
+	<form class="container px-6 mx-auto grid" action="@{Usuarios.salvar}" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="usu.id" value="${usu?.id}">
     	<h2
         	class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
@@ -24,45 +24,59 @@ ${flash.error}
         <div class="mt-4 text-sm">
         	<label class="block text-sm">
             	<span class="text-gray-700 dark:text-gray-400">Nome</span>
-                	<input
-                		name="usu.nome" 
-                		value="${usu?.nome}"
-                  		class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                  		placeholder="Digite o nome completo do administrador"
-                	/>
+               	<input
+               		name="usu.nome" 
+               		value="${usu?.nome}"
+                 		class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                 		placeholder="Digite o nome completo do administrador"
+               	/>
        		</label>
        	</div>
         <div class="mt-4 text-sm">
         	<label class="block text-sm">
             	<span class="text-gray-700 dark:text-gray-400">Email</span>
-                	<input
-                		name="usu.email" 
-                		value="${usu?.email}"
-                  		class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                  		placeholder="Digite o email do administrador"
-                	/>
+               	<input
+               		name="usu.email" 
+               		value="${usu?.email}"
+                 		class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                 		placeholder="Digite o email do administrador"
+               	/>
        		</label>
        	</div>
        	<div class="mt-4 text-sm">
         	<label class="block text-sm">
             	<span class="text-gray-700 dark:text-gray-400">CPF</span>
-                	<input
-                		name="usu.cpf" 
-                		value="${usu?.cpf}"
-                  		class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                  		placeholder="Digite a cof do administrador"
-                	/>
+               	<input
+               		name="usu.cpf" 
+               		value="${usu?.cpf}"
+                 		class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                 		placeholder="Digite a cof do administrador"
+               	/>
        		</label>
        	</div> 
        	<div class="mt-4 text-sm">
         	<label class="block text-sm">
             	<span class="text-gray-700 dark:text-gray-400">Senha</span>
-                	<input
-                		name="senha" 
-                  		class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                  		placeholder="Digite a senha"
-                  		type="password"
-                	/>
+               	<input
+               		name="senha" 
+                 		class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                 		placeholder="Digite a senha"
+                 		type="password"
+               	/>
+       		</label>
+       	</div>
+       	
+       	<div class="mt-4 text-sm">
+        	<label class="block text-sm">
+            	<span class="text-gray-700 dark:text-gray-400">Selecione uma foto de perfil</span>
+               	<input
+               		name="usu.fotoPerfilAdmin" 
+               		type="file"
+             	/>
+             	
+             	#{if usu?.fotoPerfilAdmin}
+             		<img width="100px" alt="Foto de perfil" src="@{Usuarios.renderFotoPerfilAdmin(usu.id)}">	
+             	#{/if}
        		</label>
        	</div>   
        	

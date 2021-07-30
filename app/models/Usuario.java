@@ -2,6 +2,7 @@ package models;
 
 import javax.persistence.Entity;
 
+import play.db.jpa.Blob;
 import play.db.jpa.Model;
 import play.libs.Crypto;
 
@@ -12,6 +13,7 @@ public class Usuario extends Model{
 	public String cpf;
 	public String email;
 	public String senha;
+	public Blob fotoPerfilAdmin;
 	
 	public void setSenha(String s) {
 		senha = Crypto.passwordHash(s);
