@@ -11,6 +11,7 @@ import play.db.jpa.Model;
 public class Categoria extends Model{
 	
 	public String nome;
+	public boolean categoriaVisivel;
 	
 	@OneToMany(mappedBy="categoria")
 	public List<Objeto> objetos;

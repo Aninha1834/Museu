@@ -23,17 +23,24 @@ public class Login extends Controller{
 	
 	public static void logar(String email, String senha) {
 		
-		Usuario usu = Usuario.find("email = ?1 and senha = ?2 ", email, Crypto.passwordHash(senha) ).first();
+		Usuario usu = Usuario.find("email = ?1 and senha = ?2 ", email, Crypto.passwordHash(senha)).first();
 		
 		if(usu == null) {
 			flash.error("Usuário ou senha inválida");
 			form();
 		}else {
+			
+			boolean teste = true;
+			
+			
 			session.put("usuario.email", usu.email);
 			session.put("usuario.nome", usu.nome);
 			session.put("usuario.id", usu.id);
-			session.put("usuario.fotoPerfilAdmin", usu.fotoPerfilAdmin);
 			
+			if (usu.fotoPerfilAdmin != null) {
+				session.put("temFoto", teste);
+				
+			}
 			Usuarios.inicio();
 		}
 		
