@@ -1,11 +1,6 @@
 #{extends 'main-administrador.html' /}
 #{set title:'Administração' /}
-#{if flash.success}
-${flash.success}
-#{/if}
-#{elseif flash.error}
-${flash.error}
-#{/elseif}
+
 <meta charset="utf-8">
 
 <main class="h-full pb-16 overflow-y-auto container px-6 mx-auto grid">
@@ -14,10 +9,9 @@ ${flash.error}
 <h2
 	class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
 >
-	Lista de objetos
+	Lista de fotografias dos objetos
 </h2>
 
-              
 <div class="w-full overflow-hidden rounded-lg shadow-xs">
 	<div class="w-full overflow-x-auto">
     	<table class="w-full whitespace-no-wrap">
@@ -25,13 +19,8 @@ ${flash.error}
         		<tr
           			class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800"
        	 		>
-          			<th class="px-4 py-3">Nome</th>
-		          	<th class="px-4 py-3">Categoria</th>
-		          	<th class="px-4 py-3">Material</th>
-		          	<th class="px-4 py-3">Altura (cm)</th>
-		          	<th class="px-4 py-3">Largura (cm)</th>
-		          	<th class="px-4 py-3">Data</th>
-		          	<th class="px-4 py-3">História</th>
+          			<th class="px-4 py-3">Foto</th>
+		          	<th class="px-4 py-3">Nome</th>
 		          	<th class="px-4 py-3">Edição</th>
 		          
         		</tr>
@@ -39,39 +28,27 @@ ${flash.error}
    			<tbody
         		class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
       		>
-      		#{list items:objetos, as: 'objeto'}
+      		#{list items:fotos, as: 'foto'}
+      		
         		<tr class="text-gray-700 dark:text-gray-400">
           			<td class="px-4 py-3">
             			<div class="flex items-center text-sm">
               				<div>
-                				<p class="font-semibold">${objeto.nome}</p>
+                				<img Style="height: 50px" alt="Foto do objeto" src="@{Fotos.renderFotoObjeto(foto.id)}">
               				</div>
             			</div>
           			</td>
-					<td class="px-4 py-3 text-sm">
-            			${objeto?.categoria?.nome}
+          			<td class="px-4 py-3">
+            			<div class="flex items-center text-sm">
+              				<div>
+                				<p class="font-semibold">${foto.nome}</p>
+              				</div>
+            			</div>
           			</td>
-          			<td class="px-4 py-3 text-sm">
-            			${objeto.material}
-          			</td>
-          			<td class="px-4 py-3 text-sm">
-            			${objeto.altura}
-          			</td>
-          			<td class="px-4 py-3 text-sm">
-            			${objeto.largura}
-          			</td>
-          			<td class="px-4 py-3 text-sm">
-            			${objeto.data}
-          			</td>
-          			<td class="px-4 py-3 text-sm">
-            			${objeto.historia}
-          			</td>
-          	
-    
           			
           			<td class="px-4 py-3">
             			<div class="flex items-center space-x-4 text-sm">
-	            			<a href="@{Objetos.editar(objeto.id)}">
+	            			<a href="@{Fotos.editar(foto.id)}">
 	              				<button
 	                				class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
 	                				aria-label="Edit"
@@ -88,7 +65,7 @@ ${flash.error}
 	                				</svg>
 	              				</button>
 	              			</a>
-              				<a href="@{Objetos.deletar(objeto.id)}">
+              				<a href="@{Fotos.deletar(foto.id)}">
 	              				<button
 	                				class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
 	                				aria-label="Delete"
@@ -115,7 +92,7 @@ ${flash.error}
 		</table>
 	</div>
   
- 	<a href="@{Objetos.form}">
+ 	<a href="@{Fotos.form}">
   		<div
   			class="btn-add"
   		>
@@ -127,62 +104,3 @@ ${flash.error}
 	</a>
 </div>
 </main>
-
-
-
-<!-- 
-<center>
-<br><h1>Listagem dos Objetos</h1><br><br>
-
-
-		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
-			
-			<link rel="stylesheet" href="@{'public/museu/css/linearicons.css'}">
-			<link rel="stylesheet" href="@{'public/museu/css/font-awesome.min.css'}">
-			<link rel="stylesheet" href="@{'public/museu/css/bootstrap.css'}">
-			<link rel="stylesheet" href="@{'public/museu/css/magnific-popup.css'}">
-			<link rel="stylesheet" href="@{'public/museu/css/nice-select.css'}">					
-			<link rel="stylesheet" href="@{'public/museu/css/animate.min.css'}">
-			<link rel="stylesheet" href="@{'public/museu/css/owl.carousel.css'}">
-			<link rel="stylesheet" href="@{'public/museu/css/main.css'}">
-
-<ul> 
- <table class="table" >
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nome</th>
-      <th scope="col">Material</th>
-      <th scope="col">História</th>
-       <th scope="col">Altura</th>
-      <th scope="col">Data</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-    #{list items:objetos, as: 'objeto'}
-  <tbody>
-    <tr>
-      <th scope="row">${objeto.id}</th>
-      <td>${objeto.nome}</td>
-      <td> ${objeto.material}</td>
-      <td>${objeto.historia}</td>
-      <td> ${objeto.altura}</td>
-      <td>${objeto.data}</td>
-      <td><a href="@{Objetos.deletar(objeto.id)}">Remover objeto</a></td>
-      <td><a href="@{Objetos.editar(objeto.id)}">Editar objeto</a></td>
-    </tr>
-  </tbody>  
-  #{/list}
-</table>
-</ul>
-
-<br>
-<br>
-
-<a href="@{Objetos.form}">
-   <button type="button" class="btn btn-dark">Cadastrar novo objeto</button></a><br><br>
-<a href="@{Usuarios.inicio}">
-   <button type="button" class="btn btn-dark">Inicio do sistema</button></a>   
-</center>
--->

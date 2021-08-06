@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Entity;
 
 import play.db.jpa.Blob;
@@ -20,8 +21,10 @@ public class Objeto extends Model{
 	public float largura;
 	public Date data;
 	public String historia;
-	public Blob fotoObjetos;
 	public boolean objetoVisivel;
+	
+	@OneToMany (mappedBy="objeto")
+	public List<Foto> fotos;
 	
 	@ManyToOne
 	@JoinColumn(name="categoria_id")
