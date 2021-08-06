@@ -20,7 +20,7 @@ public class Objeto extends Model{
 	public float largura;
 	public Date data;
 	public String historia;
-	public List<Blob> fotoObjetos;
+	public Blob fotoObjetos;
 	public boolean objetoVisivel;
 	
 	@ManyToOne
