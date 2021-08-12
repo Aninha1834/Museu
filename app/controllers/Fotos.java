@@ -4,12 +4,17 @@ import java.util.List;
 
 import models.Foto;
 import models.Usuario;
+import play.cache.Cache;
+import play.data.validation.Valid;
 import play.mvc.Controller;
 
 public class Fotos extends Controller{
 	
 	public static void form() {
-		render();
+		
+		Foto foto = (Foto) Cache.get("foto");
+		Cache.clear();
+		render(foto);
 	}
 	
 		
@@ -18,7 +23,13 @@ public class Fotos extends Controller{
 	  render(fotos);
 	}
 	
-	public static void salvar(Foto foto) {
+	public static void salvar(@Valid Foto foto) {
+		
+		if(validation.hasErrors()) {
+			Cache.add("foto", foto);
+			validation.keep();
+			form();
+		}
 		
 		foto.save();
 		flash.success("Salvo com sucesso");

@@ -5,6 +5,8 @@ import java.util.List;
 
 
 import models.Objeto;
+import play.cache.Cache;
+import play.data.validation.Valid;
 import play.mvc.Controller;
 import models.Categoria;
 import models.Foto;
@@ -14,9 +16,13 @@ import play.mvc.With;
 public class Objetos extends Controller {
 	
 	public static void form() {
+		
+		Objeto objeto = (Objeto) Cache.get("objeto");
+		Cache.clear();
+		
 		List<Categoria> categorias = Categoria.findAll();
 		List<Foto> fotos = Foto.findAll();
-		render(categorias, fotos);
+		render(categorias, fotos, objeto);
 	}
 
 	public static void listar() {
@@ -24,9 +30,13 @@ public class Objetos extends Controller {
 	  render(objetos);
 	}
 	
-	public static void salvar(Objeto objeto, Long idCategoria, Long idFoto) {
+	public static void salvar(@Valid Objeto objeto, Long idCategoria, Long idFoto) {
 		
-	
+		if(validation.hasErrors()) {
+			Cache.add("objeto", objeto);
+			validation.keep();
+			form();
+		}
 		
 		if (idCategoria != null) {
 			Categoria categoria = Categoria.findById(idCategoria);

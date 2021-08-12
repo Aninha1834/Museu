@@ -4,12 +4,18 @@ import java.util.List;
 
 import models.Categoria;
 import models.Objeto;
+import models.Usuario;
+import play.cache.Cache;
+import play.data.validation.Valid;
 import play.mvc.Controller;
 
 public class Categorias extends Controller {
 	
 	public static void form() {
-		render();
+		
+		Categoria categoria = (Categoria) Cache.get("categoria");
+		Cache.clear();
+		render(categoria);
 	}
 	
 	
@@ -18,7 +24,14 @@ public class Categorias extends Controller {
 	    render(categorias);
 	}
 	
-	public static void salvar(Categoria categoria) {
+	public static void salvar(@Valid Categoria categoria) {
+		
+		if(validation.hasErrors()) {
+			Cache.add("categoria", categoria);
+			validation.keep();
+			form();
+		}
+		
 		categoria.save();
 		listar();
 	}

@@ -1,7 +1,10 @@
 package controllers;
 
 import java.util.List;
+
 import models.Usuario;
+import play.cache.Cache;
+import play.data.validation.Valid;
 import play.mvc.Before;
 import play.mvc.Controller;
 import play.mvc.With;
@@ -10,7 +13,10 @@ import play.mvc.With;
 public class Usuarios extends Controller {
 	
 	public static void form() {
-		render();
+		
+		Usuario usu = (Usuario) Cache.get("usu");
+		Cache.clear();
+		render(usu);
 	}
 	
 	public static void inicio() {
@@ -23,11 +29,15 @@ public class Usuarios extends Controller {
 	  render(usuarios);
 	}
 	
-	public static void salvar(Usuario usu, String senha) {
-		if (senha.equals("") == false) {
-			usu.senha = senha;
+	public static void salvar(@Valid Usuario usu) {
+		
+		if(validation.hasErrors()) {
+			Cache.add("usu", usu);
+			validation.keep();
+			form();
 		}
 		
+		usu.setSenha();
 		usu.save();
 		flash.success("Salvo com sucesso");
 		listar();

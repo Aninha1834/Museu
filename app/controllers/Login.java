@@ -12,6 +12,7 @@ public class Login extends Controller{
 		u.email = "admin@admin.com";
 		u.senha = "123456";
 		u.nome = "Administrador";
+		u.setSenha();
 		u.save();
 		
 		form();

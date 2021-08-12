@@ -4,13 +4,19 @@ import java.util.List;
 
 import models.Colecao;
 import models.Objeto;
+import models.Usuario;
+import play.cache.Cache;
+import play.data.validation.Valid;
 import play.mvc.Controller;
 
 public class Colecoes extends Controller{
 	
 	public static void form() {
 		
-		render();
+		Colecao colecao = (Colecao) Cache.get("colecao");
+		Cache.clear();
+		render(colecao);
+		
 	}
 	
 	public static void listar() {
@@ -18,8 +24,14 @@ public class Colecoes extends Controller{
 		render(colecoes);
 	}
 	
-	public static void salvar(Colecao colecao, Long idObjeto) {
+	public static void salvar(@Valid Colecao colecao, Long idObjeto) {
 
+		if(validation.hasErrors()) {
+			Cache.add("colecao", colecao);
+			validation.keep();
+			form();
+		}
+		
 		if (idObjeto != null) {
 			Objeto obj = Objeto.findById(idObjeto);
 			if (colecao.objetos.contains(obj) == false) {
