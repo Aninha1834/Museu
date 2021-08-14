@@ -1,5 +1,6 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -48,4 +49,7 @@ public class Objeto extends Model{
 	
 	@ManyToMany(mappedBy="objetos")
 	public List<Colecao> colecoes;
+	
+	
+
 }

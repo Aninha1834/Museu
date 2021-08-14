@@ -12,6 +12,7 @@ import play.mvc.With;
 @With(Seguranca.class)
 public class Usuarios extends Controller {
 	
+	
 	public static void form() {
 		
 		Usuario usu = (Usuario) Cache.get("usu");
@@ -29,19 +30,7 @@ public class Usuarios extends Controller {
 	  render(usuarios);
 	}
 	
-	public static void salvar(@Valid Usuario usu) {
-		
-		if(validation.hasErrors()) {
-			Cache.add("usu", usu);
-			validation.keep();
-			form();
-		}
-		
-		usu.setSenha();
-		usu.save();
-		flash.success("Salvo com sucesso");
-		listar();
-	}
+
 	
 	public static void deletar(Long id) {
 	    Usuario usu = Usuario.findById(id);
@@ -51,8 +40,26 @@ public class Usuarios extends Controller {
 	}
 	
 	public static void editar(Long id) {
+		
 		Usuario usu = Usuario.findById(id);
 		renderTemplate("Usuarios/form.html", usu);
+	}
+	
+
+	
+	
+	public static void salvar(@Valid Usuario usu) {
+
+		if(validation.hasErrors()) {
+			Cache.add("usu", usu);
+			validation.keep();
+			form();
+		}
+
+		usu.setSenha();
+		usu.save();
+		flash.success("Salvo com sucesso");
+		listar();
 	}
 	
 	public static void galeria() {

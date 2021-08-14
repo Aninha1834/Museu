@@ -31,17 +31,16 @@ public class Login extends Controller{
 			form();
 		}else {
 			
-			boolean teste = true;
 			
 			
 			session.put("usuario.email", usu.email);
 			session.put("usuario.nome", usu.nome);
 			session.put("usuario.id", usu.id);
 			
-			if (usu.fotoPerfilAdmin != null) {
-				session.put("temFoto", teste);
-				
+			if (usu.fotoPerfilAdmin.exists()) {
+				session.put("adminTemFoto", true);	
 			}
+			
 			Usuarios.inicio();
 		}
 		

@@ -1,5 +1,6 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.JoinTable;
@@ -24,5 +25,6 @@ public class Colecao extends Model{
 	@ManyToMany
 	@JoinTable(name="colecao_objeto")
 	public List<Objeto> objetos;
-
+	
+	
 }

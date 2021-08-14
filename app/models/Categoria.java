@@ -1,5 +1,6 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -21,5 +22,7 @@ public class Categoria extends Model{
 	
 	@OneToMany(mappedBy="categoria")
 	public List<Objeto> objetos;
-
+	
+	
+	
 }

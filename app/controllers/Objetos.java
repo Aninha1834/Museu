@@ -5,8 +5,10 @@ import java.util.List;
 
 
 import models.Objeto;
+import models.Usuario;
 import play.cache.Cache;
 import play.data.validation.Valid;
+import play.db.jpa.Blob;
 import play.mvc.Controller;
 import models.Categoria;
 import models.Foto;
@@ -73,5 +75,11 @@ public class Objetos extends Controller {
 		 List<Foto> fotos = Foto.findAll();
 		
 		renderTemplate("Objetos/form.html", objeto, categorias, fotos);
+	}
+	
+	public static void renderFotoObjeto(Foto foto) {
+		Blob fotoObj = foto.fotoObjeto;
+		response.setContentTypeIfNotSet(fotoObj.type());
+		renderBinary(fotoObj.get());
 	}
 }	

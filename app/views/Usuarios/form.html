@@ -63,10 +63,10 @@ ${flash.error}
             	<span class="text-gray-700 dark:text-gray-400">Senha</span>
                	<input
                		name="usu.senha" 
-               		value="${usu?.senha}"
-                 		class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                 		placeholder="Digite a senha"
-                 		type="password"
+               		
+               		class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+               		placeholder="Digite a senha"
+               		type="password"
                	/>
                	 	<span class="msg-erro">#{error 'usu.senha' /}</span>
        		</label>
@@ -80,11 +80,7 @@ ${flash.error}
                		type="file"
              	/>
              	
-             	#{if usu?.fotoPerfilAdmin}
-             		
-             		<img width="100px" alt="Foto de perfil" src="@{Usuarios.renderFotoPerfilAdmin(usu.id)}">
-      		
-             	#{/if}
+             	
        		</label>
        	</div>   
        	
