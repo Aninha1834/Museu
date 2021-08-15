@@ -38,28 +38,42 @@ public class Usuarios extends Controller {
 		flash.success("Deletado com sucesso");
 		listar();
 	}
-	
 	public static void editar(Long id) {
-		
 		Usuario usu = Usuario.findById(id);
 		renderTemplate("Usuarios/form.html", usu);
 	}
 	
 
 	
-	
-	public static void salvar(@Valid Usuario usu) {
-
-		if(validation.hasErrors()) {
-			Cache.add("usu", usu);
-			validation.keep();
-			form();
+	public static void salvar(@Valid Usuario usu, String senha) {
+		System.out.println("Senha atual: " + usu.senha);
+		
+		if (senha.equals("") == false) {
+			usu.senha = senha;
+			
+			if(validation.hasErrors()) {
+				Cache.add("usu", usu);
+				validation.keep();
+				form();
+			}
+			
+			usu.setSenha();
+			
+			System.out.println("Nova senha: " + usu.senha);
+			usu.save();
+			flash.success("Salvo com sucesso");
+			listar();
+			
+		} else {
+			if(validation.hasErrors()) {
+				Cache.add("usu", usu);
+				validation.keep();
+				form();
+			}
+			usu.save();
+			flash.success("Salvo com sucesso");
+			listar();
 		}
-
-		usu.setSenha();
-		usu.save();
-		flash.success("Salvo com sucesso");
-		listar();
 	}
 	
 	public static void galeria() {
