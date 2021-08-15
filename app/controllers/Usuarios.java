@@ -43,13 +43,14 @@ public class Usuarios extends Controller {
 		renderTemplate("Usuarios/form.html", usu);
 	}
 	
+	public static String senhaAtual = null;
+	public static void salvar(@Valid Usuario usu) {
 
-	
-	public static void salvar(@Valid Usuario usu, String senha) {
-		System.out.println("Senha atual: " + usu.senha);
 		
-		if (senha.equals("") == false) {
-			usu.senha = senha;
+		
+		if (usu.id == null) {
+			
+			
 			
 			if(validation.hasErrors()) {
 				Cache.add("usu", usu);
@@ -58,23 +59,59 @@ public class Usuarios extends Controller {
 			}
 			
 			usu.setSenha();
-			
-			System.out.println("Nova senha: " + usu.senha);
-			usu.save();
-			flash.success("Salvo com sucesso");
-			listar();
-			
+			senhaAtual = usu.senha;
 		} else {
-			if(validation.hasErrors()) {
-				Cache.add("usu", usu);
-				validation.keep();
-				form();
+			
+		
+			if (usu.senha.equals("")) {
+				usu.senha = senhaAtual;
+			} else {
+				if(validation.hasErrors()) {
+					Cache.add("usu", usu);
+					validation.keep();
+					form();
+				}
+				usu.setSenha();
 			}
-			usu.save();
-			flash.success("Salvo com sucesso");
-			listar();
 		}
+		
+		usu.save();
+		flash.success("Salvo com sucesso");
+		listar();
 	}
+	
+//	public static void salvar(@Valid Usuario usu, String senha) {
+//		System.out.println("Senha atual criptografada: " + usu.senha);
+//		
+//		if (senha.equals("") == false) {
+//			System.out.println("Senha passada no form: " + senha);
+//			usu.senha = senha;
+//			
+//			System.out.println("Nova senha do admin: " + usu.senha);
+//			usu.setSenha();
+//			if(validation.hasErrors()) {
+//				Cache.add("usu", usu);
+//				validation.keep();
+//				form();
+//			}
+//
+//			System.out.println("Nova senha criptografada: " + usu.senha);
+//			usu.save();
+//			flash.success("Salvo com sucesso");
+//			listar();
+//			
+//		} else {
+//			if(validation.hasErrors()) {
+//				Cache.add("usu", usu);
+//				validation.keep();
+//				System.out.println("Segundo validation: ");
+//				form();
+//			}
+//			usu.save();
+//			flash.success("Salvo com sucesso");
+//			listar();
+//		}
+//	}
 	
 	public static void galeria() {
 		render();
