@@ -7,7 +7,9 @@ import models.Usuario;
 import play.cache.Cache;
 import play.data.validation.Valid;
 import play.mvc.Controller;
+import play.mvc.With;
 
+@With(Seguranca.class)
 public class Fotos extends Controller{
 	
 	public static void form() {
