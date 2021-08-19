@@ -15,12 +15,10 @@ import play.db.jpa.Model;
 @Entity
 public class Foto extends Model{
 
-	@Required(message="O campo nome é obrigatório")
-	@MinSize(value=3, message="O nome deve possuir no mínimo 3 caracteres")
-	public String nome;
-	public Blob fotoObjeto;
 	
-	@ManyToOne
-	@JoinColumn(name="objeto_id")
-	public Objeto objeto;
+	public String nomeFoto;
+	
+	public Foto (String nome) {
+		this.nomeFoto = nome;
+	}
 }

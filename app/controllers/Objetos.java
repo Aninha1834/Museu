@@ -32,7 +32,9 @@ public class Objetos extends Controller {
 	  render(objetos);
 	}
 	
-	public static void salvar(@Valid Objeto objeto, Long idCategoria, Long idFoto) {
+	public static void salvar(@Valid Objeto objeto, Long idCategoria, File foto) {
+		
+		
 		
 		if(validation.hasErrors()) {
 			Cache.add("objeto", objeto);
@@ -45,6 +47,20 @@ public class Objetos extends Controller {
 			objeto.categoria = categoria;
 		}
 		
+		if (foto != null) {
+			Foto f = new Foto(foto.getName());
+			f.save();
+			
+			objeto.fotos.add(f);
+			
+			File dest = new File("./uploads/" + foto.getName());
+			
+			if (dest.exists()) {
+				dest.delete();
+			}
+	
+			foto.renameTo(dest);
+		}
 		objeto.save();
 		editar(objeto.id);
 	}
@@ -57,15 +73,7 @@ public class Objetos extends Controller {
 		listar();
 	}
 	
-	public static void salvarFoto(Long idFoto, Long idObjeto) {
-
-		Foto foto = Foto.findById(idFoto);
-		Objeto objeto = Objeto.findById(idObjeto);
-		foto.objeto = objeto;
-		foto.save();
-		
-		editar(idObjeto);
-	}
+	
 	
 	public static void editar(Long id) {
 		Objeto objeto = Objeto.findById(id);
@@ -77,9 +85,4 @@ public class Objetos extends Controller {
 		renderTemplate("Objetos/form.html", objeto, categorias, fotos);
 	}
 	
-	public static void renderFotoObjeto(Foto foto) {
-		Blob fotoObj = foto.fotoObjeto;
-		response.setContentTypeIfNotSet(fotoObj.type());
-		renderBinary(fotoObj.get());
-	}
 }	

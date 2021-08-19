@@ -2,6 +2,8 @@ package controllers;
 
 import java.util.List;
 
+import models.Foto;
+import models.Objeto;
 import models.Usuario;
 import play.cache.Cache;
 import play.data.validation.Valid;
@@ -27,6 +29,7 @@ public class Usuarios extends Controller {
 		
 	public static void listar() {
 	  List<Usuario> usuarios = Usuario.findAll();
+	  
 	  render(usuarios);
 	}
 	
@@ -75,16 +78,28 @@ public class Usuarios extends Controller {
 	}
 	
 	public static void galeria() {
-		render();
+		List<Objeto> objetos = Objeto.findAll();
+		render(objetos);
+//		List <Foto> fotos = Foto.findAll();
+//		render(fotos);
+
 	}
 	
 	public static void contatos() {
 		render();
 	}
 	
-	public static void renderFotoPerfilAdmin(Long idAdmin) {
-		Usuario admin = Usuario.findById(idAdmin);
-		response.setContentTypeIfNotSet(admin.fotoPerfilAdmin.type());
-		renderBinary(admin.fotoPerfilAdmin.get());
-	}
+//	public static void renderFotoPerfilAdmin(Long idAdmin) {
+//		Usuario admin = Usuario.findById(idAdmin);
+//		response.setContentTypeIfNotSet(admin.fotoPerfilAdmin.type());
+//		renderBinary(admin.fotoPerfilAdmin.get());
+//	}
+//	
+//	public static void renderFotoObjeto(Long idObjeto) {
+//		Objeto objeto = Objeto.findById(idObjeto);
+//		Foto ft = objeto.fotos.get(0);
+//		response.setContentTypeIfNotSet(ft.fotoObjeto.type());
+//		renderBinary(ft.fotoObjeto.get());
+//	}
+	
 }

@@ -40,8 +40,11 @@ public class Objeto extends Model{
 	public String historia;
 	public boolean objetoVisivel;
 	
-	@OneToMany (mappedBy="objeto")
+	
+	@OneToMany 
+	@JoinColumn (name="objeto_id")
 	public List<Foto> fotos;
+	
 	
 	@ManyToOne
 	@JoinColumn(name="categoria_id")
@@ -51,5 +54,9 @@ public class Objeto extends Model{
 	public List<Colecao> colecoes;
 	
 	
+	public Objeto() {
+		this.colecoes = new ArrayList<>();
+		this.fotos = new ArrayList<Foto>();
+	}
 
 }

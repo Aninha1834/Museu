@@ -38,9 +38,9 @@ public class Login extends Controller{
 			session.put("usuario.nome", usu.nome);
 			session.put("usuario.id", usu.id);
 			
-			if (usu.fotoPerfilAdmin.exists()) {
-				session.put("adminTemFoto", true);	
-			}
+//			if (usu.fotoPerfilAdmin.exists()) {
+//				session.put("adminTemFoto", true);	
+//			}
 			
 			Usuarios.inicio();
 		}

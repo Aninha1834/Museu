@@ -10,7 +10,7 @@ ${flash.error}
 <meta charset="utf-8">
 
 <main class="h-full pb-16 overflow-y-auto">
-	<form class="container px-6 mx-auto grid" action="@{Objetos.salvar}" method="POST" enctype="multipar/form-data">
+	<form class="container px-6 mx-auto grid" action="@{Objetos.salvar}" method="POST" enctype="multipart/form-data">
 		<input type="hidden" name="objeto.id" value="${objeto?.id}">
     	<h2
         	class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
@@ -114,7 +114,15 @@ ${flash.error}
            	</label>
            	<span class="msg-erro">#{error 'objeto.historia' /}</span>
        	</div>
-       	
+       	<div class="mt-4 text-sm">
+        	<label class="block text-sm">
+            	<span class="text-gray-700 dark:text-gray-400">Foto</span>
+                	<input
+                		name="foto" 
+                  		type="file"
+                	/>
+       		</label>
+       	</div>
      
               	
        	<div class="mt-4 text-sm">
@@ -125,90 +133,13 @@ ${flash.error}
 	          	class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
 	        >
        	</div> 
+       	
+       	#{if objeto?.id}
+       		#{list items:objeto.fotos, as:'f'}
+      			<img src="/uploads/${f.nomeFoto}" style="width:200px">
+      		#{/list}
+       	#{/if}
 	</form>
-	
-	#{if objeto != null}
-		<form action="@{Objetos.salvarFoto}">
-			<div class="mt-4 text-sm">
-				<input type="hidden" name="idObjeto" value="${objeto.id}">
-				<br>
-				<b>Foto:</b>
-				<select name="idFoto" class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-				>
-					<option></option>
-					#{list items:fotos, as:'foto'}
-						<option value="${foto.id}">${foto.nome}</option>
-					#{/list}
-				</select><br>
-				<div class="mt-4 text-sm">
-			        <input
-			        	Style="cursor:pointer"
-			        	type="submit"
-			        	value="Adicionar"
-			          	class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
-			        >
-	       		</div>
-       		</div>
-		</form>
-	#{/if}
-	
-	
-	
-	
 </main>
 
-
-    
-<!--
-<center>
-<br> <h1>Formulário de Cadastro de Objetos</h1><br><br>
-		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
-		
-			<link rel="stylesheet" href="@{'public/museu/css/linearicons.css'}">
-			<link rel="stylesheet" href="@{'public/museu/css/font-awesome.min.css'}">
-			<link rel="stylesheet" href="@{'public/museu/css/bootstrap.css'}">
-			<link rel="stylesheet" href="@{'public/museu/css/magnific-popup.css'}">
-			<link rel="stylesheet" href="@{'public/museu/css/nice-select.css'}">					
-			<link rel="stylesheet" href="@{'public/museu/css/animate.min.css'}">
-			<link rel="stylesheet" href="@{'public/museu/css/owl.carousel.css'}">
-			<link rel="stylesheet" href="@{'public/museu/css/main.css'}">
-
-	   <form action="@{Objetos.salvar}" method="post">
-       <input type="hidden" name="objeto.id" value="${objeto?.id}">
-					<div class="col-lg-6 form-group">
-						Nome:<input name="objeto.nome" value="${objeto?.nome}" placeholder="Digite o nome do objeto"
-							class="common-input mb-20 form-control" required="" type="text">
-
-						Categoria:<input name="objeto.categoria" value="${objeto?.categoria}" placeholder="Digite a categoria do objeto"
-							class="common-input mb-20 form-control" required="" type="text">
-              
-						Material:<input name="objeto.material" value="${objeto?.material}" placeholder="Digite o nome do material"
-							class="common-input mb-20 form-control" required="" type="text">
- 
-						Altura:<input name="objeto.altura" value="${objeto?.altura}" placeholder="Digite a altura"
-							class="common-input mb-20 form-control" required="" type="text">
-							
-						Largura:<input name="objeto.largura" value="${objeto?.largura}" placeholder="Digite a largura"
-							class="common-input mb-20 form-control" required="" type="text">	
-						
-						Data:<input name="objeto.data" value="${objeto?.data}" placeholder="dd/mm/aaaa"
-							class="common-input mb-20 form-control" required="" type="text">
-							
-						História:<input name="objeto.historia" value="${objeto?.historia}" placeholder="Digite a história do objeto"
-							class="common-input mb-20 form-control" required="" type="text">
-							
-						Categoria
-                        <select name="objeto.categoria.id">
-                        #{list items:categorias, as: 'categoria'}
-                        <option value="${categoria.id}" #{if categoria.id == objeto?.categoria?.id} selected #{/if}>${categoria.nome}</option>
-                        #{/list}
-                        </select>	
-						
-                <button type="submit" class="btn btn-dark">Enviar</button></a>
-				<a href="@{Usuarios.listar}"><br><br>
-                <button type="button" class="btn btn-dark">Inicio do sistema</button></a>
-				
-			</form>
-		</div>
-		</center>
 -->
