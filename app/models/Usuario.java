@@ -19,7 +19,6 @@ public class Usuario extends Model{
 	public String nome;
 	
 	@Required(message="O campo cpf é obrigatório")
-	@Match("[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}")
 	@Unique(message="O cpf já existe")
 	public String cpf;
 	

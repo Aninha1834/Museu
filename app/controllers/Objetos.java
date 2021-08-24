@@ -39,7 +39,7 @@ public class Objetos extends Controller {
 				   "%"+busca+"%").fetch();
 		}
 		
-		render(lista);
+		render(lista, busca);
 
 	    }
 	

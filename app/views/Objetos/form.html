@@ -95,9 +95,12 @@ ${flash.error}
             	<span class="text-gray-700 dark:text-gray-400">Data</span>
                 	<input
                 		name="objeto.data" 
+                		class="date block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  		placeholder="dd/mm/aaaa"
                 		value="${objeto?.data?.format('dd/MM/yyyy')}"
                   		class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                   		placeholder="dd/mm/aaaa"
+                  		
                 	/>
                 	<span class="msg-erro">#{error 'objeto.data' /}</span>
        		</label>
