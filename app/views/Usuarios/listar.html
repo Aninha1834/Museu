@@ -10,6 +10,7 @@
 	Lista de administradores
 </h2>
 
+<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/play-pagination.css'}">             
 
 <div class="w-full overflow-hidden rounded-lg shadow-xs ">
 	<div class="w-full overflow-x-auto">
@@ -25,10 +26,19 @@
 		          
         		</tr>
       		</thead>
+      		
+      		<form action="@{Usuarios.listar}">
+
+            <input name="busca" value="${busca}">
+
+            <button>Pesquisar</button>
+
+             </form><br><br>
+      		
    			<tbody
         		class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
       		>
-      		#{list items:usuarios, as: 'usuario'}
+      		#{paginate.list items:listaPaginada, as: 'usuario'}
         		<tr class="text-gray-700 dark:text-gray-400">
           			<td class="px-4 py-3">
             			<div class="flex items-center text-sm">
@@ -87,7 +97,9 @@
            				</div>
           			</td>
        			</tr>
-       		#{/list}
+       		#{/paginate.list}
+       		
+       		#{paginate.controls items:listaPaginada /}
    			</tbody>
 		</table>
 	</div>

@@ -7,6 +7,7 @@ import models.Objeto;
 import models.Usuario;
 import play.cache.Cache;
 import play.data.validation.Valid;
+import play.modules.paginate.ValuePaginator;
 import play.mvc.Before;
 import play.mvc.Controller;
 import play.mvc.With;
@@ -28,10 +29,22 @@ public class Usuarios extends Controller {
 	}
 		
 	public static void listar() {
-	  List<Usuario> usuarios = Usuario.findAll();
-	  
-	  render(usuarios);
-	}
+		String busca = params.get("busca");
+
+		List<Usuario> lista;
+		if (busca == null) {
+			lista = Usuario.findAll();
+		} else {
+		   lista = Usuario.find("nome like ?1 or email like ?1 ",
+				   "%"+busca+"%").fetch();
+		}
+		
+		ValuePaginator listaPaginada = new ValuePaginator(lista);
+		listaPaginada.setPageSize(5);
+		
+		render(listaPaginada, busca);
+
+	    }
 	
 
 	

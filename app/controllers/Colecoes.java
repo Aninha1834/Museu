@@ -7,6 +7,7 @@ import models.Objeto;
 import models.Usuario;
 import play.cache.Cache;
 import play.data.validation.Valid;
+import play.modules.paginate.ValuePaginator;
 import play.mvc.Controller;
 import play.mvc.With;
 
@@ -22,8 +23,22 @@ public class Colecoes extends Controller{
 	}
 	
 	public static void listar() {
-		List<Colecao> colecoes = Colecao.findAll();
-		render(colecoes);
+		String busca = params.get("busca");
+
+		List<Colecao> lista;
+		if (busca == null) {
+			lista = Colecao.findAll();
+		} else {
+		   lista = Colecao.find("select c from Colecao c "
+				   + " where c.nome like ? " ,
+				   "%"+busca+"%").fetch();
+		}
+		
+		ValuePaginator listaPaginada = new ValuePaginator(lista);
+		listaPaginada.setPageSize(5);
+		
+		render(listaPaginada, busca);
+
 	}
 	
 	public static void salvar(@Valid Colecao colecao, Long idObjeto) {

@@ -9,6 +9,7 @@ import models.Usuario;
 import play.cache.Cache;
 import play.data.validation.Valid;
 import play.db.jpa.Blob;
+import play.modules.paginate.ValuePaginator;
 import play.mvc.Controller;
 import models.Categoria;
 import models.Foto;
@@ -39,7 +40,10 @@ public class Objetos extends Controller {
 				   "%"+busca+"%").fetch();
 		}
 		
-		render(lista, busca);
+		ValuePaginator listaPaginada = new ValuePaginator(lista);
+		listaPaginada.setPageSize(5);
+		
+		render(listaPaginada, busca);
 
 	    }
 	

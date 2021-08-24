@@ -7,6 +7,7 @@ import models.Objeto;
 import models.Usuario;
 import play.cache.Cache;
 import play.data.validation.Valid;
+import play.modules.paginate.ValuePaginator;
 import play.mvc.Controller;
 import play.mvc.With;
 
@@ -22,8 +23,22 @@ public class Categorias extends Controller {
 	
 	
 	public static void listar() {
-		List<Categoria> categorias = Categoria.findAll();
-	    render(categorias);
+		String busca = params.get("busca");
+
+		List<Categoria> lista;
+		if (busca == null) {
+			lista = Categoria.findAll();
+		} else {
+		   lista = Categoria.find("select c from Categoria c "
+				   + " where c.nome like ? " ,
+				   "%"+busca+"%").fetch();
+		}
+		
+		ValuePaginator listaPaginada = new ValuePaginator(lista);
+		listaPaginada.setPageSize(5);
+		
+		render(listaPaginada, busca);
+
 	}
 	
 	public static void salvar(@Valid Categoria categoria) {
