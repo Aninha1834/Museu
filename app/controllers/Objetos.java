@@ -28,9 +28,20 @@ public class Objetos extends Controller {
 	}
 
 	public static void listar() {
-	  List<Objeto> objetos = Objeto.findAll();
-	  render(objetos);
-	}
+		String busca = params.get("busca");
+
+		List<Objeto> lista;
+		if (busca == null) {
+			lista = Objeto.findAll();
+		} else {
+		   lista = Objeto.find("select o from Objeto o "
+				   + " where o.nome like ? " ,
+				   "%"+busca+"%").fetch();
+		}
+		
+		render(lista);
+
+	    }
 	
 	public static void salvar(@Valid Objeto objeto, Long idCategoria, File foto) {
 		

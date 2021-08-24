@@ -35,11 +35,21 @@ ${flash.error}
 		          	<th class="px-4 py-3">Edição</th>
 		          
         		</tr>
+        		
       		</thead>
+      
+            <form action="@{Objetos.listar}">
+
+            <input name="busca" >
+
+            <button>Pesquisar</button>
+
+             </form><br><br>
+      		
    			<tbody
         		class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
       		>
-      		#{list items:objetos, as: 'objeto'}
+      		#{list items:lista, as: 'objeto'}
         		<tr class="text-gray-700 dark:text-gray-400">
           			<td class="px-4 py-3">
             			<div class="flex items-center text-sm">
