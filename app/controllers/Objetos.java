@@ -70,9 +70,9 @@ public class Objetos extends Controller {
 			
 			File dest = new File("./uploads/" + foto.getName());
 			
-			if (dest.exists()) {
-				dest.delete();
-			}
+//			if (dest.exists()) {
+//				dest.delete();
+//			}
 	
 			foto.renameTo(dest);
 		}

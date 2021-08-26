@@ -38,21 +38,17 @@ public class Objeto extends Model{
 	
 	@Required(message="O campo história é obrigatório")
 	public String historia;
-	public boolean objetoVisivel;
-	
 	
 	@OneToMany 
 	@JoinColumn (name="objeto_id")
 	public List<Foto> fotos;
-	
-	
+
 	@ManyToOne
 	@JoinColumn(name="categoria_id")
 	public Categoria categoria; 
 	
 	@ManyToMany(mappedBy="objetos")
 	public List<Colecao> colecoes;
-	
 	
 	public Objeto() {
 		this.colecoes = new ArrayList<>();

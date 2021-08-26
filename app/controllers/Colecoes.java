@@ -1,8 +1,10 @@
 package controllers;
 
+import java.io.File;
 import java.util.List;
 
 import models.Colecao;
+import models.Foto;
 import models.Objeto;
 import models.Usuario;
 import play.cache.Cache;
@@ -15,7 +17,7 @@ import play.mvc.With;
 public class Colecoes extends Controller{
 	
 	public static void form() {
-		
+		System.out.println("---Formulário---");
 		Colecao colecao = (Colecao) Cache.get("colecao");
 		Cache.clear();
 		render(colecao);
@@ -23,6 +25,7 @@ public class Colecoes extends Controller{
 	}
 	
 	public static void listar() {
+		System.out.println("---Listagem---");
 		String busca = params.get("busca");
 
 		List<Colecao> lista;
@@ -41,8 +44,12 @@ public class Colecoes extends Controller{
 
 	}
 	
-	public static void salvar(@Valid Colecao colecao, Long idObjeto) {
-
+	public static void salvar(@Valid Colecao colecao, Long idObjeto, File foto) {
+		
+		System.out.println("---Salvar---");
+		
+		
+		
 		if(validation.hasErrors()) {
 			Cache.add("colecao", colecao);
 			validation.keep();
@@ -54,6 +61,23 @@ public class Colecoes extends Controller{
 			if (colecao.objetos.contains(obj) == false) {
 				colecao.objetos.add(obj);
 			}
+		}
+		
+		if (foto != null) {
+			System.out.println("Tem foto");
+			Foto f = new Foto(foto.getName());
+			f.save();
+			
+			colecao.fotoCapa = f;
+			
+			File dest = new File("./uploads/" + foto.getName());
+			
+			
+//			if (dest.exists()) {
+//				dest.delete();
+//			}
+	
+			foto.renameTo(dest);
 		}
 		
 		colecao.save();

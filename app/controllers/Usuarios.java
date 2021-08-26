@@ -2,6 +2,8 @@ package controllers;
 
 import java.util.List;
 
+import models.Categoria;
+import models.Colecao;
 import models.Foto;
 import models.Objeto;
 import models.Usuario;
@@ -92,9 +94,11 @@ public class Usuarios extends Controller {
 	
 	public static void galeria() {
 		List<Objeto> objetos = Objeto.findAll();
-		render(objetos);
-//		List <Foto> fotos = Foto.findAll();
-//		render(fotos);
+		List<Colecao> colecoes = Colecao.findAll();
+		System.out.println(colecoes.size());
+		System.out.println(objetos.size());
+		render(objetos, colecoes);
+
 
 	}
 	
@@ -102,17 +106,8 @@ public class Usuarios extends Controller {
 		render();
 	}
 	
-//	public static void renderFotoPerfilAdmin(Long idAdmin) {
-//		Usuario admin = Usuario.findById(idAdmin);
-//		response.setContentTypeIfNotSet(admin.fotoPerfilAdmin.type());
-//		renderBinary(admin.fotoPerfilAdmin.get());
-//	}
-//	
-//	public static void renderFotoObjeto(Long idObjeto) {
-//		Objeto objeto = Objeto.findById(idObjeto);
-//		Foto ft = objeto.fotos.get(0);
-//		response.setContentTypeIfNotSet(ft.fotoObjeto.type());
-//		renderBinary(ft.fotoObjeto.get());
-//	}
+	public static void exposicaoObjetos() {
+		renderTemplate("Usuarios/exposicaoObjetos");
+	}
 	
 }

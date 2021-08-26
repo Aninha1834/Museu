@@ -18,7 +18,6 @@ public class Categoria extends Model{
 	@Unique(message="A categoria digitada já existe")
 	@MinSize(value=3, message="O nome deve possuir no mínimo 3 caracteres")
 	public String nome;
-	public boolean categoriaVisivel;
 	
 	@OneToMany(mappedBy="categoria")
 	public List<Objeto> objetos;

@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import play.data.validation.MinSize;
 import play.data.validation.Required;
@@ -17,6 +18,8 @@ public class Foto extends Model{
 
 	
 	public String nomeFoto;
+	
+	
 	
 	public Foto (String nome) {
 		this.nomeFoto = nome;
