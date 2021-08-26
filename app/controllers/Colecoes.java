@@ -113,5 +113,9 @@ public class Colecoes extends Controller{
 		
 		editar(colec.id);
 	}
+	
+	public static void exibirObjetos (Colecao colecao) {
+		render(colecao);
+	}
 
 }

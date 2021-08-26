@@ -93,11 +93,8 @@ public class Usuarios extends Controller {
 	}
 	
 	public static void galeria() {
-		List<Objeto> objetos = Objeto.findAll();
 		List<Colecao> colecoes = Colecao.findAll();
-		System.out.println(colecoes.size());
-		System.out.println(objetos.size());
-		render(objetos, colecoes);
+		render(colecoes);
 
 
 	}
@@ -106,8 +103,8 @@ public class Usuarios extends Controller {
 		render();
 	}
 	
-	public static void exposicaoObjetos() {
-		renderTemplate("Usuarios/exposicaoObjetos");
-	}
+//	public static void exposicaoObjetos() {
+//		renderTemplate("Usuarios/exposicaoObjetos");
+//	}
 	
 }

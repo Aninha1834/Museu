@@ -67,7 +67,6 @@ ${flash.error}
 				          <li class="menu-active"><a href="@{Application.index}">Home</a></li>
 				          <li><a href="@{Usuarios.galeria}">Galeria</a></li>
 				          <li><a href="@{Usuarios.contatos}">Contato</a></li>
-				          <li><a href="@{Usuarios.exposicaoObjetos}">Exposição</a></li>	          
 				        </ul>
 				      </nav><!-- #nav-menu-container -->		    		
 			    	</div>
@@ -87,47 +86,8 @@ ${flash.error}
 					</div>
 				</div>
 			</section>
-			<!-- End banner Area -->	
-
-
-			<!-- Start gallery Area -->
-			<section class="gallery-area section-gap gallery-page-area" id="gallery">
-				<div class="container">
-					<div class="row d-flex justify-content-center">
-						<div class="menu-content pb-70 col-lg-8">
-							<div class="title text-center">
-								<h1 class="mb-10">Galeria de exposições</h1>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua.</p>
-							</div>
-						</div>
-					</div>						
-					<div id="grid-container" class="row">
-						
-						
-						<a class="single-gallery" href="@{'public/museu/img/g1.jpg'}"><img class="grid-item" src="@{'public/museu/img/g1.jpg'}"></a>
-						<a class="single-gallery" href="@{'public/museu/img/g2.jpg'}"><img class="grid-item" src="@{'public/museu/img/g2.jpg'}"></a>
-						<a class="single-gallery" href="@{'public/museu/img/g3.jpg'}"><img class="grid-item" src="@{'public/museu/img/g3.jpg'}"></a>
-						<a class="single-gallery" href="@{'public/museu/img/g4.jpg'}"><img class="grid-item" src="@{'public/museu/img/g4.jpg'}"></a>
-						<a class="single-gallery" href="@{'public/museu/img/g5.jpg'}"><img class="grid-item" src="@{'public/museu/img/g5.jpg'}"></a>
-						<a class="single-gallery" href="@{'public/museu/img/g6.jpg'}"><img class="grid-item" src="@{'public/museu/img/g6.jpg'}"></a>
-						<a class="single-gallery" href="@{'public/museu/img/g7.jpg'}"><img class="grid-item" src="@{'public/museu/img/g7.jpg'}"></a>
-						<a class="single-gallery" href="@{'public/museu/img/g8.jpg'}"><img class="grid-item" src="@{'public/museu/img/g8.jpg'}"></a>
-						<a class="single-gallery" href="@{'public/museu/img/g9.jpg'}"><img class="grid-item" src="@{'public/museu/img/g9.jpg'}"></a>
-						<a class="single-gallery" href="@{'public/museu/img/g10.jpg'}"><img class="grid-item" src="@{'public/museu/img/g10.jpg'}"></a>
-						<a class="single-gallery" href="@{'public/museu/img/g11.jpg'}"><img class="grid-item" src="@{'public/museu/img/g11.jpg'}"></a>
-						<a class="single-gallery" href="@{'public/museu/img/g12.jpg'}"><img class="grid-item" src="@{'public/museu/img/g12.jpg'}"></a>
-						<a class="single-gallery" href="@{'public/museu/img/g4.jpg'}"><img class="grid-item" src="@{'public/museu/img/g4.jpg'}"></a>
-						#{list items:objetos, as:'obj'}
-							#{list items:obj.fotos, as:'f'}
-								<a class="single-gallery" href="/uploads/${f.nomeFoto}"><img class="grid-item" src="/uploads/${f.nomeFoto}"></a>
-							#{/list}
-						#{/list}
-						
-					</div>	
-				</div>	
-			</section>
 			
-			<!-- End gallery Area -->			
+			
 			
 			<section class="upcoming-exibition-area section-gap">
 				<div class="container">
@@ -140,17 +100,17 @@ ${flash.error}
 						</div>
 					</div>						
 					<div class="row">
-							
+					#{if colecoes != null}
 						#{list items:colecoes, as:'colecao'}
 							<div class="col-lg-4 col-md-6 single-exhibition">
 								<div class="thumb">
 									<img class="img-fluid" src="/uploads/${colecao.fotoCapa.nomeFoto}" alt="">						
 								</div>
-								<a href="@{Usuarios.exposicaoObjetos}"><h4>${colecao.nome}</h4></a>
+								<a href="@{Colecoes.exibirObjetos(colecao)}"><h4>${colecao.nome}</h4></a>
 								<p>${colecao.descricao}</p>
 							</div>	
 						#{/list}
-																			
+					#{/if}									
 					</div>
 				</div>	
 			</section>

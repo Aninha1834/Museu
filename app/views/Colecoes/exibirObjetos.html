@@ -53,9 +53,7 @@
 			  	<hr>
 			    <div class="container">
 			    	<div class="row align-items-center justify-content-between d-flex">
-				      <div id="logo">
-				        <a href="index.html"><img src="img/logo.png" alt="" title="" /></a>
-				      </div>
+				      
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">
 				          <li class="menu-active"><a href="@{Application.index}">Home</a></li>
@@ -66,52 +64,55 @@
 			    	</div>
 			    </div>
 			  </header><!-- #header -->
-
-			<!-- start banner Area -->
-			<section class="banner-area relative" id="home">	
+				<section class="banner-area relative" id="home">	
 				<div class="overlay overlay-bg"></div>
 				<div class="container">
 					<div class="row d-flex align-items-center justify-content-center">
 						<div class="about-content col-lg-12">
 							<h1 class="text-white">
-								Galeria de Arte			
+								Galeria de arte			
 							</h1>	
 						</div>											
 					</div>
 				</div>
 			</section>
-			<!-- End banner Area -->	
-
-
+	
+			
 			<!-- Start gallery Area -->
-			<section class="gallery-area section-gap gallery-page-area" id="gallery">
+			<section class="upcoming-exibition-area section-gap">
 				<div class="container">
 					<div class="row d-flex justify-content-center">
 						<div class="menu-content pb-70 col-lg-8">
 							<div class="title text-center">
-								<h1 class="mb-10">Artefatos</h1>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua.</p>
+								#{if colecao==null}
+									<h1 class="mb-10">Artefatos do museu</h1>
+									<p>Navegue pelos diversos artefatos presentes no museu</p>
+								#{/if}
+								#{else}
+									<h1 class="mb-10">${colecao.nome}</h1>
+									<p>${colecao.descricao}</p>
+								#{/else}
 							</div>
 						</div>
 					</div>						
-					<div id="grid-container" class="row">
-						
-						
-						<a class="single-gallery" href="@{'public/museu/img/g1.jpg'}"><img class="grid-item" src="@{'public/museu/img/g1.jpg'}"></a>
-						<a class="single-gallery" href="@{'public/museu/img/g2.jpg'}"><img class="grid-item" src="@{'public/museu/img/g2.jpg'}"></a>
-						<a class="single-gallery" href="@{'public/museu/img/g3.jpg'}"><img class="grid-item" src="@{'public/museu/img/g3.jpg'}"></a>
-						<a class="single-gallery" href="@{'public/museu/img/g4.jpg'}"><img class="grid-item" src="@{'public/museu/img/g4.jpg'}"></a>
-						<a class="single-gallery" href="@{'public/museu/img/g5.jpg'}"><img class="grid-item" src="@{'public/museu/img/g5.jpg'}"></a>
-						<a class="single-gallery" href="@{'public/museu/img/g6.jpg'}"><img class="grid-item" src="@{'public/museu/img/g6.jpg'}"></a>
-						<a class="single-gallery" href="@{'public/museu/img/g7.jpg'}"><img class="grid-item" src="@{'public/museu/img/g7.jpg'}"></a>
-						<a class="single-gallery" href="@{'public/museu/img/g8.jpg'}"><img class="grid-item" src="@{'public/museu/img/g8.jpg'}"></a>
-						<a class="single-gallery" href="@{'public/museu/img/g9.jpg'}"><img class="grid-item" src="@{'public/museu/img/g9.jpg'}"></a>
-						<a class="single-gallery" href="@{'public/museu/img/g10.jpg'}"><img class="grid-item" src="@{'public/museu/img/g10.jpg'}"></a>
-						<a class="single-gallery" href="@{'public/museu/img/g11.jpg'}"><img class="grid-item" src="@{'public/museu/img/g11.jpg'}"></a>
-						<a class="single-gallery" href="@{'public/museu/img/g12.jpg'}"><img class="grid-item" src="@{'public/museu/img/g12.jpg'}"></a>
-						<a class="single-gallery" href="@{'public/museu/img/g4.jpg'}"><img class="grid-item" src="@{'public/museu/img/g4.jpg'}"></a>
-					</div>	
+					<div class="row">
+						#{if colecao.objetos != null}
+							#{list items:colecao.objeto, as:'obj'}
+								<div class="col-lg-4 col-md-6 single-exhibition">
+									<div class="thumb">
+										<img class="img-fluid" src="/uploads/${obj.fotos.get(0).nomeFoto}" alt="">						
+									</div>
+									<a href="#"><h4>${obj.nome}</h4></a>
+								</div>	
+							#{/list}
+						#{/if}
+						#{else}
+							</center><h5>Ops! Galeria vazia. Volte mais tarde!</h5>
+						#{/else}
+																			
+					</div>
 				</div>	
+			</section>	
 	
 
 			<!-- start footer Area -->		
