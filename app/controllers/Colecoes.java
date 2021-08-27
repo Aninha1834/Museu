@@ -114,7 +114,8 @@ public class Colecoes extends Controller{
 		editar(colec.id);
 	}
 	
-	public static void exibirObjetos (Colecao colecao) {
+	public static void exibirObjetos (Long idColecao) {
+		Colecao colecao = Colecao.findById(idColecao);
 		render(colecao);
 	}
 

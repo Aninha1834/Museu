@@ -106,7 +106,7 @@ ${flash.error}
 								<div class="thumb">
 									<img class="img-fluid" src="/uploads/${colecao.fotoCapa.nomeFoto}" alt="">						
 								</div>
-								<a href="@{Colecoes.exibirObjetos(colecao)}"><h4>${colecao.nome}</h4></a>
+								<a href="@{Colecoes.exibirObjetos(colecao.id)}"><h4>${colecao.nome}</h4></a>
 								<p>${colecao.descricao}</p>
 							</div>	
 						#{/list}

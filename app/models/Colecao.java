@@ -33,4 +33,8 @@ public class Colecao extends Model{
 	@JoinTable(name="colecao_objeto")
 	public List<Objeto> objetos;
 	
+	public Colecao () {
+		objetos = new ArrayList<>();
+	}
+	
 }
