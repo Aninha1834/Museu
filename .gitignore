@@ -1,0 +1,16 @@
+# Ignore Play! diretório de trabalho #
+bin /
+/ db
+.eclipse
+/ lib /
+/ logs /
+/ modules
+/ project / project
+/ project / target
+/ target
+tmp /
+resultado do teste
+server.pid
+* .eml
+/ dist /
+.cache
