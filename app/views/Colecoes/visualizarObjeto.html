@@ -76,48 +76,61 @@
 					</div>
 				</div>
 			</section>
-	
 			
-			<!-- Start gallery Area -->
-			<section class="upcoming-exibition-area section-gap">
+				<!-- Start gallery Area -->
+			<section class="gallery-area section-gap gallery-page-area" id="gallery">
 				<div class="container">
 					<div class="row d-flex justify-content-center">
 						<div class="menu-content pb-70 col-lg-8">
 							<div class="title text-center">
-								#{if colecao==null}
-									<h1 class="mb-10">Artefatos do museu</h1>
-									<p>Navegue pelos diversos artefatos presentes no museu</p>
-								#{/if}
-								#{else}
-									<h1 class="mb-10">${colecao.nome}</h1>
-									<p>${colecao.descricao}</p>
-								#{/else}
+								<h1 class="mb-10">Our Exhibition Gallery</h1>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua.</p>
 							</div>
 						</div>
 					</div>						
-					<div class="row">
-						#{if colecao.objetos != null}
-							#{list items:colecao.objetos, as:'obj'}
-								
-								<div class="col-lg-4 col-md-6 single-exhibition">
-									<a href="@{Colecoes.visualizarObjeto(obj.getId())}">
-										<div class="thumb">
-											<img class="img-fluid" src="/uploads/${obj.fotos.get(0).nomeFoto}" alt="">						
-										</div>
-										<h4>${obj.nome}</h4>
-									</a>
-								</div>	
-								
-							#{/list}
-						#{/if}
-						#{else}
-							</center><h5>Ops! Galeria vazia. Volte mais tarde!</h5>
-						#{/else}
-																			
-					</div>
+					<div id="grid-container" class="row">
+					
+						#{list items:objeto.fotos, as:'ft'}
+					
+							<a class="single-gallery" href="/uploads/${ft.nomeFoto}"><img class="grid-item" src="/uploads/${ft.nomeFoto}"></a>
+						
+						#{/list}
+					</div>	
 				</div>	
-			</section>	
-	
+			</section>
+			<!-- End gallery Area -->
+			<div class="container">
+				<div class="section-top-border">
+					<h3 class="mb-30">Informações</h3>
+					<div class="row">
+						<div class="col-md-4">
+							<div class="single-defination">
+							
+								<span class="mb-20 title_desc_obj">Título: </span>
+								<span>${objeto.nome}</span>
+								</br>
+								<span class="mb-20 title_desc_obj">Categoria: </span>
+								<span>${objeto.categoria.nome}</span>
+								</br>
+								<span class="mb-20 title_desc_obj">Dimensões: </span>
+								<span>Altura: ${objeto.altura} cm; Largura ${objeto.altura} cm</span>
+								</br>
+								<span class="mb-20 title_desc_obj">Materiais: </span>
+								<span>${objeto.material}</span>
+								</br>
+								<span class="mb-20 title_desc_obj">Datado: </span>
+								<span>${objeto.data.format("dd/MM/yyyy")}</span>
+								</br>
+								<span class="mb-20 title_desc_obj">Descrição: </span>
+								<span>${objeto.historia}</span>
+								
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			
 
 			<!-- start footer Area -->		
 			<footer class="footer-area section-gap">

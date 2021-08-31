@@ -118,5 +118,10 @@ public class Colecoes extends Controller{
 		Colecao colecao = Colecao.findById(idColecao);
 		render(colecao);
 	}
+	
+	public void visualizarObjeto (Long idObjeto) {
+		Objeto objeto = Objeto.findById(idObjeto);
+		render(objeto);
+	}
 
 }
