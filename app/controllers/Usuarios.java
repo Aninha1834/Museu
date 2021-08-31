@@ -93,9 +93,18 @@ public class Usuarios extends Controller {
 	}
 	
 	public static void galeria() {
-		List<Colecao> colecoes = Colecao.findAll();
-		render(colecoes);
+		String busca = params.get("busca");
+
+		List<Colecao> colecoes;
+		if (busca == null) {
+			colecoes = Colecao.findAll();
+		} else {
+		   colecoes = Colecao.find("nome like ?1 ",
+				   "%"+busca+"%").fetch();
+		}
 		
+		render(colecoes, busca);
+	
 	}
 	
 	public static void contatos() {
