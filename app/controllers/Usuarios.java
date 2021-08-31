@@ -95,8 +95,7 @@ public class Usuarios extends Controller {
 	public static void galeria() {
 		List<Colecao> colecoes = Colecao.findAll();
 		render(colecoes);
-
-
+		
 	}
 	
 	public static void contatos() {

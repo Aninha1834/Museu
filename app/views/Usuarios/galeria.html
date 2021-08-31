@@ -97,6 +97,15 @@ ${flash.error}
 								<h1 class="mb-10">Exposições do museu</h1>
 								<p>Navegue pelos diversos artefatos presentes em cada exposição</p>
 							</div>
+							
+							<form action="@{Usuarios.galeria}">
+
+                            <input name="busca" value="${busca}">
+
+                            <button>Pesquisar</button>
+                            </form>
+                            <br><br>
+							
 						</div>
 					</div>						
 					<div class="row">
@@ -114,7 +123,8 @@ ${flash.error}
 					</div>
 				</div>	
 			</section>
-
+			
+			
 			<!-- start footer Area -->		
 			<footer class="footer-area section-gap">
 				<div class="container">
