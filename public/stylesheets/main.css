@@ -7,3 +7,191 @@
 	text-color: gray;
 }
 
+.card{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  width: 500px;
+  height: 300px;
+  
+  background-size: cover;
+  background-position:center center;
+  background-repeat: no-repeat;
+
+	margin: 20px;
+  border-radius: 5px;
+
+}
+
+.card:hover{
+  cursor: pointer;
+}
+
+.card:hover > .content > .title{
+  border-bottom: 1px solid yellow;
+}
+
+
+
+
+.card p{
+  color: white;
+}
+
+
+
+.content {
+
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.content > div {
+  height: 45%;
+  width: 80%;
+  display: flex;
+}
+
+.title {
+  justify-content: center;
+
+  align-items: flex-end;
+  border-bottom: 1px solid white;
+}
+
+.description{
+	flex-direction: column;
+  	justify-content: space-between;
+}
+
+
+.description div {
+  display: flex;
+  justify-content:flex-end;
+  
+}
+
+
+
+.text-withe {
+  color: white;
+}
+
+.description > p, .description > div > p {
+  color: white;
+  text-align: center;
+}
+
+.row-galery {
+	justify-content: center;
+	display: flex;
+  	flex-wrap: wrap;
+  	margin-right: -15px;
+  margin-left: -15px;
+}
+
+.search-bar-header {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	margin-top: 50px;
+}
+
+.search-bar-header form {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	
+}
+
+.search-bar-header button{
+	background-color: #3896f5;
+	border: 0;
+	height: 30px;
+	padding: 5px;
+	width: 30px;
+	cursor: pointer;
+}
+
+.search-bar-header .input-area {
+	
+	border-bottom: 1px solid rgb(230, 230, 230);
+	background-color: rgba(255, 255, 255, 0.1);
+	padding-left: 10px;
+	width: 40%;
+	height: 30px;
+}
+
+.search-bar-header input {
+	color: white;
+	border: none;
+	background-color: rgba(255, 255, 255, 0);
+	width: 100%;
+	height: 30px;
+	
+}
+
+::-webkit-input-placeholder {
+	color: #DaDaDa;
+	
+}
+
+
+.search-bar-header input:focus{
+	box-shadow: 0 0 0 0;
+	outline: 0;
+
+}
+
+.list-adm {
+	display: flex;
+	align-items: baseline;	
+	justify-content: space-between;
+	
+}
+
+.input-area-adm {
+	padding-left: 15px;
+	height: 30px;
+	width: calc(100% - 40px);
+	
+}
+
+.search-bar-adm {
+	background-color: white;
+	width: 500px;
+	height: 30px;
+	margin-left: 100px;
+	border-radius: 20px;
+	border-top: 1px solid rgb(230, 230, 230);
+	border-left: 1px solid rgb(230, 230, 230);
+}
+
+.search-bar-adm form {
+	display: flex;
+}
+
+.search-bar-adm form input {
+	background-color: rgba(255, 255, 255, 0);
+	height: 30px;
+	width: 100%;
+	
+}
+
+.search-bar-adm form input:focus, .button-search-bar-adm:focus {
+	box-shadow: 0 0 0 0;
+	outline: 0;
+}
+
+.button-search-bar-adm {
+	height: 30px;
+	width: 30px;
+}

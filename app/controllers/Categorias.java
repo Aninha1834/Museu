@@ -35,7 +35,7 @@ public class Categorias extends Controller {
 		}
 		
 		ValuePaginator listaPaginada = new ValuePaginator(lista);
-		listaPaginada.setPageSize(5);
+		listaPaginada.setPageSize(3);
 		
 		render(listaPaginada, busca);
 

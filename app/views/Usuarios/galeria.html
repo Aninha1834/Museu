@@ -35,6 +35,7 @@ ${flash.error}
 			<link rel="stylesheet" href="@{'public/museu/css/owl.carousel.css'}">
 			<link rel="stylesheet" href="@{'public/museu/css/main.css'}">
 			<link rel="stylesheet" href="@{'public/stylesheets/main.css'}">
+			
 		</head>
 		<body>
 
@@ -75,16 +76,31 @@ ${flash.error}
 
 			<!-- start banner Area -->
 			<section class="banner-area relative" id="home">	
-				<div class="overlay overlay-bg"></div>
+				<div class="overlay overlay-bg">
+				
+				</div>
 				<div class="container">
 					<div class="row d-flex align-items-center justify-content-center">
 						<div class="about-content col-lg-12">
 							<h1 class="text-white">
-								Galeria de Arte			
+								Museu José Elviro			
 							</h1>	
-						</div>											
+							<div class="search-bar-header">
+								<form action="@{Usuarios.galeria}">
+									<div class="input-area">
+										<input name="busca" value="${busca}" placeholder="Pesquisar coleção" autocomplete="off">
+									</div>
+									<button>							
+											<i class="fas fa-search" style="color: white"></i>
+									</button>
+								</form>
+							</div>
+						</div>										
 					</div>
 				</div>
+				
+				
+                            
 			</section>
 			
 			
@@ -94,32 +110,41 @@ ${flash.error}
 					<div class="row d-flex justify-content-center">
 						<div class="menu-content pb-70 col-lg-8">
 							<div class="title text-center">
-								<h1 class="mb-10">Exposições do museu</h1>
-								<p>Navegue pelos diversos artefatos presentes em cada exposição</p>
+								<h1 class="mb-10">Coleções do museu</h1>
+								<p>Navegue pelas diversos coleções do museu virtual.</p>
 							</div>
 							
-							<form action="@{Usuarios.galeria}">
-
-                            	<input name="busca" value="${busca}">
-
-                            	<button>Pesquisar</button>
-                            </form>
-                            <br><br>
+							
 							
 						</div>
 					</div>						
-					<div class="row">
+					<div class="row-galery">
 					#{if colecoes != null}
 						#{list items:colecoes, as:'colecao'}
-							<div class="col-lg-4 col-md-6 single-exhibition">
-								<div class="thumb">
-									<img class="img-fluid" src="/uploads/${colecao.fotoCapa.nomeFoto}" alt="">						
+						
+						<a href="@{Colecoes.exibirObjetos(colecao.id)}">
+							<div class="card" style="background-image: url(/uploads/${colecao.fotoCapa.nomeFoto});">
+								<div class="content">
+									<div class="title">
+										<h1 class="text-withe">${colecao.nome}</h1>
+									</div>
+									<div class="description">
+										<p class="text-withe">${colecao.descricao}</p>
+										<div>
+											#{if colecao.objetos.size() == 1}
+												<p class="text-withe" style="font-size: 12px">1 artefato</p>
+											#{/if}
+											#{else}
+												<p class="text-withe" style="font-size: 12px">${colecao.objetos.size()} artefatos</p>
+											#{/else}
+										</div>
+									</div>
 								</div>
-								<a href="@{Colecoes.exibirObjetos(colecao.id)}"><h4>${colecao.nome}</h4></a>
-								<p>${colecao.descricao}</p>
-							</div>	
+							</div>
+						</a>
+							
 						#{/list}
-					#{/if}									
+					#{/if}		
 					</div>
 				</div>	
 			</section>
@@ -193,5 +218,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<script src="@{'public/museu/js/parallax.min.js'}"></script>		
 			<script src="@{'public/museu/js/mail-script.js'}"></script>	
 			<script src="@{'public/museu/js/main.js'}"></script>	
+			<script src="https://kit.fontawesome.com/bfaa6a36fa.js" crossorigin="anonymous"></script>
 		</body>
 	</html>

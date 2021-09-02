@@ -38,7 +38,7 @@ public class Colecoes extends Controller{
 		}
 		
 		ValuePaginator listaPaginada = new ValuePaginator(lista);
-		listaPaginada.setPageSize(5);
+		listaPaginada.setPageSize(3);
 		
 		render(listaPaginada, busca);
 
@@ -66,9 +66,11 @@ public class Colecoes extends Controller{
 		if (foto != null) {
 			System.out.println("Tem foto");
 			Foto f = new Foto(foto.getName());
+			System.out.println("Nome foto" + f.nomeFoto);
 			f.save();
 			
 			colecao.fotoCapa = f;
+			System.out.println("Nome da foto da coleção:" + colecao.fotoCapa.nomeFoto);
 			
 			File dest = new File("./uploads/" + foto.getName());
 			
@@ -86,6 +88,7 @@ public class Colecoes extends Controller{
 	
 	public static void deletar(Long id) {
 		Colecao colecao = Colecao.findById(id);
+		
 		colecao.delete();
 		listar();
 	}

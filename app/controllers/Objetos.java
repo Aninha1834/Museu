@@ -41,7 +41,7 @@ public class Objetos extends Controller {
 		}
 		
 		ValuePaginator listaPaginada = new ValuePaginator(lista);
-		listaPaginada.setPageSize(5);
+		listaPaginada.setPageSize(3);
 		
 		render(listaPaginada, busca);
 
@@ -64,15 +64,15 @@ public class Objetos extends Controller {
 		
 		if (foto != null) {
 			Foto f = new Foto(foto.getName());
+			System.out.println("nome foto: " + f.nomeFoto);
 			f.save();
 			
 			objeto.fotos.add(f);
 			
+			
 			File dest = new File("./uploads/" + foto.getName());
 			
-//			if (dest.exists()) {
-//				dest.delete();
-//			}
+
 	
 			foto.renameTo(dest);
 		}

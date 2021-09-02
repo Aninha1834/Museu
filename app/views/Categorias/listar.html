@@ -10,14 +10,24 @@ ${flash.error}
 
 <main class="h-full pb-16 overflow-y-auto container px-6 mx-auto grid">
 
+<div class="list-adm">
+	<h2
+		class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
+	>
+		Lista de categorias
+	</h2>
+	<div class="search-bar-adm">
+		<form action="@{Categorias.listar}">
+			<div class="input-area-adm">
+				<input name="busca" value="${busca}" placeholder="Pesquisar por categoria" autocomplete="off">
+			</div>
+			<button class="button-search-bar-adm">				
+					<i class="fas fa-search" style="color:#763DF2"></i>
+			</button>
+		</form>
+	</div>
+</div>
 
-<h2
-	class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
->
-	Lista de categorias
-</h2>
-
-<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/play-pagination.css'}">              
               
 <div class="w-full overflow-hidden rounded-lg shadow-xs">
 	<div class="w-full overflow-x-auto">
@@ -32,13 +42,6 @@ ${flash.error}
         		</tr>
       		</thead>
       		
-      		 <form action="@{Categorias.listar}">
-
-             <input name="busca" value="${busca}">
-
-             <button>Pesquisar</button>
-
-              </form><br><br>
       		
    			<tbody
         		class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
@@ -96,21 +99,13 @@ ${flash.error}
        			</tr>
        		#{/paginate.list}
        		 
-            #{paginate.controls items:listaPaginada /}
+            
    			</tbody>
 		</table>
+		#{paginate.controls items:listaPaginada /}
 	</div>
   
- 	<a href="@{Categorias.form}">
-  		<div
-  			class="btn-add"
-  		>
- 			<div>
-  				<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>	
-  			</div>
-  
-  		</div>
-	</a>
+ 	
 </div>
 </main>
 
