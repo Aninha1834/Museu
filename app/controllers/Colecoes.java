@@ -1,6 +1,7 @@
 package controllers;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import models.Colecao;
@@ -17,7 +18,6 @@ import play.mvc.With;
 public class Colecoes extends Controller{
 	
 	public static void form() {
-		System.out.println("---Formulário---");
 		Colecao colecao = (Colecao) Cache.get("colecao");
 		Cache.clear();
 		render(colecao);
@@ -33,8 +33,8 @@ public class Colecoes extends Controller{
 			lista = Colecao.findAll();
 		} else {
 		   lista = Colecao.find("select c from Colecao c "
-				   + " where c.nome like ? " ,
-				   "%"+busca+"%").fetch();
+				   + " where lower(c.nome) like ? " ,
+				   "%"+busca.toLowerCase()+"%").fetch();
 		}
 		
 		ValuePaginator listaPaginada = new ValuePaginator(lista);
@@ -118,9 +118,29 @@ public class Colecoes extends Controller{
 	}
 	
 	public static void exibirObjetos (Long idColecao) {
+		String busca = params.get("busca");
 		
 		Colecao colecao = Colecao.findById(idColecao);
-		render(colecao);
+		List<Objeto> objetos = colecao.objetos;
+	
+		if (busca == null) {
+			objetos = colecao.objetos;
+		} else {
+			
+			
+			List<Objeto> objets = Objeto.find("LOWER(nome) like ?1 ","%"+busca.toLowerCase()+"%").fetch(); 
+			List<Objeto> ob = new ArrayList<>();
+		
+			for(Objeto obj: objets) {
+				for(Colecao col: obj.colecoes) {
+					if(col.getId() == colecao.getId()) {
+						ob.add(obj);
+					}
+				}   
+			}
+			objetos = ob;
+		}
+		render(colecao, objetos, idColecao, busca);
 	}
 	
 	public void visualizarObjeto (Long idObjeto) {

@@ -53,7 +53,9 @@
 			  	<hr>
 			    <div class="container">
 			    	<div class="row align-items-center justify-content-between d-flex">
-				      
+				      <div id="logo">
+				        <a href="index.html"><img src="img/logo.png" alt="" title="" /></a>
+				      </div>
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">
 				          <li class="menu-active"><a href="@{Application.index}">Home</a></li>
@@ -71,7 +73,20 @@
 						<div class="about-content col-lg-12">
 							<h1 class="text-white">
 								Galeria de arte			
-							</h1>	
+							</h1>
+							<div class="search-bar-header">
+							
+						
+								<form action="@{Colecoes.exibirObjetos}">
+									<input type="hidden" name="idColecao" value="${idColecao}">
+									<div class="input-area">
+										<input name="busca" value="${busca}" placeholder="Buscar objeto" autocomplete="off">
+									</div>
+									<button>							
+											<i class="fas fa-search" style="color: white"></i>
+									</button>
+								</form>
+							</div>	
 						</div>											
 					</div>
 				</div>
@@ -81,6 +96,7 @@
 			
 			
 			<!-- Start gallery Area -->
+		
 			<section class="upcoming-exibition-area section-gap">
 				<div class="container">
 					<div class="row d-flex justify-content-center">
@@ -93,13 +109,14 @@
 								#{else}
 									<h1 class="mb-10">${colecao.nome}</h1>
 									<p>${colecao.descricao}</p>
+								
 								#{/else}
 							</div>
 						</div>
 					</div>						
 					<div class="row">
-						#{if colecao.objetos != null}
-							#{list items:colecao.objetos, as:'obj'}
+						#{if objetos != null}
+							#{list items:objetos, as:'obj'}
 								
 								<div class="col-lg-4 col-md-6 single-exhibition">
 									<a href="@{Colecoes.visualizarObjeto(obj.getId())}">
@@ -189,5 +206,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<script src="@{'public/museu/js/parallax.min.js'}"></script>		
 			<script src="@{'public/museu/js/mail-script.js'}"></script>	
 			<script src="@{'public/museu/js/main.js'}"></script>	
+			<script src="https://kit.fontawesome.com/bfaa6a36fa.js" crossorigin="anonymous"></script>
 		</body>
 	</html>

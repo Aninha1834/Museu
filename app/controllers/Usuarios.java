@@ -37,8 +37,8 @@ public class Usuarios extends Controller {
 		if (busca == null) {
 			lista = Usuario.findAll();
 		} else {
-		   lista = Usuario.find("nome like ?1 or email like ?1 ",
-				   "%"+busca+"%").fetch();
+		   lista = Usuario.find("lower(nome) like ?1 or email like ?1 ",
+				   "%"+busca.toLowerCase()+"%").fetch();
 		}
 		
 		ValuePaginator listaPaginada = new ValuePaginator(lista);
@@ -99,8 +99,8 @@ public class Usuarios extends Controller {
 		if (busca == null) {
 			colecoes = Colecao.findAll();
 		} else {
-		   colecoes = Colecao.find("nome like ?1 ",
-				   "%"+busca+"%").fetch();
+		   colecoes = Colecao.find("lower(nome) like ?1 ",
+				   "%"+busca.toLowerCase()+"%").fetch();
 		}
 		
 		render(colecoes, busca);

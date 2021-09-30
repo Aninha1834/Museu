@@ -36,8 +36,8 @@ public class Objetos extends Controller {
 			lista = Objeto.findAll();
 		} else {
 		   lista = Objeto.find("select o from Objeto o "
-				   + " where o.nome like ? " ,
-				   "%"+busca+"%").fetch();
+				   + " where lower(o.nome) like ? " ,
+				   "%"+busca.toLowerCase()+"%").fetch();
 		}
 		
 		ValuePaginator listaPaginada = new ValuePaginator(lista);

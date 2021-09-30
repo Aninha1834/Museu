@@ -30,8 +30,8 @@ public class Categorias extends Controller {
 			lista = Categoria.findAll();
 		} else {
 		   lista = Categoria.find("select c from Categoria c "
-				   + " where c.nome like ? " ,
-				   "%"+busca+"%").fetch();
+				   + " where lower(c.nome) like ? " ,
+				   "%"+busca.toLowerCase()+"%").fetch();
 		}
 		
 		ValuePaginator listaPaginada = new ValuePaginator(lista);
