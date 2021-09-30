@@ -13,6 +13,7 @@ public class Login extends Controller{
 		u.senha = "123456";
 		u.nome = "Administrador";
 		u.cpf =  "111.111.111-11";
+		u.nivel = 1;
 		u.setSenha();
 		u.save();
 		
@@ -31,12 +32,11 @@ public class Login extends Controller{
 			flash.error("Usuário ou senha inválida");
 			form();
 		}else {
-			
-			
-			
+		
 			session.put("usuario.email", usu.email);
 			session.put("usuario.nome", usu.nome);
 			session.put("usuario.id", usu.id);
+			session.put("usuario.nivel", usu.nivel);
 			
 //			if (usu.fotoPerfilAdmin.exists()) {
 //				session.put("adminTemFoto", true);	

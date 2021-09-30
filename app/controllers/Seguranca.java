@@ -13,5 +13,12 @@ public class Seguranca extends Controller{
 		}
 		
 	}
+	
+	@Before(only={"Usuarios.form","Usuarios.salvar","Usuarios.deletar","Usuarios.editar","Usuarios.listar"})
+	static void permissoes() {
+		if (session.get("usuario.nivel").equals("1") == false) {
+			renderText("Acesso negado");
+		}
+	}
 
 }

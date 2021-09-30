@@ -74,6 +74,12 @@ ${flash.error}
        	
        	<input type="hidden" name="senha" value="${usu?.senha}"></div>
        	
+       	 Cadastrar usuário como padrão:
+         <select name="usuario.nivel">
+         <option value="0" #{if usuario?.nivel == 0} selected #{/if}>Padrão</option>
+         </select>
+         <br/>
+       	
        	<div class="mt-4 text-sm">
         	<label class="block text-sm">
             	<span class="text-gray-700 dark:text-gray-400">Selecione uma foto de perfil</span>
@@ -85,8 +91,6 @@ ${flash.error}
              	
        		</label>
        	</div>   
-       	
-       	
        	
        	<div class="mt-4 text-sm">
 	       	<a href="@{Usuarios.listar}">

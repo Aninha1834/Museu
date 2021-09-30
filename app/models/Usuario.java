@@ -31,6 +31,8 @@ public class Usuario extends Model{
 	@MinSize(value=4, message="A senha deve possuir no mínimo 4 caracteres")
 	public String senha;
 	
+	public int nivel;
+	
 //	public Blob fotoPerfilAdmin;
 	
 	public void setSenha() {
