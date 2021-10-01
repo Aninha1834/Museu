@@ -72,13 +72,11 @@ ${flash.error}
        		</label>
        	</div>
        	
-       	<input type="hidden" name="senha" value="${usu?.senha}"></div>
+       	<input type="hidden" name="senha" value="${usu?.senha}">
+       	<input type="hidden" name="usu.nivel" value="${usu?.nivel}">
+       	</div>
        	
-       	 Cadastrar usuário como padrão:
-         <select name="usuario.nivel">
-         <option value="0" #{if usuario?.nivel == 0} selected #{/if}>Padrão</option>
-         </select>
-         <br/>
+       	
        	
        	<div class="mt-4 text-sm">
         	<label class="block text-sm">
@@ -105,3 +103,9 @@ ${flash.error}
        	</div>
 	</form>
 </main>
+
+<!--  Cadastrar usuário como padrão:
+         <select name="usuario.nivel">
+         	<option value="0" #{if usuario?.nivel == 0} selected #{/if}>Padrão</option>
+         </select>
+         <br/> -->
