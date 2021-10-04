@@ -26,7 +26,13 @@ public class Usuarios extends Controller {
 	}
 	
 	public static void inicio() {
-		render();
+		
+		List<Objeto> objetos = Objeto.findAll();
+		List<Colecao> colecoes = Colecao.findAll();
+		List<Categoria> categorias = Categoria.findAll();
+		
+		render(objetos, colecoes, categorias);
+		
 
 	}
 		
