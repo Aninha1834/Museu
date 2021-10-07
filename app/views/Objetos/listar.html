@@ -41,10 +41,10 @@ ${flash.error}
           			<th class="px-4 py-3">Nome</th>
 		          	<th class="px-4 py-3">Categoria</th>
 		          	<th class="px-4 py-3">Material</th>
-		          	<th class="px-4 py-3">Altura (cm)</th>
 		          	<th class="px-4 py-3">Largura (cm)</th>
 		          	<th class="px-4 py-3">Data</th>
 		          	<th class="px-4 py-3">História</th>
+		          	<th class="px-4 py-3">Visibilidade</th>
 		          	<th class="px-4 py-3">Edição</th>
 		          
         		</tr>
@@ -72,17 +72,26 @@ ${flash.error}
             			${objeto.material}
           			</td>
           			<td class="px-4 py-3 text-sm">
-            			${objeto.altura}
+            			${objeto.largura}x${objeto.altura}
           			</td>
           			<td class="px-4 py-3 text-sm">
-            			${objeto.largura}
-          			</td>
-          			<td class="px-4 py-3 text-sm">
-            			${objeto.data}
+            			${objeto.data.format("dd/MM/yyyy")}
           			</td>
           			<td class="px-4 py-3 text-sm">
             			${objeto.historia}
           			</td>
+          			<td class="px-4 py-3 text-xs">
+                        <span 
+                        	#{if objeto.visivel == true} 
+                        		class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
+                        		Público 
+                        	#{/if} 
+                        	#{else} 
+                        		class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700">
+                        		Restrito 
+                        	#{/else}
+                    	</span>
+                    </td>
           	
     
           			

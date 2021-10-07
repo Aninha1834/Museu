@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import models.Categoria;
@@ -102,6 +103,8 @@ public class Usuarios extends Controller {
 		String busca = params.get("busca");
 
 		List<Colecao> colecoes;
+		List<Objeto> objetos = Objeto.find("visivel = ?1", true).fetch();
+		
 		if (busca == null) {
 			colecoes = Colecao.findAll();
 		} else {
@@ -109,7 +112,7 @@ public class Usuarios extends Controller {
 				   "%"+busca.toLowerCase()+"%").fetch();
 		}
 		
-		render(colecoes, busca);
+		render(colecoes, objetos, busca);
 	
 	}
 	

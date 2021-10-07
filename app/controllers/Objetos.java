@@ -47,8 +47,13 @@ public class Objetos extends Controller {
 
 	    }
 	
-	public static void salvar(@Valid Objeto objeto, Long idCategoria, File foto) {
+	public static void salvar(@Valid Objeto objeto, Long idCategoria, File foto, String visivel) {
 		
+		if (visivel == null) {
+			objeto.visivel = false;
+		} else  {
+			objeto.visivel = true;
+		}
 		
 		
 		if(validation.hasErrors()) {

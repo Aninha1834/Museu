@@ -34,6 +34,8 @@ ${flash.error}
 	       		</label>
 	       	</div>
 	       	
+	       	
+	       	
 	       	<div class="mt-4 text-sm">
 	        	<label class="block mt-4 text-sm">
 	                <span class="text-gray-700 dark:text-gray-400">Descrição</span>
@@ -45,6 +47,8 @@ ${flash.error}
 	                >${colecao?.descricao}</textarea>
 	           	</label>
        		</div>
+	       	
+	       	
 	       	
 	       	#{if colecao?.id}
 		       	<div class="mt-4 text-sm">
@@ -67,7 +71,23 @@ ${flash.error}
 	       		</div>
        		#{/if}
        	
-       		
+       		<div class="flex mt-6 text-sm">
+                <label class="flex items-center dark:text-gray-400">
+                  <input
+                 	value="true"
+                  	name="visivel"
+                    type="checkbox"
+                  	#{if colecao?.visivel.equals(true)}
+                  		checked
+                  	#{/if}
+                    class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                  
+                  />
+                  <span class="ml-2">
+                    Permitir que esta coleção seja visualizada na página inicial
+                  </span>
+                </label>
+              </div>
        	
        		
        		

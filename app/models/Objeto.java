@@ -54,5 +54,7 @@ public class Objeto extends Model{
 		this.colecoes = new ArrayList<>();
 		this.fotos = new ArrayList<Foto>();
 	}
+	
+	public boolean visivel;
 
 }

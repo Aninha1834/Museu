@@ -44,10 +44,15 @@ public class Colecoes extends Controller{
 
 	}
 	
-	public static void salvar(@Valid Colecao colecao, Long idObjeto, File foto) {
+	public static void salvar(@Valid Colecao colecao, Long idObjeto, File foto, String visivel) {
 		
 		System.out.println("---Salvar---");
-		
+
+		if (visivel == null) {
+			colecao.visivel = false;
+		} else  {
+			colecao.visivel = true;
+		}
 		
 		
 		if(validation.hasErrors()) {
@@ -121,10 +126,14 @@ public class Colecoes extends Controller{
 		String busca = params.get("busca");
 		
 		Colecao colecao = Colecao.findById(idColecao);
-		List<Objeto> objetos = colecao.objetos;
+		List<Objeto> objetos = new ArrayList<>();
 	
 		if (busca == null) {
-			objetos = colecao.objetos;
+			for (Objeto obj: colecao.objetos) {
+				if (obj.visivel  == true) {
+					objetos.add(obj);
+				}
+			}
 		} else {
 			
 			
@@ -133,7 +142,8 @@ public class Colecoes extends Controller{
 		
 			for(Objeto obj: objets) {
 				for(Colecao col: obj.colecoes) {
-					if(col.getId() == colecao.getId()) {
+					if(col.getId() == colecao.getId() && obj.visivel == true) {
+						System.out.println("Obj visivel: " + obj.visivel);
 						ob.add(obj);
 					}
 				}   

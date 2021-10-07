@@ -121,28 +121,29 @@ ${flash.error}
 					<div class="row-galery">
 					#{if colecoes != null}
 						#{list items:colecoes, as:'colecao'}
+							#{if colecao.visivel == true}
 						
-						<a href="@{Colecoes.exibirObjetos(colecao.id)}">
-							<div class="card" style="background-image: url(/uploads/${colecao.fotoCapa.nomeFoto});">
-								<div class="content">
-									<div class="title">
-										<h1 class="text-withe">${colecao.nome}</h1>
-									</div>
-									<div class="description">
-										<p class="text-withe">${colecao.descricao}</p>
-										<div>
-											#{if colecao.objetos.size() == 1}
-												<p class="text-withe" style="font-size: 12px">1 artefato</p>
-											#{/if}
-											#{else}
-												<p class="text-withe" style="font-size: 12px">${colecao.objetos.size()} artefatos</p>
-											#{/else}
+								<a href="@{Colecoes.exibirObjetos(colecao.id)}">
+									<div class="card" style="background-image: url(/uploads/${colecao.fotoCapa.nomeFoto});">
+										<div class="content">
+											<div class="title">
+												<h1 class="text-withe">${colecao.nome}</h1>
+											</div>
+											<div class="description">
+												<p class="text-withe">${colecao.descricao}</p>
+												<div>
+													#{if objetos.size() == 1}
+														<p class="text-withe" style="font-size: 12px">1 artefato</p>
+													#{/if}
+													#{else}
+														<p class="text-withe" style="font-size: 12px">${objetos.size()} artefatos</p>
+													#{/else}
+												</div>
+											</div>
 										</div>
 									</div>
-								</div>
-							</div>
-						</a>
-							
+								</a>
+							#{/if}
 						#{/list}
 					#{/if}		
 					</div>

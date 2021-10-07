@@ -37,4 +37,6 @@ public class Colecao extends Model{
 		objetos = new ArrayList<>();
 	}
 	
+	public boolean visivel;
+	
 }
