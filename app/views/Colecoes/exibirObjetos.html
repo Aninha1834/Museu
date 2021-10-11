@@ -109,23 +109,22 @@
 								#{else}
 									<h1 class="mb-10">${colecao.nome}</h1>
 									<p>${colecao.descricao}</p>
-								
 								#{/else}
 							</div>
 						</div>
 					</div>						
-					<div class="row">
+					
+					<div class="visualizacao-objetos" style="grid-template-rows: repeat(${Math.round(objetos.size()/4 + 0.4)}, 240px);">
 						#{if objetos != null}
 							#{list items:objetos, as:'obj'}
-								
-								<div class="col-lg-4 col-md-6 single-exhibition">
-									<a href="@{Colecoes.visualizarObjeto(obj.getId())}">
-										<div class="thumb">
-											<img class="img-fluid" src="/uploads/${obj.fotos.get(0).nomeFoto}" alt="" style="height: 130px;">						
+								<a href="@{Colecoes.visualizarObjeto(obj.getId())}">
+									<div class="container-objeto" 
+										style="background-image: url(/uploads/${obj.fotos.get(0).nomeFoto});">
+										<div class="container-titulo">
+											<p>${obj.nome}</p>
 										</div>
-										<h4>${obj.nome}</h4>
-									</a>
-								</div>	
+									</div>
+								</a>	
 								
 							#{/list}
 						#{/if}

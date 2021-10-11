@@ -22,6 +22,6 @@ public class Categoria extends Model{
 	@OneToMany(mappedBy="categoria")
 	public List<Objeto> objetos;
 	
-	
+	public Foto fotoCapa;
 	
 }

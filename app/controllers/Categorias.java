@@ -1,8 +1,10 @@
 package controllers;
 
+import java.io.File;
 import java.util.List;
 
 import models.Categoria;
+import models.Foto;
 import models.Objeto;
 import models.Usuario;
 import play.cache.Cache;
@@ -41,12 +43,21 @@ public class Categorias extends Controller {
 
 	}
 	
-	public static void salvar(@Valid Categoria categoria) {
-		
+	public static void salvar(@Valid Categoria categoria, File foto) {
+				
 		if(validation.hasErrors()) {
 			Cache.add("categoria", categoria);
 			validation.keep();
 			form();
+		}
+		
+		
+		if (foto != null) {
+			Foto f = new Foto(foto.getName());
+			f.save();
+			categoria.fotoCapa = f;
+			File dest = new File("./uploads/" + foto.getName());
+			foto.renameTo(dest);
 		}
 		
 		categoria.save();

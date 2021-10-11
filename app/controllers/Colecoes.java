@@ -69,21 +69,10 @@ public class Colecoes extends Controller{
 		}
 		
 		if (foto != null) {
-			System.out.println("Tem foto");
 			Foto f = new Foto(foto.getName());
-			System.out.println("Nome foto" + f.nomeFoto);
 			f.save();
-			
 			colecao.fotoCapa = f;
-			System.out.println("Nome da foto da coleção:" + colecao.fotoCapa.nomeFoto);
-			
 			File dest = new File("./uploads/" + foto.getName());
-			
-			
-//			if (dest.exists()) {
-//				dest.delete();
-//			}
-	
 			foto.renameTo(dest);
 		}
 		
@@ -150,6 +139,7 @@ public class Colecoes extends Controller{
 			}
 			objetos = ob;
 		}
+		
 		render(colecao, objetos, idColecao, busca);
 	}
 	
