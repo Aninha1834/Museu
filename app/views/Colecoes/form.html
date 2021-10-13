@@ -9,8 +9,9 @@ ${flash.error}
 #{/elseif}
 <meta charset="utf-8">
 
-<main class="h-full pb-16 overflow-y-auto">
-	<form class="container px-6 mx-auto grid" action="@{Colecoes.salvar}" method="post" enctype="multipart/form-data">
+<body>
+<div class="container px-6 mx-auto grid">
+	<form action="@{Colecoes.salvar}" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="colecao.id" value="${colecao?.id}">
     	<h2
         	class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
@@ -90,7 +91,15 @@ ${flash.error}
               </div>
        	
        		
-       		
+       		#{if colecao?.id}
+       		<br>
+	   		<div class="visualizacao-objetos" style="grid-template-rows: repeat(1, 240px); grid-row-gap: 3px; grid-column-gap: 3px;">
+       	
+	   			<div class="container-foto-form" style="background-image: url(/uploads/${colecao.fotoCapa.nomeFoto})">
+		    				
+				</div>
+			</div>
+       		#{/if}
 	       	<div class="mt-4 text-sm">
 	        	<label class="block text-sm">
 	            	<span class="text-gray-700 dark:text-gray-400">Foto de capa</span>
@@ -109,23 +118,15 @@ ${flash.error}
 		          	class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
 	       	 	>
        		</div>
-	       	
-       	#{if colecao?.id}
-   			<img src="/uploads/${colecao.fotoCapa.nomeFoto}" style="width:200px">
-       	#{/if}
-	       	
        	</div>
-       	
-       	
-       	
        	 
 	</form>
 	
-	<h2
-	class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
->
-	Lista de coleções
-</h2>
+	<h4
+		class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300"
+	>
+	Objetos da coleção
+	</h4>
 #{if colecao?.id}
 #{if colecao.objetos.size() != 0}
 <div class="w-full overflow-hidden rounded-lg shadow-xs">
@@ -191,7 +192,8 @@ ${flash.error}
 	class="my-6 text-4xl font-semibold text-gray-700 dark:text-gray-200"
 >
 	Ainda não foram adicionados objetos a essa coleção!
-</h2>
+</h4>
 #{/else}
 #{/if}
-</main>
+</div>
+</body>

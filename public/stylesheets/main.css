@@ -200,7 +200,6 @@
 
 .visualizacao-objetos {
 	display: grid;
-	grid-row-gap: 50px;
 	grid-template-columns: repeat(4, 240px);
 	justify-content: space-between;
 }
@@ -231,4 +230,34 @@
 .container-objeto:hover>.container-titulo>p {
 	border-color: white;
 }
+/* FOTOS DO FORMULÁRIO */
+.form-fotos-objeto {
+	display: grid;
+	grid-row-gap: 50px;
+	grid-template-columns: repeat(4, 240px);
+	justify-content: space-between;
+}
+.container-foto-form {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: flex-end;
+	justify-content: right;
+	background-size: cover;
+	background-position: center;
+	padding: 5px;
+}
+.btn-deletar {
+	transition: 0.5s;
+	opacity: 0;
+	visibility: hidden;
+}
+.container-foto-form:hover > a > .btn-deletar {
+	opacity: 0.4;
+	visibility: visible;
+}
+.container-foto-form:hover > a > .btn-deletar:hover {
+	opacity: 1.0;
+}
+
 

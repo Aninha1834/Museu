@@ -8,9 +8,9 @@ ${flash.success}
 ${flash.error}
 #{/elseif}
 <meta charset="utf-8">
-
-<main class="h-full pb-16 overflow-y-auto">
-	<form class="container px-6 mx-auto grid" action="@{Objetos.salvar}" method="POST" enctype="multipart/form-data">
+<body>
+<div class="container px-6 mx-auto grid">
+	<form action="@{Objetos.salvar}" method="POST" enctype="multipart/form-data">
 		<input type="hidden" name="objeto.id" value="${objeto?.id}">
     	<h2
         	class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
@@ -154,13 +154,40 @@ ${flash.error}
 	        	value="Cadastrar"
 	          	class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
 	        >
-       	</div> 
-       	
-       	#{if objeto?.id}
-       		#{list items:objeto.fotos, as:'f'}
-      			<img src="/uploads/${f.nomeFoto}" style="width:200px">
-      		#{/list}
-       	#{/if}
+       	</div>
+     	</div>
 	</form>
-</main>
+
+#{if objeto?.id}
+	<h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">Fotos do objeto</h4>
+	<div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
+	   	<div class="visualizacao-objetos" style="grid-template-rows: repeat(${Math.round(objeto.fotos.size()/4 + 0.4)}, 240px); grid-row-gap: 3px; grid-column-gap: 3px;">
+	   		#{list items:objeto.fotos, as:'f'}
+	   			<div class="container-foto-form" style="background-image: url(/uploads/${f.nomeFoto})">
+	   				 <a href="@{Objetos.excluirFoto(f.getId(), objeto.getId())}">
+	    				<button
+	        				class="btn-deletar flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-red-600 border border-transparent rounded-full active:bg-red-600 hover:bg-red-700 focus:outline-none focus:shadow-outline-red"
+	        				aria-label="Delete"
+	     				>
+		     				<svg
+	          					class="w-5 h-5"
+	           					aria-hidden="true"
+		           				fill="currentColor"
+		           				viewBox="0 0 20 20"
+		   	 				>
+		   						<path
+		       					fill-rule="evenodd"
+		   						d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+		       					clip-rule="evenodd"
+		    					></path>
+	       					</svg>
+	     				</button>
+					</a>
+				</div>
+	  		#{/list}
+	  	</div>
+	</div>
+#{/if}
+</div>
+</body>
 

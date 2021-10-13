@@ -49,6 +49,8 @@ public class Objetos extends Controller {
 	
 	public static void salvar(@Valid Objeto objeto, Long idCategoria, File foto, String visivel) {
 		
+		System.out.println("VISIBILIDADE: " + visivel);
+		
 		if (visivel == null) {
 			objeto.visivel = false;
 		} else  {
@@ -103,6 +105,22 @@ public class Objetos extends Controller {
 		 List<Foto> fotos = Foto.findAll();
 		
 		renderTemplate("Objetos/form.html", objeto, categorias, fotos);
+	}
+	
+	public static void excluirFoto (Long idFoto, Long idOjeto) {
+		Objeto objeto = Objeto.findById(idOjeto);
+		Foto foto = Foto.findById(idFoto);
+		List<Foto> fotos = objeto.fotos;
+		
+		for (int i = 0; i<fotos.size(); i++) {
+			if (fotos.get(i).nomeFoto.equals(foto.nomeFoto)) {
+				objeto.fotos.remove(i);
+			}
+		}
+		objeto.save();
+		foto.delete();
+		editar(objeto.getId());
+		
 	}
 	
 }	

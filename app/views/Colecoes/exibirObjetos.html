@@ -114,7 +114,7 @@
 						</div>
 					</div>						
 					
-					<div class="visualizacao-objetos" style="grid-template-rows: repeat(${Math.round(objetos.size()/4 + 0.4)}, 240px);">
+					<div class="visualizacao-objetos" style="grid-row-gap: 50px; grid-template-rows: repeat(${Math.round(objetos.size()/4 + 0.4)}, 240px);">
 						#{if objetos != null}
 							#{list items:objetos, as:'obj'}
 								<a href="@{Colecoes.visualizarObjeto(obj.getId())}">
