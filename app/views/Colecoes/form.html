@@ -34,8 +34,48 @@ ${flash.error}
 	                	<span class="msg-erro">#{error 'colecao.nome' /}</span>
 	       		</label>
 	       	</div>
-	       	
-	       	
+	       	<div class="mt-4 text-sm">
+		       	<label class="block mt-4 text-sm">
+	            	<span class="text-gray-700 dark:text-gray-400">
+	                	Período de exposição
+	                </span>
+	                <select
+	                	name="tipoExposicao"
+	                	onchange="verificar()"
+		                id="tipo-periodo"
+	                  	class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+	                >
+	              		<option #{if colecao?.exposicaoPermanente == true} selected #{/if} value="permanente">Permanente</option>
+	                  	<option #{if colecao?.exposicaoPermanente == false} selected #{/if} value="dataDef">Data definida</option>
+	                </select>
+	        	</label>
+        	</div>
+        	
+        	<div hidden id="container-campo-dataInicial"class="mt-4 text-sm">
+	        	<label class="block text-sm">
+	            	<span class="text-gray-700 dark:text-gray-400">Data de início da exposição</span>
+	                	<input
+	                		name="colecao.dataInicioExp" 
+	                		class="date block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+	                  		placeholder="dd/mm/aaaa"
+	                		value="${colecao?.dataInicioExp?.format('dd/MM/yyyy')}"
+	                  		class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"                  		
+	                	/>
+	       		</label>
+       		</div>
+       		<div hidden id="container-campo-dataFinal" class="mt-4 text-sm">
+	        	<label class="block text-sm">
+	            	<span class="text-gray-700 dark:text-gray-400">Data final da exposição</span>
+	                	<input
+	                		name="colecao.dataFinalExp" 
+	                		class="date block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+	                  		placeholder="dd/mm/aaaa"
+	                		value="${colecao?.dataFinalExp?.format('dd/MM/yyyy')}"
+	                  		class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"                  		
+	                	/>
+	       		</label>
+       		</div>
+        	
 	       	
 	       	<div class="mt-4 text-sm">
 	        	<label class="block mt-4 text-sm">
@@ -48,6 +88,7 @@ ${flash.error}
 	                >${colecao?.descricao}</textarea>
 	           	</label>
        		</div>
+       	
 	       	
 	       	
 	       	
@@ -128,72 +169,97 @@ ${flash.error}
 	Objetos da coleção
 	</h4>
 #{if colecao?.id}
-#{if colecao.objetos.size() != 0}
-<div class="w-full overflow-hidden rounded-lg shadow-xs">
-	<div class="w-full overflow-x-auto">
-    	<table class="w-full whitespace-no-wrap">
-      		<thead>
-        		<tr
-          			class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800"
-       	 		>
-          			<th class="px-4 py-3">Título</th>
-		          	<th class="px-4 py-3">Remover</th>
-		          
-        		</tr>
-      		</thead>
-
-   			<tbody
-        		class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
-      		>
-      		
-	      		#{list items:colecao.objetos, as: 'liObj'}
-	        		<tr class="text-gray-700 dark:text-gray-400">
-	          			<td class="px-4 py-3">
-	            			<div class="flex items-center text-sm">
-	              				<div>
-	                				<p class="font-semibold">${liObj.nome}</p>
-	              				</div>
-	            			</div>
-	          			</td>
-	          			
-	          			<td class="px-4 py-3">
-	            			<div class="flex items-center space-x-4 text-sm">
-	              				<a href="@{Colecoes.removerObjeto(colecao.id, liObj.id)}">
-		              				<button
-		                				class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
-		                				aria-label="Delete"
-		              				>
-		                				<svg
-					                  		class="w-5 h-5"
-						                  	aria-hidden="true"
-						                  	fill="currentColor"
-						                  	viewBox="0 0 20 20"
-		               	 				>
-		                  					<path
-		                    					fill-rule="evenodd"
-		                   						d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-		                    					clip-rule="evenodd"
-		                  					></path>
-		                				</svg>
-		              				</button>
-		              			</a>
-	           				</div>
-	          			</td>
-	       			</tr>
-	       		#{/list}
-       		
-   			</tbody>
-		</table>
-	</div>
-</div>
-#{/if}
-#{else}
-<h4
-	class="my-6 text-4xl font-semibold text-gray-700 dark:text-gray-200"
->
-	Ainda não foram adicionados objetos a essa coleção!
-</h4>
-#{/else}
+	#{if listSizeObj != 0}
+		<div class="w-full overflow-hidden rounded-lg shadow-xs">
+			<div class="w-full overflow-x-auto">
+		    	<table class="w-full whitespace-no-wrap">
+		      		<thead>
+		        		<tr
+		          			class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800"
+		       	 		>
+		          			<th class="px-4 py-3">Título</th>
+				          	<th class="px-4 py-3">Remover</th>
+				          
+		        		</tr>
+		      		</thead>
+		
+		   			<tbody
+		        		class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
+		      		>
+		      		
+			      		#{list items:colecao.objetos, as: 'liObj'}
+			        		<tr class="text-gray-700 dark:text-gray-400">
+			          			<td class="px-4 py-3">
+			            			<div class="flex items-center text-sm">
+			              				<div>
+			                				<p class="font-semibold">${liObj.nome}</p>
+			              				</div>
+			            			</div>
+			          			</td>
+			          			
+			          			<td class="px-4 py-3">
+			            			<div class="flex items-center space-x-4 text-sm">
+			              				<a href="@{Colecoes.removerObjeto(colecao.id, liObj.id)}">
+				              				<button
+				                				class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
+				                				aria-label="Delete"
+				              				>
+				                				<svg
+							                  		class="w-5 h-5"
+								                  	aria-hidden="true"
+								                  	fill="currentColor"
+								                  	viewBox="0 0 20 20"
+				               	 				>
+				                  					<path
+				                    					fill-rule="evenodd"
+				                   						d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+				                    					clip-rule="evenodd"
+				                  					></path>
+				                				</svg>
+				              				</button>
+				              			</a>
+			           				</div>
+			          			</td>
+			       			</tr>
+			       		#{/list}
+		       		
+		   			</tbody>
+				</table>
+			</div>
+		</div>
+	#{/if}
+	#{else}
+		<h4
+			class="my-6 text-4xl font-semibold text-gray-700 dark:text-gray-200"
+		>
+			Ainda não foram adicionados objetos a essa coleção!
+		</h4>
+	#{/else}
 #{/if}
 </div>
 </body>
+
+<!-- <div hidden id="container-campo-data">
+	        	<div class="mt-4 text-sm campoData">
+		        	<label class="text-sm">
+		            	<span class="text-gray-700 dark:text-gray-400">Data de início</span>
+	                	<input
+	                		#{if colecao?.exposicaoPermanente.equals(false)} value="${colecao.dataInicioExp}" #{/if}
+	                		id="dataInicioExp"
+	                		type="date"
+	                		name="colecao.dataInicioExp" 
+	                  		class="mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+	                	/>
+		       		</label>
+		       		<label class="text-sm">
+		            	<span class="text-gray-700 dark:text-gray-400">Data final</span>
+	                	<input
+	                		#{if colecao?.exposicaoPermanente.equals(false)} value="${colecao.dataFinalExp}" #{/if}
+	                		id="dataFinalExp"
+	                		type="date"
+	                		name="colecao.dataFinalExp"
+	                  		class="mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+	                	/>
+		       		</label>
+		       	</div>
+	       	</div> -->

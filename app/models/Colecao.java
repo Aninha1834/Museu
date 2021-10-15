@@ -1,6 +1,7 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -19,7 +20,6 @@ import play.db.jpa.Model;
 public class Colecao extends Model{
 	
 	@Required(message="O campo nome é obrigatório")
-	@MinSize(value=3, message="O nome deve possuir no mínimo 3 caracteres")
 	@Unique(message="A coleção já existe")
 	public String nome;
 
@@ -33,10 +33,16 @@ public class Colecao extends Model{
 	@JoinTable(name="colecao_objeto")
 	public List<Objeto> objetos;
 	
+	public boolean visivel;
+	
+	public boolean exposicaoPermanente;
+	public Date dataInicioExp;
+	public Date dataFinalExp;
+	
 	public Colecao () {
 		objetos = new ArrayList<>();
 	}
 	
-	public boolean visivel;
+	
 	
 }

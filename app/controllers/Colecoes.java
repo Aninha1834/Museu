@@ -2,6 +2,7 @@ package controllers;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import models.Colecao;
@@ -44,10 +45,19 @@ public class Colecoes extends Controller{
 
 	}
 	
-	public static void salvar(@Valid Colecao colecao, Long idObjeto, File foto, String visivel) {
+	public static void salvar(@Valid Colecao colecao, Long idObjeto, File foto, String visivel, String tipoExposicao) {
 		
 		System.out.println("---Salvar---");
-
+		
+		
+		
+		
+		if (tipoExposicao.equals("permanente")) {
+			colecao.exposicaoPermanente = true;
+		} else  {
+			colecao.exposicaoPermanente = false;
+		}
+		
 		if (visivel == null) {
 			colecao.visivel = false;
 		} else  {
@@ -96,8 +106,9 @@ public class Colecoes extends Controller{
 		List<Objeto> objetos = Objeto.find("select ob from Objeto ob, Colecao col where col.id = ?1 "
 				+ " and ob not member of col.objetos "
 				+ " order by ob.nome ", colecao.id).fetch();
-		
-		renderTemplate("Colecoes/form.html", colecao, objetos);
+		int listSizeObj = colecao.objetos.size();
+		System.out.println(listSizeObj);
+		renderTemplate("Colecoes/form.html", colecao, objetos, listSizeObj);
 	}
 	
 	public static void removerObjeto (Long idColecao, Long idObjeto) {

@@ -104,6 +104,8 @@ public class Usuarios extends Controller {
 
 		List<Colecao> colecoes;
 		List<Objeto> objetos = Objeto.find("visivel = ?1", true).fetch();
+		List<Colecao> colecoesTemporarias = new ArrayList<>();
+		List<Colecao> colecoesPermanentes = new ArrayList<>();
 		
 		if (busca == null) {
 			colecoes = Colecao.findAll();
@@ -112,7 +114,17 @@ public class Usuarios extends Controller {
 				   "%"+busca.toLowerCase()+"%").fetch();
 		}
 		
-		render(colecoes, objetos, busca);
+		for (Colecao col: colecoes) {
+			if (col.exposicaoPermanente == true) {
+				colecoesPermanentes.add(col);
+			} else  {
+				colecoesTemporarias.add(col);
+			}
+		}
+		
+		
+		
+		render(colecoesPermanentes, colecoesTemporarias, objetos, busca);
 	
 	}
 	

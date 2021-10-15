@@ -27,20 +27,12 @@
 .card:hover{
   cursor: pointer;
 }
-
 .card:hover > .content > .title{
   border-bottom: 1px solid yellow;
 }
-
-
-
-
 .card p{
   color: white;
 }
-
-
-
 .content {
 
   height: 100%;
@@ -72,13 +64,17 @@
 }
 
 
-.description div {
+.description .desc-col-perm {
   display: flex;
   justify-content:flex-end;
   
 }
 
-
+.description .desc-col-temp {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row-reverse;
+}
 
 .text-withe {
   color: white;
@@ -259,5 +255,13 @@
 .container-foto-form:hover > a > .btn-deletar:hover {
 	opacity: 1.0;
 }
-
+/* CAMPO DATA */
+.campoData {
+	display: flex;
+}
+.campoData label {
+	margin-right: 15px;
+	display: flex;
+	flex-direction: column;
+}
 

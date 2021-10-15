@@ -32,7 +32,6 @@ public class Objeto extends Model{
 	
 	public float largura;
 	
-	@Required(message="O campo data é obrigatório")
 	@InPast(message="A data tem que estar no passado")
 	public Date data;
 	
