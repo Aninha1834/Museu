@@ -261,8 +261,24 @@ $(document).ready(function(){
         });      
 
 
+        
+        var fotos = document.getElementsByClassName("item-foto");
 
-
+        for (var i = 0; i < fotos.length; i++) {
+            var foto = fotos[i];
+            foto.onclick = function() {
+                apertou(this.id);
+            };
+        };
+        function apertou(idFoto) {
+            var info =  document.getElementById("info");
+            var fotoS = document.getElementById("foto-selecionada");
+            fotoS.innerHTML = "<img src='/uploads/" + idFoto + "'>";
+            fotoS.href = "/uploads/" + idFoto;
+        };
+        
+        
+        
 
 
 

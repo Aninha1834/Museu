@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-	<html lang="zxx" class="no-js">
+	<html>
 	<head>
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -29,6 +29,8 @@
 			<link rel="stylesheet" href="@{'public/museu/css/owl.carousel.css'}">
 			<link rel="stylesheet" href="@{'public/museu/css/main.css'}">
 			<link rel="stylesheet" href="@{'public/stylesheets/main.css'}">
+			
+	
 		</head>
 		<body>
 
@@ -51,14 +53,16 @@
 			  		</div>
 			  	</div>
 			  	<hr>
-			    <div class="container">
+			   <div class="container">
 			    	<div class="row align-items-center justify-content-between d-flex">
-				      
+				      <div id="logo">
+				        <a href="index.html"><img src="img/logo.png" alt="" title="" /></a>
+				      </div>
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">
 				          <li class="menu-active"><a href="@{Application.index}">Home</a></li>
 				          <li><a href="@{Usuarios.galeria}">Galeria</a></li>
-				          <li><a href="@{Usuarios.contatos}">Contato</a></li>	          
+				          <li><a href="@{Usuarios.contatos}">Contato</a></li>
 				        </ul>
 				      </nav><!-- #nav-menu-container -->		    		
 			    	</div>
@@ -77,60 +81,52 @@
 				</div>
 			</section>
 			
-				<!-- Start gallery Area -->
-			<section class="gallery-area section-gap gallery-page-area" id="gallery">
-				<div class="container">
-					<div class="row d-flex justify-content-center">
-						<div class="menu-content pb-70 col-lg-8">
-							<div class="title text-center">
-								<h1 class="mb-10">Our Exhibition Gallery</h1>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua.</p>
-							</div>
-						</div>
-					</div>						
-					<div id="grid-container" class="row">
-					
-						#{list items:objeto.fotos, as:'ft'}
-					
-							<a class="single-gallery" href="/uploads/${ft.nomeFoto}"><img class="grid-item" src="/uploads/${ft.nomeFoto}"></a>
+			<main class="container visualizacao-objeto">
+				<div>
+					<div class="container-fotos-objeto">
 						
-						#{/list}
-					</div>	
-				</div>	
-			</section>
-			<!-- End gallery Area -->
-			<div class="container">
-				<div class="section-top-border">
-					<h3 class="mb-30">Informações</h3>
-					<div class="row">
-						<div class="col-md-4">
-							<div class="single-defination">
+						<a class="single-gallery" id="foto-selecionada" href="/uploads/${objeto.fotos.get(0).nomeFoto}">
+							<img src="/uploads/${objeto.fotos.get(0).nomeFoto}">
+						</a>
+						
+						#{list items:objeto.fotos, as:'ft'}
 							
-								<span class="mb-20 title_desc_obj">Título: </span>
-								<span>${objeto.nome}</span>
-								</br>
-								<span class="mb-20 title_desc_obj">Categoria: </span>
-								<span>${objeto.categoria?.nome}</span>
-								</br>
-								<span class="mb-20 title_desc_obj">Dimensões: </span>
-								<span>Altura: ${objeto.altura} cm; Largura ${objeto.altura} cm</span>
-								</br>
-								<span class="mb-20 title_desc_obj">Materiais: </span>
-								<span>${objeto.material}</span>
-								</br>
-								<span class="mb-20 title_desc_obj">Datado: </span>
-								<span>${objeto.data.format("dd/MM/yyyy")}</span>
-								</br>
-								<span class="mb-20 title_desc_obj">Descrição: </span>
-								<span>${objeto.historia}</span>
-								
-							</div>
-						</div>
-
+					 		<div class="div-foto">
+				            	<div class="item-foto" id="${ft.nomeFoto}" style="background-image: url(/uploads/${ft.nomeFoto})"></div>
+				       		 </div>
+				       		 
+						#{/list}
+						
+				        	
 					</div>
 				</div>
-			</div>
-			
+				
+				<div id="hidden" class="container-info-objeto">
+					<h2>${objeto.nome}</h2>
+					<div>
+						<h4>Características físicas</h3>
+						<p>Este artefato é comporto por ${objeto.material}. Possui ${objeto.altura}cm de altura e ${objeto.altura}cm de largura.</p>
+					</div>
+					<div>
+						<h4>Datado</h3>
+						<p>${objeto.data.format("dd/MM/yyyy")}.</p>
+					</div>
+					<div>
+						<h4>Categoria</h3>
+						#{if objeto.categoria != null}
+							<p>${objeto.categoria}.</p>
+						#{/if}
+						#{else}
+							<p>Categoria não especificada.</p>
+						#{/else}
+					</div>
+					<div>
+						<h4>Descrição</h3>
+						<p>${objeto.historia}</p>
+					</div>
+				</div>
+			</main>
+	
 
 			<!-- start footer Area -->		
 			<footer class="footer-area section-gap">
@@ -199,6 +195,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<script src="@{'public/museu/js/jquery.nice-select.min.js'}"></script>			
 			<script src="@{'public/museu/js/parallax.min.js'}"></script>		
 			<script src="@{'public/museu/js/mail-script.js'}"></script>	
-			<script src="@{'public/museu/js/main.js'}"></script>	
+			<script src="@{'public/museu/js/main.js'}"></script>
+			
 		</body>
 	</html>

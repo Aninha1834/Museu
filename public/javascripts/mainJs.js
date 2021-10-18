@@ -1,3 +1,4 @@
+
 verificar();
 function verificar() {
 	var tipoPeriodo = document.getElementById("tipo-periodo").options[document.getElementById("tipo-periodo").selectedIndex].value;
@@ -8,4 +9,7 @@ function verificar() {
     	document.getElementById("container-campo-dataInicial").hidden = true;
     	document.getElementById("container-campo-dataFinal").hidden = true;
     }
-}
+};
+
+
+
