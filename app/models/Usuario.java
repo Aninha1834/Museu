@@ -33,7 +33,6 @@ public class Usuario extends Model{
 	
 	public int nivel;
 	
-//	public Blob fotoPerfilAdmin;
 	
 	public void setSenha() {
 		this.senha = Crypto.passwordHash(senha);

@@ -8,41 +8,35 @@
 }
 
 .card{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  width: 500px;
-  height: 300px;
-  
-  background-size: cover;
-  background-position:center center;
-  background-repeat: no-repeat;
-
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 500px;
+	height: 300px;
+ 	background-size: cover;
+ 	background-position:center center;
+	background-repeat: no-repeat;
 	margin: 20px;
-  border-radius: 5px;
-
+	border:none;
 }
 
 .card:hover{
   cursor: pointer;
 }
 .card:hover > .content > .title{
-  border-bottom: 1px solid yellow;
+  border-bottom: 1px solid #3896f5;
 }
 .card p{
   color: white;
 }
 .content {
-
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.3);
   display: flex;
   justify-content: space-around;
   flex-direction: column;
   align-items: center;
-  border-radius: 5px;
 }
 
 .content > div {
@@ -53,7 +47,6 @@
 
 .title {
   justify-content: center;
-
   align-items: flex-end;
   border-bottom: 1px solid white;
 }
@@ -62,14 +55,15 @@
 	flex-direction: column;
   	justify-content: space-between;
 }
-
-
 .description .desc-col-perm {
   display: flex;
   justify-content:flex-end;
-  
 }
-
+.border-5-white {
+	border: 1px solid white;
+	padding: 0 10px;
+	border-radius: 5px;	
+}
 .description .desc-col-temp {
 	display: flex;
 	justify-content: space-between;
@@ -78,6 +72,12 @@
 
 .text-withe {
   color: white;
+}
+
+.data-exposicao p {
+	background-color: #3896f5;
+	padding: 0 10px;
+	border-radius: 5px;
 }
 
 .description > p, .description > div > p {
@@ -208,23 +208,27 @@
 	background-position: center;
 }
 .container-titulo {
-	padding: 0 20px;
-	display: flex;
-	justify-content: center;
-	align-items: flex-start;
+	padding: 0 10px;
+
 	width: 100%;
 	background-color: rgba(0, 0, 0, 0.3);
+}
+.container-titulo .ano {
+	font-family: Poppins;
+	color: white;
+	font-size: 13px;
+	font-weight: normal;
+
 }
 .container-titulo p {
 	color: white;
 	font-family: Poppins;
 	font-size: 15px;
-	font-weight: 500;
-	margin-top: 5px;
-	border-bottom: 1px solid transparent;
+	font-weight: 600;
+	border-bottom: 5px solid transparent;
 }
 .container-objeto:hover>.container-titulo>p {
-	border-color: white;
+		text-decoration: underline white;
 }
 /* FOTOS DO FORMULÁRIO */
 .form-fotos-objeto {
@@ -313,3 +317,62 @@
 .container-info-objeto div{
 	margin-top: 40px;
 }
+
+/* 	VISUALIZAÇÃO DE CATEGORIAS */
+.exposicao-categorias {
+	display: grid;
+	grid-gap: 50px;
+	grid-template-columns: repeat(4, 240px);	
+}
+.container-categoria {
+	height: 240px;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	background-size: cover;
+	background-position: center;
+	border: 1px solid #eeeeee;
+	
+}
+
+.container-categoria:hover {
+	cursor: pointer;
+	
+}
+
+.container-categoria h3 {
+ 	color: white;
+ 	width: 100%;
+ 	background-color: rgba(0, 0, 0, 0.3);
+ 	text-align: center;
+ 	max-width: 100%;
+}
+
+/* SISTEMA DE FILTRAGEM E ORDENAMENTO*/
+.titulo-fraco {
+	font-size: 18px;
+}
+.sistema-filtragem-ordenacao {
+	background-color: #F3F3F3;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px 0;
+}
+
+.titulo-fraco, .form-select, .genric-btn {
+	margin: 0 10px;
+}
+.form-select {
+	border:none;
+	border-radius: 0;
+	eidth: 300px;
+	border-line: none;
+}
+
+
+
+
+
+
+

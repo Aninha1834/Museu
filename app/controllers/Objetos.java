@@ -1,6 +1,7 @@
 package controllers;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -12,6 +13,7 @@ import play.db.jpa.Blob;
 import play.modules.paginate.ValuePaginator;
 import play.mvc.Controller;
 import models.Categoria;
+import models.Colecao;
 import models.Foto;
 import play.mvc.With;
 
@@ -122,5 +124,50 @@ public class Objetos extends Controller {
 		editar(objeto.getId());
 		
 	}
+	
+	public static void exibirObjetos(Long idCategoria, Long idColecao, String titulo, String descricao) {
+		List<Objeto> objetos = new ArrayList<>();
+		List<Colecao> colecoes = Colecao.find("visivel = true").fetch();
+		
+		String busca = params.get("busca");
+		String classificacao = params.get("atributoOrdenacao");
+		
+		System.out.println("ID COLEÇÃO: " + idColecao);
+		System.out.println("ID CATEGORIA: " + idCategoria);
+		System.out.println("CLASSIFIICAÇÃO: " + classificacao);
+		
+		//ORDENAMENTO
+		String order;
+		if (classificacao != null) {
+			order = "order by objeto." + classificacao;
+		} else  {
+			order = "order by objeto.nome";
+			classificacao = "nome";
+		}
+		
+		
+		//BUSCA
+		if (busca == null) {
+			busca = "";
+		}
+		
+		
+		if (idCategoria != null) {
+			objetos= Objeto.find("select objeto from Objeto objeto, Categoria categoria "
+					+ " where categoria.id = ?1 "
+					+ " and objeto member of categoria.objetos and LOWER(objeto.nome) like ?2 and objeto.visivel = true "
+					+ order, idCategoria, "%"+busca.toLowerCase()+"%").fetch();
+		} else if (idColecao != null) {
+			objetos= Objeto.find("select objeto from Objeto objeto, Colecao colecao "
+					+ " where colecao.id = ?1 "
+					+ " and objeto member of colecao.objetos and LOWER(objeto.nome) like ?2 and objeto.visivel = true "
+					+ order, idColecao, "%"+busca.toLowerCase()+"%").fetch();
+		} 
+		
+		
+		
+		render(idCategoria, idColecao, objetos, titulo, descricao, busca, classificacao, colecoes);
+	}
+	
 	
 }	

@@ -1,7 +1,9 @@
 package controllers;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import models.Categoria;
 import models.Colecao;
@@ -101,16 +103,18 @@ public class Usuarios extends Controller {
 	
 	public static void galeria() {
 		String busca = params.get("busca");
-
+		
 		List<Colecao> colecoes;
-		List<Objeto> objetos = Objeto.find("visivel = ?1", true).fetch();
+		List<Objeto> objetos = Objeto.find("visivel = true").fetch();
 		List<Colecao> colecoesTemporarias = new ArrayList<>();
 		List<Colecao> colecoesPermanentes = new ArrayList<>();
+		List<Categoria> categorias = Categoria.findAll();
+		Map<Long, Integer> nObjVisi = new HashMap<Long, Integer>();
 		
 		if (busca == null) {
-			colecoes = Colecao.findAll();
+			colecoes = Colecao.find("visivel = ?1", true).fetch();
 		} else {
-		   colecoes = Colecao.find("lower(nome) like ?1 ",
+		   colecoes = Colecao.find("lower(nome) like ?1 and visivel = true",
 				   "%"+busca.toLowerCase()+"%").fetch();
 		}
 		
@@ -123,8 +127,17 @@ public class Usuarios extends Controller {
 		}
 		
 		
+		for (Colecao colecao: colecoes) {
+			int i = 0;
+			for (Objeto objeto: colecao.objetos) {
+				if (objeto.visivel == true) {
+					i++;
+				}
+			}
+			nObjVisi.put(colecao.getId(), i);
+		}
 		
-		render(colecoesPermanentes, colecoesTemporarias, objetos, busca);
+		render(colecoesPermanentes, colecoesTemporarias, objetos, busca, categorias, nObjVisi);
 	
 	}
 	

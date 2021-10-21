@@ -122,41 +122,12 @@ public class Colecoes extends Controller{
 		editar(colec.id);
 	}
 	
-	public static void exibirObjetos (Long idColecao) {
-		String busca = params.get("busca");
-		
-		Colecao colecao = Colecao.findById(idColecao);
-		List<Objeto> objetos = new ArrayList<>();
-	
-		if (busca == null) {
-			for (Objeto obj: colecao.objetos) {
-				if (obj.visivel  == true) {
-					objetos.add(obj);
-				}
-			}
-		} else {
-			
-			
-			List<Objeto> objets = Objeto.find("LOWER(nome) like ?1 ","%"+busca.toLowerCase()+"%").fetch(); 
-			List<Objeto> ob = new ArrayList<>();
-		
-			for(Objeto obj: objets) {
-				for(Colecao col: obj.colecoes) {
-					if(col.getId() == colecao.getId() && obj.visivel == true) {
-						System.out.println("Obj visivel: " + obj.visivel);
-						ob.add(obj);
-					}
-				}   
-			}
-			objetos = ob;
-		}
-		
-		render(colecao, objetos, idColecao, busca);
-	}
 	
 	public void visualizarObjeto (Long idObjeto) {
 		Objeto objeto = Objeto.findById(idObjeto);
 		render(objeto);
 	}
+	
+	
 
 }

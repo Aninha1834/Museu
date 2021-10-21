@@ -34,6 +34,16 @@ ${flash.error}
 	       		</label>
 	       	</div>
 	       	
+	       	#{if categoria?.id}
+       		<br>
+	   		<div class="visualizacao-objetos" style="grid-template-rows: repeat(1, 240px); grid-row-gap: 3px; grid-column-gap: 3px;">
+       	
+	   			<div class="container-foto-form" style="background-image: url(/uploads/${categoria.fotoCapa.nomeFoto})">
+		    				
+				</div>
+			</div>
+       		#{/if}
+	       	
 	   		<div class="mt-4 text-sm">
 	     		<label class="block text-sm">
 	         		<span class="text-gray-700 dark:text-gray-400">Foto de capa</span>
@@ -52,10 +62,6 @@ ${flash.error}
 		          	class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
 		       	 >
       	 	</div> 
-      	 	
-  	 		#{if categoria?.id}
-   				<img src="/uploads/${categoria.fotoCapa.nomeFoto}" style="width:200px">
-       		#{/if}
        	
        	</div>
        	

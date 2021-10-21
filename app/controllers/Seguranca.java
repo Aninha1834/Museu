@@ -5,7 +5,7 @@ import play.mvc.Controller;
 
 public class Seguranca extends Controller{
 	
-	@Before(unless={"Usuarios.contatos","Usuarios.galeria", "Colecoes.exibirObjetos", "Colecoes.visualizarObjeto"})
+	@Before(unless={"Usuarios.contatos","Usuarios.galeria", "Colecoes.exibirObjetos", "Colecoes.visualizarObjeto", "Objetos.exibirObjetos"})
 	static void verificar() {
 		
 		if (session.contains("usuario.email") == false) {

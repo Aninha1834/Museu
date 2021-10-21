@@ -61,7 +61,6 @@ ${flash.error}
 			    <div class="container">
 			    	<div class="row align-items-center justify-content-between d-flex">
 				      <div id="logo">
-				        <a href="index.html"><img src="img/logo.png" alt="" title="" /></a>
 				      </div>
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">
@@ -99,33 +98,48 @@ ${flash.error}
 					</div>
 				</div>
 				
-				
-                            
+			
 			</section>
-			
-			
-			
 			<section class="upcoming-exibition-area section-gap">
-			<div class="container">
+				<div class="container">
 					<div class="row d-flex justify-content-center">
 						<div class="menu-content pb-70 col-lg-8">
-							<div class="title text-center">
-								<h1 class="mb-10">Coleções do museu</h1>
-								<p>Navegue pelas diversos coleções do museu virtual.</p>
+							<div class="text-center" style="border-bottom: 1px solid rgb(60, 60, 60)">
+								<h1 class="mb-10">Categorias</h1>
+								<p>Aqui você poderá explorar os objetos que fazem parte de uma determinada categoria.</p>
 							</div>
-							
-							
 							
 						</div>
 					</div>
-				#{if colecoesPermanentes != null && colecoesPermanentes.size() != 0}
+					<div class="exposicao-categorias">
+						#{list items:categorias, as:'categoria'}
+						<a href="@{Objetos.exibirObjetos(categoria.id, null, categoria.nome, null)}">
+						<div class="container-categoria" style="background-image: url(/uploads/${categoria.fotoCapa.nomeFoto})">
+							<h3>${categoria.nome}</h3>
+						</div>
+						</a>
+						#{/list}
+			
+					</div>
+				</div>
+			</section>
+			<section class="gallery-area section-gap" id="gallery">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-70 col-lg-8">
+							<div class="title text-center">
+								<h1 class="mb-10 text-white">Nossas Exposições</h1>
+								<p>Aqui você poderá explorar coleções relacionadas a épocas, locais ou até mesmo pessoas.</p>
+							</div>
+						</div>
+					</div>						
+					#{if colecoesPermanentes != null && colecoesPermanentes.size() != 0}
 										
 					<div class="row-galery">
 					
 						#{list items:colecoesPermanentes, as:'colecao'}
 							#{if colecao.visivel == true}
-						
-								<a href="@{Colecoes.exibirObjetos(colecao.id)}">
+								<a href="@{Objetos.exibirObjetos(null, colecao.id, colecao.nome, colecao.descricao)}">
 									<div class="card" style="background-image: url(/uploads/${colecao.fotoCapa.nomeFoto});">
 										<div class="content">
 											<div class="title">
@@ -134,11 +148,11 @@ ${flash.error}
 											<div class="description">
 												<p class="text-withe">${colecao.descricao}</p>
 												<div class="desc-col-perm">
-													#{if objetos.size() == 1}
-														<p class="text-withe" style="font-size: 12px">1 artefato</p>
+													#{if nObjVisi.get(colecao.id) == 1}
+														<p class="text-withe border-5-white" style="font-size: 12px">1 artefato</p>
 													#{/if}
 													#{else}
-														<p class="text-withe" style="font-size: 12px">${objetos.size()} artefatos</p>
+														<p class="text-withe border-5-white" style="font-size: 12px">${nObjVisi.get(colecao.id)} artefatos</p>
 													#{/else}
 												</div>
 											</div>
@@ -151,21 +165,25 @@ ${flash.error}
 					</div>
 				</div>	
 				#{/if}
-				#{if colecoesTemporarias != null && colecoesTemporarias.size() != 0}
-				<div class="container" style="margin-top: 100px;">
+				</div>	
+			</section>
+			
+			<section class="upcoming-exibition-area section-gap" style="background-color: rgb(249, 249, 255)">
+				<div class="container">
 					<div class="row d-flex justify-content-center">
 						<div class="menu-content pb-70 col-lg-8">
-							<div class="title text-center">
-								<h2 class="mb-10">Exposições temporárias</h2>
+							<div class="text-center" style="border-bottom: 1px solid rgb(60, 60, 60)">
+								<h2 class="mb-10">Exposições Temporárias</h2>
 							</div>
+							
 						</div>
-					</div>						
+					</div>					
 					<div class="row-galery">
 					
 						#{list items:colecoesTemporarias, as:'colecao'}
 							#{if colecao.visivel == true}
 						
-								<a href="@{Colecoes.exibirObjetos(colecao.id)}">
+								<a href="@{Objetos.exibirObjetos(null, colecao.id, colecao.nome, colecao.descricao)}">
 									<div class="card" style="background-image: url(/uploads/${colecao.fotoCapa.nomeFoto});">
 										<div class="content">
 											<div class="title">
@@ -174,13 +192,15 @@ ${flash.error}
 											<div class="description">
 												<p class="text-withe">${colecao.descricao}</p>
 												<div class="desc-col-temp">
-													#{if objetos.size() == 1}
-														<p class="text-withe" style="font-size: 12px">1 artefato</p>
+													#{if nObjVisi.get(colecao.id) == 1}
+														<p class="border-5-white text-withe" style="font-size: 12px">1 artefato</p>
 													#{/if}
 													#{else}
-														<p class="text-withe" style="font-size: 12px">${objetos.size()} artefatos</p>
+														<p class="border-5-white text-withe" style="font-size: 12px">${nObjVisi.get(colecao.id)} artefatos</p>
 													#{/else}
-													<p class="text-withe" style="font-size: 12px;">${colecao.dataInicioExp.format("dd/MM/yyyy")} - ${colecao.dataFinalExp.format("dd/MM/yyyy")}</p>
+													<div class="data-exposicao">
+														<p class="text-withe" style="font-size: 12px;">Até ${colecao.dataFinalExp.format("dd/MM/yyyy")}</p>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -191,7 +211,6 @@ ${flash.error}
 							
 					</div>
 				</div>
-				#{/if}
 			</section>
 					
 			

@@ -54,7 +54,6 @@
 			    <div class="container">
 			    	<div class="row align-items-center justify-content-between d-flex">
 				      <div id="logo">
-				        <a href="index.html"><img src="img/logo.png" alt="" title="" /></a>
 				      </div>
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">
@@ -76,9 +75,11 @@
 							</h1>
 							<div class="search-bar-header">
 							
-						
-								<form action="@{Colecoes.exibirObjetos}">
+								<form action="@{Objetos.exibirObjetos}">
+									<input type="hidden" name="idCategoria" value="${idCategoria}">
 									<input type="hidden" name="idColecao" value="${idColecao}">
+									<input type="hidden" name="titulo" value="${titulo}">
+									<input type="hidden" name="descricao" value="${descricao}">
 									<div class="input-area">
 										<input name="busca" value="${busca}" placeholder="Buscar objeto" autocomplete="off">
 									</div>
@@ -92,36 +93,49 @@
 				</div>
 			</section>
 			
-			
-			
-			
-			<!-- Start gallery Area -->
-		
+			<form action="@{Objetos.exibirObjetos}">
+				<input type="hidden" name="idCategoria" value="${idCategoria}">
+				<input type="hidden" name="idColecao" value="${idColecao}">
+				<input type="hidden" name="titulo" value="${titulo}">
+				<input type="hidden" name="descricao" value="${descricao}">
+				<div class="sistema-filtragem-ordenacao">
+						<p class="titulo-fraco">Ordenar por:</p>
+						<div class="default-select" id="default-select">
+							<select name="atributoOrdenacao">
+								<option value="nome">Nome</option>
+								<option #{if classificacao.equals("data")} selected #{/if} value="data">Data</option>
+							</select>
+						</div>
+						<button class="genric-btn success">Aplicar</button>
+				</div>	
+			</form>
 			<section class="upcoming-exibition-area section-gap">
+				
 				<div class="container">
+					
 					<div class="row d-flex justify-content-center">
 						<div class="menu-content pb-70 col-lg-8">
-							<div class="title text-center">
-								#{if colecao==null}
-									<h1 class="mb-10">Artefatos do museu</h1>
+							<div class="text-center" style="border-bottom: 1px solid rgb(60, 60, 60)">
+								<h1 class="mb-10">${titulo}</h1>
+								#{if descricao!=null}
 									<p>Navegue pelos diversos artefatos presentes no museu</p>
-								#{/if}
-								#{else}
-									<h1 class="mb-10">${colecao.nome}</h1>
-									<p>${colecao.descricao}</p>
-								#{/else}
+							'	#{/if}
 							</div>
 						</div>
-					</div>						
+					</div>	
 					
+					#{if objetos != null}					
 					<div class="visualizacao-objetos" style="grid-row-gap: 50px; grid-template-rows: repeat(${Math.round(objetos.size()/4 + 0.4)}, 240px);">
-						#{if objetos != null}
+						
 							#{list items:objetos, as:'obj'}
 								<a href="@{Colecoes.visualizarObjeto(obj.getId())}">
 									<div class="container-objeto" 
 										style="background-image: url(/uploads/${obj.fotos.get(0).nomeFoto});">
 										<div class="container-titulo">
-											<p>${obj.nome}</p>
+										<span class="ano">${obj.data.format("yyyy")}</span>
+											<p>
+												${obj.nome}
+											</p>
 										</div>
 									</div>
 								</a>	
@@ -133,8 +147,14 @@
 						#{/else}
 																			
 					</div>
+					
 				</div>	
 			</section>	
+			
+			
+			<!-- Start gallery Area -->
+		
+			
 	
 
 			<!-- start footer Area -->		
