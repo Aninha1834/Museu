@@ -9,8 +9,9 @@ ${flash.error}
 	<head>
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<!-- Favicon-->
+		<!-- Favicon
 		<link rel="shortcut icon" href="img/fav.png">
+		-->
 		<!-- Author Meta -->
 		<meta name="author" content="codepixer">
 		<!-- Meta Description -->
@@ -20,7 +21,7 @@ ${flash.error}
 		<!-- meta character set -->
 		<meta charset="UTF-8">
 		<!-- Site Title -->
-		<title>Art Museum</title>
+		<title>MUVJE - Contato</title>
 
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
 			<!--
@@ -34,6 +35,7 @@ ${flash.error}
 			<link rel="stylesheet" href="@{'public/museu/css/animate.min.css'}">
 			<link rel="stylesheet" href="@{'public/museu/css/owl.carousel.css'}">
 			<link rel="stylesheet" href="@{'public/museu/css/main.css'}">
+			<link rel="stylesheet" href="@{'public/stylesheets/main.css'}">
 		</head>
 		<body>
 
@@ -42,30 +44,31 @@ ${flash.error}
 			  		<div class="row">
 				  		<div class="col-6 top-head-left">
 				  			<ul>
-				  				<li><a href="@{Usuarios.inicio}">Entrar</a></li>
+				  				<li><a href="@{Login.form}">Entrar</a></li>
 				  			</ul>
 				  		</div>
 				  		<div class="col-6 top-head-right">
+				  			<!--
 				  			<ul>
 		  						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
 								<li><a href="#"><i class="fa fa-behance"></i></a></li>
 				  			</ul>
+				  		-->
 				  		</div>			  			
 			  		</div>
 			  	</div>
 			  	<hr>
 			    <div class="container">
 			    	<div class="row align-items-center justify-content-between d-flex">
-				      <div id="logo">
-				        <a href="index.html"><img src="img/logo.png" alt="" title="" /></a>
+				      <div>
 				      </div>
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">
 				          <li class="menu-active"><a href="@{Application.index}">Home</a></li>
 				          <li><a href="@{Usuarios.galeria}">Galeria</a></li>
-				          <li><a href="@{Usuarios.contatos}">Contato</a></li>          
+				          <li><a href="@{Usuarios.contatos}">Contato</a></li>
 				        </ul>
 				      </nav><!-- #nav-menu-container -->		    		
 			    	</div>
@@ -106,8 +109,8 @@ ${flash.error}
 									<span class="lnr lnr-phone-handset"></span>
 								</div>
 								<div class="contact-details">
-									<h5>00 (880) 9865 562</h5>
-									<p>De segunda à sexta das 9am às 6 pm</p>
+									<h5>Número não definido</h5>
+									<p>De segunda à sexta das 7:00 às 15:00</p>
 								</div>
 							</div>
 							<div class="single-contact-address d-flex flex-row">
@@ -115,7 +118,7 @@ ${flash.error}
 									<span class="lnr lnr-envelope"></span>
 								</div>
 								<div class="contact-details">
-									<h5>support@codethemes.com</h5>
+									<h5>Email não definido</h5>
 									<p>Envie-nos a sua consulta a qualquer momento!</p>
 								</div>
 							</div>														
@@ -126,7 +129,7 @@ ${flash.error}
 									<div class="col-lg-6 form-group">
 									
 									    <input type="hidden" name="accessKey" value="3bd4fb54-b6b9-470c-a755-af30abf8f38e">		
-									     <input type="hidden" name="redirecTo" value="https://museumacau.herokuapp.com/usuarios/contatos">
+									    <input type="hidden" name="redirectTo" value="https://museumacau.herokuapp.com/usuarios/contatos">
 									    						     
 									
 										<input name="name" placeholder="Digite seu nome" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" class="common-input mb-20 form-control" required="" type="text">
@@ -156,9 +159,9 @@ ${flash.error}
 					<div class="row">
 						<div class="col-lg-5 col-md-6 col-sm-6">
 							<div class="single-footer-widget">
-								<h6>About Us</h6>
+								<h6>Sobre Nós</h6>
 								<p>
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.
+									Este site foi construído com o intuito de divulgar as principais informações relacionadas ao Museu José Elviro, assim, preservando e disseminando a história de Macau.
 								</p>
 								<p class="footer-text">
 									<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -167,27 +170,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 								</p>
 							</div>
 						</div>
-						<div class="col-lg-5  col-md-6 col-sm-6">
-							<div class="single-footer-widget">
-								<h6>Newsletter</h6>
-								<p>Stay update with our latest</p>
-								<div class="" id="mc_embed_signup">
-									<form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
-										<input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '" required="" type="email">
-			                            	<button class="click-btn btn btn-default"><span class="lnr lnr-arrow-right"></span></button>
-			                            	<div style="position: absolute; left: -5000px;">
-												<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-											</div>
-
-										<div class="info"></div>
-									</form>
-								</div>
-							</div>
-						</div>						
+						
+						<!--				
 						<div class="col-lg-2 col-md-6 col-sm-6 social-widget">
 							<div class="single-footer-widget">
-								<h6>Follow Us</h6>
-								<p>Let us be social</p>
+								<h6>Siga-nos</h6>
+								<p>Nossas redes sociais</p>
 								<div class="footer-social d-flex align-items-center">
 									<a href="#"><i class="fa fa-facebook"></i></a>
 									<a href="#"><i class="fa fa-twitter"></i></a>
@@ -195,29 +183,31 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 									<a href="#"><i class="fa fa-behance"></i></a>
 								</div>
 							</div>
-						</div>							
+						</div>
+						 -->							
 					</div>
 				</div>
-			</footer>	
+			</footer>		
 			<!-- End footer Area -->		
 
-			<script src="js/vendor/jquery-2.2.4.min.js"></script>
+			<script src="@{'public/museu/js/vendor/jquery-2.2.4.min.js'}"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-			<script src="js/vendor/bootstrap.min.js"></script>			
+			<script src="@{'public/museu/js/vendor/bootstrap.min.js'}"></script>			
 			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
-  			<script src="js/easing.min.js"></script>			
-			<script src="js/hoverIntent.js"></script>
-			<script src="js/superfish.min.js"></script>	
-			<script src="js/jquery.ajaxchimp.min.js"></script>
-			<script src="js/jquery.magnific-popup.min.js"></script>	
-			<script src="js/owl.carousel.min.js"></script>	
-			<script src="js/imagesloaded.pkgd.min.js"></script>
-			<script src="js/justified.min.js"></script>					
-			<script src="js/jquery.sticky.js"></script>
-			<script src="js/jquery.nice-select.min.js"></script>			
-			<script src="js/parallax.min.js"></script>		
-			<script src="js/mail-script.js"></script>	
-			<script src="js/main.js"></script>
+  			<script src="@{'public/museu/js/easing.min.js'}"></script>			
+			<script src="@{'public/museu/js/hoverIntent.js'}"></script>
+			<script src="@{'public/museu/js/superfish.min.js'}"></script>	
+			<script src="@{'public/museu/js/jquery.ajaxchimp.min.js'}"></script>
+			<script src="@{'public/museu/js/jquery.magnific-popup.min.js'}"></script>	
+			<script src="@{'public/museu/js/owl.carousel.min.js'}"></script>	
+			<script src="@{'public/museu/js/imagesloaded.pkgd.min.js'}"></script>
+			<script src="@{'public/museu/js/justified.min.js'}"></script>					
+			<script src="@{'public/museu/js/jquery.sticky.js'}"></script>
+			<script src="@{'public/museu/js/jquery.nice-select.min.js'}"></script>			
+			<script src="@{'public/museu/js/parallax.min.js'}"></script>		
+			<script src="@{'public/museu/js/mail-script.js'}"></script>	
+			<script src="@{'public/museu/js/main.js'}"></script>	
+			<script src="https://kit.fontawesome.com/bfaa6a36fa.js" crossorigin="anonymous"></script>
 			
 	
 		</body>

@@ -15,10 +15,8 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.playframework.playclipse.playNature</nature>
 	</natures>
-	<linkedResources><link><name>paginate-head</name><type>2</type><location>C:/Users/Aninha/Downloads/play-1.4.5/play-1.4.5/museu-tcc/modules/paginate-head/app</location></link>
-<link><name>conf/paginate-head</name><type>2</type><location>C:/Users/Aninha/Downloads/play-1.4.5/play-1.4.5/museu-tcc/modules/paginate-head/conf</location></link>
-<link><name>public/paginate-head</name><type>2</type><location>C:/Users/Aninha/Downloads/play-1.4.5/play-1.4.5/museu-tcc/modules/paginate-head/public</location></link>
-<link><name>docviewer</name><type>2</type><location>C:/Users/Aninha/Downloads/play-1.4.5/play-1.4.5/modules/docviewer/app</location></link>
-<link><name>public/docviewer</name><type>2</type><location>C:/Users/Aninha/Downloads/play-1.4.5/play-1.4.5/modules/docviewer/public</location></link>
+	<linkedResources><link><name>paginate-head</name><type>2</type><location>C:/Users/Convidado2/Documents/play-1.4.5/Museu/modules/paginate-head/app</location></link>
+<link><name>conf/paginate-head</name><type>2</type><location>C:/Users/Convidado2/Documents/play-1.4.5/Museu/modules/paginate-head/conf</location></link>
+<link><name>public/paginate-head</name><type>2</type><location>C:/Users/Convidado2/Documents/play-1.4.5/Museu/modules/paginate-head/public</location></link>
 </linkedResources>
 </projectDescription>

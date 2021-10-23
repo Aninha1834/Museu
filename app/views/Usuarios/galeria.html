@@ -9,8 +9,9 @@ ${flash.error}
 	<head>
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<!-- Favicon-->
+		<!-- Favicon
 		<link rel="shortcut icon" href="img/fav.png">
+		-->
 		<!-- Author Meta -->
 		<meta name="author" content="codepixer">
 		<!-- Meta Description -->
@@ -20,7 +21,7 @@ ${flash.error}
 		<!-- meta character set -->
 		<meta charset="UTF-8">
 		<!-- Site Title -->
-		<title>Art Museum</title>
+		<title>MUVJE - Exposições</title>
 
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
 			<!--
@@ -48,19 +49,21 @@ ${flash.error}
 				  			</ul>
 				  		</div>
 				  		<div class="col-6 top-head-right">
+				  			<!--
 				  			<ul>
 		  						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
 								<li><a href="#"><i class="fa fa-behance"></i></a></li>
 				  			</ul>
+				  		-->
 				  		</div>			  			
 			  		</div>
 			  	</div>
 			  	<hr>
 			    <div class="container">
 			    	<div class="row align-items-center justify-content-between d-flex">
-				      <div id="logo">
+				      <div>
 				      </div>
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">
@@ -82,7 +85,7 @@ ${flash.error}
 					<div class="row d-flex align-items-center justify-content-center">
 						<div class="about-content col-lg-12">
 							<h1 class="text-white">
-								Museu José Elviro			
+								Coleções e categorias		
 							</h1>	
 							<div class="search-bar-header">
 								<form action="@{Usuarios.galeria}">
@@ -100,6 +103,7 @@ ${flash.error}
 				
 			
 			</section>
+			#{if categorias != null && categorias.size() != 0}
 			<section class="upcoming-exibition-area section-gap">
 				<div class="container">
 					<div class="row d-flex justify-content-center">
@@ -123,6 +127,9 @@ ${flash.error}
 					</div>
 				</div>
 			</section>
+			#{/if}
+			
+			#{if colecoesPermanentes != null && colecoesPermanentes.size() != 0}
 			<section class="gallery-area section-gap" id="gallery">
 				<div class="container">
 					<div class="row d-flex justify-content-center">
@@ -167,7 +174,9 @@ ${flash.error}
 				#{/if}
 				</div>	
 			</section>
+			#{/if}
 			
+			#{if colecoesTemporarias != null && colecoesTemporarias.size() != 0}
 			<section class="upcoming-exibition-area section-gap" style="background-color: rgb(249, 249, 255)">
 				<div class="container">
 					<div class="row d-flex justify-content-center">
@@ -212,20 +221,16 @@ ${flash.error}
 					</div>
 				</div>
 			</section>
-					
-			
-			
-			
-			
+			#{/if}
 			<!-- start footer Area -->		
 			<footer class="footer-area section-gap">
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-5 col-md-6 col-sm-6">
 							<div class="single-footer-widget">
-								<h6>Sobre nós</h6>
+								<h6>Sobre Nós</h6>
 								<p>
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.
+									Este site foi construído com o intuito de divulgar as principais informações relacionadas ao Museu José Elviro, assim, preservando e disseminando a história de Macau.
 								</p>
 								<p class="footer-text">
 									<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -234,27 +239,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 								</p>
 							</div>
 						</div>
-						<div class="col-lg-5  col-md-6 col-sm-6">
-							<div class="single-footer-widget">
-								<h6>Boletim de Notícias</h6>
-								<p>Fique atualizado com nossas últimas</p>
-								<div class="" id="mc_embed_signup">
-									<form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
-										<input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Digite o E-mail '" required="" type="email">
-			                            	<button class="click-btn btn btn-default"><span class="lnr lnr-arrow-right"></span></button>
-			                            	<div style="position: absolute; left: -5000px;">
-												<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-											</div>
-
-										<div class="info"></div>
-									</form>
-								</div>
-							</div>
-						</div>						
+						
+						<!--				
 						<div class="col-lg-2 col-md-6 col-sm-6 social-widget">
 							<div class="single-footer-widget">
 								<h6>Siga-nos</h6>
-								<p>Let us be social</p>
+								<p>Nossas redes sociais</p>
 								<div class="footer-social d-flex align-items-center">
 									<a href="#"><i class="fa fa-facebook"></i></a>
 									<a href="#"><i class="fa fa-twitter"></i></a>
@@ -262,7 +252,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 									<a href="#"><i class="fa fa-behance"></i></a>
 								</div>
 							</div>
-						</div>							
+						</div>
+						 -->							
 					</div>
 				</div>
 			</footer>	

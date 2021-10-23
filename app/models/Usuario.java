@@ -14,6 +14,8 @@ import play.libs.Crypto;
 @Entity
 public class Usuario extends Model{
 	
+	public int nivel;
+	
 	@Required(message="O campo nome é obrigatório")
 	@MinSize(value=3, message="O nome deve possuir no mínimo 3 caracteres")
 	public String nome;
@@ -30,9 +32,6 @@ public class Usuario extends Model{
 	@Required(message="O campo senha é obrigatório")
 	@MinSize(value=4, message="A senha deve possuir no mínimo 4 caracteres")
 	public String senha;
-	
-	public int nivel;
-	
 	
 	public void setSenha() {
 		this.senha = Crypto.passwordHash(senha);

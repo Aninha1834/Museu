@@ -3,8 +3,9 @@
 	<head>
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<!-- Favicon-->
+		<!-- Favicon
 		<link rel="shortcut icon" href="img/fav.png">
+		-->
 		<!-- Author Meta -->
 		<meta name="author" content="codepixer">
 		<!-- Meta Description -->
@@ -14,7 +15,7 @@
 		<!-- meta character set -->
 		<meta charset="UTF-8">
 		<!-- Site Title -->
-		<title>#{get 'title' /}</title>
+		<title>MUVJE</title>
 
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
 			<!--
@@ -42,20 +43,23 @@
 				  				<li><a href="@{Login.form}">Entrar</a></li>
 				  			</ul>
 				  		</div>
+				  		
 				  		<div class="col-6 top-head-right">
+				  		<!--
 				  			<ul>
 		  						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
 								<li><a href="#"><i class="fa fa-behance"></i></a></li>
 				  			</ul>
+				  		-->
 				  		</div>			  			
 			  		</div>
 			  	</div>
 			  	<hr>
 			    <div class="container">
 			    	<div class="row align-items-center justify-content-between d-flex">
-				      <div id="logo">
+				      <div>
 				      </div>
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">
@@ -74,12 +78,13 @@
 				<div class="container">
 					<div class="row fullscreen d-flex align-items-center justify-content-center">
 						<div class="banner-content col-lg-8">
-							<h6 class="text-white">Abertura em 20 de Janeiro de 2022</h6>
+							<!--<h6 class="text-white">Museu Virutal José Elviro</h6>-->
 							<h1 class="text-white">
-								Exposição do Museu de Macau			
+								Museu Virutal José Elviro			
 							</h1>
+							<h2 class="text-white">MUVJE</h2>
 							<p class="pt-20 pb-20 text-white">
-								Seja bem vindo ao Museu Virtual José Elviro!
+								Seja bem-vindo ao MUVJE. Aqui você poderá visualizar artefatos que fazem parte do Museu José Elviro. Conheça a história e as características de cada um desses objetos!
 							</p>
 							
 						</div>											
@@ -97,9 +102,7 @@
 							  <span class="lnr lnr-clock"></span>
 							  <h4>Horários de funcionamento</h4>
 							  <p>
-							  	Segunda - Sexta: 07:00 às 15:00
-								Sábado: agendar previamente
-								Domingo: fechado
+							  	Segunda a Sexta: 07:00 às 15:00
 							  </p>						 	
 							</div>							
 						</div>
@@ -108,7 +111,7 @@
 							  <span class="lnr lnr-rocket"></span>
 							  <h4>Localização</h4>
 							  <p>
-							  	Macau - Rio Grande do Norte, Rua
+							  	Macau - Rio Grande do Norte, Rua Augusto Severo, 444 Centro.
 							  </p>						 	
 							  
 							</div>							
@@ -118,13 +121,13 @@
 							  <span class="lnr lnr-briefcase"></span>
 							  <h4>Visitas</h4>
 							  <p>
-							  	O museu é aberto ao público, porém, instituições ou pessoas com o intuito de realizar pesquisas devem fazer o agendamento previamente.
+							  	O museu é aberto ao público, escolas e outras instituições podem fazer o agendamento previamente.
 							  </p>						 	
 							  <div class="overlay">
 							    <div class="text">
 							    	<p>
 										O museu é aberto ao público, porém, instituições ou pessoas com o intuito de realizar pesquisas devem fazer o agendamento previamente.							    	</p>
-							    	<a href="@{Usuarios.contatos}" class="text-uppercase primary-btn">Agendar</a>
+							    	<a href="@{Usuarios.contatos}" class="text-uppercase primary-btn">Contatar</a>
 							    </div>
 							  </div>
 							</div>							
@@ -132,25 +135,7 @@
 					</div>
 				</div>	
 			</section>
-
-		
-			<!-- End quote Area -->
-
-			<!-- Start exibition Area -->
-
-			<!-- End exibition Area -->			
-		
-			<!-- Start upcoming-event Area -->
-			<!-- End upcoming-event Area -->
-			
-			<!-- Start blog Area -->
-
-			<!-- End blog Area -->
-
-			<!-- Start gallery Area -->
-
-			<!-- End gallery Area -->
-			
+			 #{doLayout /}
 
 			<!-- start footer Area -->		
 			<footer class="footer-area section-gap">
@@ -158,9 +143,9 @@
 					<div class="row">
 						<div class="col-lg-5 col-md-6 col-sm-6">
 							<div class="single-footer-widget">
-								<h6>About Us</h6>
+								<h6>Sobre Nós</h6>
 								<p>
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.
+									Este site foi construído com o intuito de divulgar as principais informações relacionadas ao Museu José Elviro, assim, preservando e disseminando a história de Macau.
 								</p>
 								<p class="footer-text">
 									<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -169,30 +154,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 								</p>
 							</div>
 						</div>
-						<div class="col-lg-5  col-md-6 col-sm-6">
-							<div class="single-footer-widget">
-								<h6>Newsletter</h6>
-								<p>Stay update with our latest</p>
-								<div class="" id="mc_embed_signup">
-									<form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
-										<input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '" required="" type="email">
-			                            	<button class="click-btn btn btn-default"><span class="lnr lnr-arrow-right"></span></button>
-			                            	<div style="position: absolute; left: -5000px;">
-												<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-											</div>
-
-										<div class="info"></div>
-									</form>
-								</div>
-							</div>
-						</div>						
+						
+						<!--				
 						<div class="col-lg-2 col-md-6 col-sm-6 social-widget">
 							<div class="single-footer-widget">
-							
-							 #{doLayout /}
-							
-								<h6>Follow Us</h6>
-								<p>Let us be social</p>
+								<h6>Siga-nos</h6>
+								<p>Nossas redes sociais</p>
 								<div class="footer-social d-flex align-items-center">
 									<a href="#"><i class="fa fa-facebook"></i></a>
 									<a href="#"><i class="fa fa-twitter"></i></a>
@@ -200,7 +167,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 									<a href="#"><i class="fa fa-behance"></i></a>
 								</div>
 							</div>
-						</div>							
+						</div>
+						 -->							
 					</div>
 				</div>
 			</footer>	
