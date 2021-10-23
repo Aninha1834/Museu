@@ -97,8 +97,8 @@ ${flash.error}
 									<span class="lnr lnr-home"></span>
 								</div>
 								<div class="contact-details">
-									<h5>Dhaka, Bangladesh</h5>
-									<p>56/8, West Panthapath</p>
+									<h5>Macau, Brasil</h5>
+									<p>Rua Augusto Severo, 444 Centro</p>
 								</div>
 							</div>
 							<div class="single-contact-address d-flex flex-row">
@@ -107,7 +107,7 @@ ${flash.error}
 								</div>
 								<div class="contact-details">
 									<h5>00 (880) 9865 562</h5>
-									<p>Mon to Fri 9am to 6 pm</p>
+									<p>De segunda à sexta das 9am às 6 pm</p>
 								</div>
 							</div>
 							<div class="single-contact-address d-flex flex-row">
@@ -116,29 +116,34 @@ ${flash.error}
 								</div>
 								<div class="contact-details">
 									<h5>support@codethemes.com</h5>
-									<p>Send us your query anytime!</p>
+									<p>Envie-nos a sua consulta a qualquer momento!</p>
 								</div>
 							</div>														
 						</div>
 						<div class="col-lg-8">
-							<form class="form-area " id="myForm" method="post" action="mail.php" class="contact-form text-right">
+							<form class="form-area " id="myForm" method="post" action="https://api.staticforms.xyz/submit" class="contact-form text-right">
 								<div class="row">	
 									<div class="col-lg-6 form-group">
-										<input name="name" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" class="common-input mb-20 form-control" required="" type="text">
 									
-										<input name="email" placeholder="Enter email address" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" class="common-input mb-20 form-control" required="" type="email">
-
-										<input name="subject" placeholder="Enter your subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your subject'" class="common-input mb-20 form-control" required="" type="text">
+									    <input type="hidden" name="accessKey" value="3bd4fb54-b6b9-470c-a755-af30abf8f38e">		
+									     <input type="hidden" name="redirecTo" value="https://museumacau.herokuapp.com/usuarios/contatos">
+									    						     
+									
+										<input name="name" placeholder="Digite seu nome" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" class="common-input mb-20 form-control" required="" type="text">
+									
+									    <input name="email" placeholder="Digite seu email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" class="common-input mb-20 form-control" required="" type="text">
+									
+                                        <input name="subject" placeholder="Digite o assunto" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your subject'" class="common-input mb-20 form-control" required="" type="text">
 										<div class="mt-20 alert-msg" style="text-align: left;"></div>
+
 									</div>
 									<div class="col-lg-6 form-group">
 										<textarea class="common-textarea form-control" name="message" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
-										<button type="submit" class="primary-btn mt-20 text-white" style="float: right;">Send Message</button>
+										<button type="submit" class="primary-btn mt-20 text-white" style="float: right;">Enviar mensagem</button>
 																				
 									</div>
 								</div>
 							</form>	
-							<a href="mailto:ericeduardoaa@gmail.com" id="trucazo">mail</a>
 						</div>
 					</div>
 				</div>	
