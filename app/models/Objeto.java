@@ -49,11 +49,12 @@ public class Objeto extends Model{
 	@ManyToMany(mappedBy="objetos")
 	public List<Colecao> colecoes;
 	
+	public boolean visivel;
+	
 	public Objeto() {
 		this.colecoes = new ArrayList<>();
 		this.fotos = new ArrayList<Foto>();
 	}
 	
-	public boolean visivel;
 
 }
