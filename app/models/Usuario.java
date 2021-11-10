@@ -14,7 +14,7 @@ import play.libs.Crypto;
 @Entity
 public class Usuario extends Model{
 	
-	public int nivel;
+	public Integer nivel;
 	
 	@Required(message="O campo nome é obrigatório")
 	@MinSize(value=3, message="O nome deve possuir no mínimo 3 caracteres")
