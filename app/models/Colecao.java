@@ -33,9 +33,9 @@ public class Colecao extends Model{
 	@JoinTable(name="colecao_objeto")
 	public List<Objeto> objetos;
 	
-	public boolean visivel;
+	public Boolean visivel;
 	
-	public boolean exposicaoPermanente;
+	public Boolean exposicaoPermanente;
 	public Date dataInicioExp;
 	public Date dataFinalExp;
 	
