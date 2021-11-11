@@ -81,6 +81,7 @@ public class Colecoes extends Controller{
 		if (foto != null) {
 			Foto f = new Foto(foto.getName());
 			f.save();
+			System.out.print(f);
 			colecao.fotoCapa = f;
 			File dest = new File("./uploads/" + foto.getName());
 			foto.renameTo(dest);

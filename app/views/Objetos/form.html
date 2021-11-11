@@ -159,7 +159,7 @@ ${flash.error}
 #{if objeto?.id}
 	<h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">Fotos do objeto</h4>
 	<div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
-	   	<div class="visualizacao-objetos" style="grid-template-rows: repeat(${Math.round(objeto.fotos.size()/4 + 0.4)}, 240px); grid-row-gap: 3px; grid-column-gap: 3px;">
+	   	<div class="visualizacao-objetos" style="grid-row-gap: 3px; grid-column-gap: 3px;">
 	   		#{list items:objeto.fotos, as:'f'}
 	   			<div class="container-foto-form" style="background-image: url(/uploads/${f.nomeFoto})">
 	   				 <a href="@{Objetos.excluirFoto(f.getId(), objeto.getId())}">
