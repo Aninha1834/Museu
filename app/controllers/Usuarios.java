@@ -137,9 +137,6 @@ public class Usuarios extends Controller {
 			nObjVisi.put(colecao.getId(), i);
 		}
 		
-		System.out.println(categorias.get(0));
-		System.out.print(colecoes.get(0));
-		
 		render(colecoesPermanentes, colecoesTemporarias, objetos, busca, categorias, nObjVisi);
 	
 	}
