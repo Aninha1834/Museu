@@ -118,7 +118,7 @@ ${flash.error}
 					<div class="exposicao-categorias">
 						#{list items:categorias, as:'categoria'}
 						<a href="@{Objetos.exibirObjetos(categoria.id, null, categoria.nome, null)}">
-						<div class="container-categoria" style="background-image: url(/uploads/${categoria.fotoCapa});">
+						<div class="container-categoria" style="background-image: url(/uploads/${categoria.fotoCapa.nomeFoto});">
 							<h3>${categoria.nome}</h3>
 						</div>
 						</a>
