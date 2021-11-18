@@ -110,6 +110,7 @@ public class Usuarios extends Controller {
 		List<Colecao> colecoesPermanentes = new ArrayList<>();
 		List<Categoria> categorias = Categoria.findAll();
 		Map<Long, Integer> nObjVisi = new HashMap<Long, Integer>();
+		Map<Long, String> fotosCategorias = new HashMap<Long, String>();
 		
 		if (busca == null) {
 			colecoes = Colecao.find("visivel = ?1", true).fetch();
@@ -137,7 +138,12 @@ public class Usuarios extends Controller {
 			nObjVisi.put(colecao.getId(), i);
 		}
 		
-		render(colecoesPermanentes, colecoesTemporarias, objetos, busca, categorias, nObjVisi);
+		for (Categoria categoria: categorias) {
+			fotosCategorias.put(categoria.getId(), categoria.fotoCapa.nomeFoto);
+		}
+		
+		
+		render(colecoesPermanentes, colecoesTemporarias, objetos, busca, categorias, nObjVisi, fotosCategorias);
 	
 	}
 	
