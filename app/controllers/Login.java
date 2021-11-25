@@ -9,10 +9,10 @@ public class Login extends Controller{
 	
 	public static void teste() {
 		Usuario u = new Usuario();
-		u.email = "admin@admin.com";
-		u.senha = "123456";
+		u.email = "museu.admin@gmail.com";
+		u.senha = "muvje123";
 		u.nome = "Administrador";
-		u.cpf =  "111.111.111-11";
+		u.cpf =  "111.111.111-22";
 		u.nivel = 1;
 		u.setSenha();
 		u.save();
